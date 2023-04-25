@@ -6,6 +6,14 @@ const auth = (state = { }, action)=> {
   return state;
 };
 
+export const updateAuth = (auth)=> {
+  return async(dispatch)=> {
+    const token = window.localStorage.getItem('token');
+    const response = await axios.put(`/api/auth/${ token }`, auth);
+    dispatch({ type: 'SET_AUTH', auth: response.data });
+  };
+};
+
 export const logout = ()=> {
   window.localStorage.removeItem('token');
   return { type: 'SET_AUTH', auth: {} };

@@ -9,6 +9,7 @@ import DrinkProducts from './DrinkProducts';
 import DrinkProductPage from './DrinkProductPage';
 import Merchs from './Merchs';
 import Merch from './Merch';
+import Account from './Account';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart } from '../store';
@@ -40,10 +41,10 @@ const App = ()=> {
               <Link to='/'>Home</Link>
               <Link to='/cart'>Cart</Link>
 
-              <Link to='/menu'>Home</Link>
-              <Link to='/menu/:id'>Home</Link>
-              <Link to='/merch'>Cart</Link>
-              <Link to='/merch/:id'>Cart</Link>
+              <Link to='/menu'>Menu</Link>
+              <Link to='/menu/:id'>Menu (single)</Link>
+              <Link to='/merch'>Merch</Link>
+              <Link to='/merch/:id'>Merch Detail</Link>
               
             </nav>
 
@@ -54,6 +55,7 @@ const App = ()=> {
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
               <Route path='/merch' element={ <Merchs /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
+              <Route path='/account' element={ <Account /> } />
             </Routes>
           </div>
         )
