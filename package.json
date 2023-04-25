@@ -10,7 +10,7 @@
     "test:dev": "DATABASE_URL=postgres://localhost/acme_shopping_test_db npm run test -- --watch",
     "test:dev:quiet": "QUIET=true npm run test:dev",
     "start:dev": "JWT=felix nodemon server/index.js --ignore dist/ --ignore src/ & npm run build:dev",
-    "windows-start:dev":"nodemon server  --ignore dist/ --ignore src/",
+    "windows-start:dev":"nodemon server --ignore dist/ --ignore src/",
     "windows-dev": "concurrently --kill-others \"npm run windows-start:dev\" \"npm run build:dev\""
   },
   "keywords": [],
