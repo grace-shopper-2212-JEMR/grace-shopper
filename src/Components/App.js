@@ -12,7 +12,7 @@ import Merch from './Merch';
 import Account from './Account';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { loginWithToken, fetchCart } from '../store';
+import { loginWithToken, fetchCart, fetchDrinks } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
 
 const App = ()=> {
@@ -23,6 +23,7 @@ const App = ()=> {
   }, []);
 
   useEffect(()=> {
+    dispatch(fetchDrinks())
     if(auth.id){
       dispatch(fetchCart());
     }
