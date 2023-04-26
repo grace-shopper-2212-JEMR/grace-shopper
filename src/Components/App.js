@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Home from './Home';
 import Login from './Login';
 import Cart from './Cart';
-
+import Register from './Register';
 import Nav from './Nav';
 
 import DrinkProducts from './DrinkProducts';
@@ -54,6 +54,7 @@ const App = ()=> {
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
               <Route path='/merch' element={ <Merchs /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
+              <Route path='/register' element={ <Register />} />
             </Routes>
           </div>
         )

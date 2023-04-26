@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 const { User } = require('../db');
 
-module.exports = app;
+
 
 app.post('/', async(req, res, next)=> {
   try {
@@ -45,3 +45,4 @@ app.put('/cart', async(req, res, next)=> {
 });
 
 
+module.exports = app;
