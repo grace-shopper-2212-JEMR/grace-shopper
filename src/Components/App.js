@@ -30,11 +30,11 @@ const App = ()=> {
     <div>
       <Nav />
       <h1>Acme Shopping</h1>
-      {
+      {/* {
         auth.id ? <Home /> : <Login />
-      }
+      } */}
       {
-        !!auth.id  && (
+        // !!auth.id  && (
           <div>
              <nav>
               <Link to='/'>Home</Link>
@@ -57,7 +57,7 @@ const App = ()=> {
               <Route path='/register' element={ <Register />} />
             </Routes>
           </div>
-        )
+        // )
       }
     </div>
   );

@@ -135,5 +135,10 @@ User.authenticate = async function({ username, password }){
   throw error;
 }
 
+User.register = async function(credentials){
+  const user = await this.create(credentials);
+  return user.generateToken();
+}
+
 module.exports = User;
 
