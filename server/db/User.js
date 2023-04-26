@@ -1,8 +1,10 @@
 const conn = require('./conn');
-const { STRING, UUID, UUIDV4 } = conn.Sequelize;
+const { STRING, UUID, UUIDV4,  } = conn.Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT || 'shhh';
+
+const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/ 
 
 
 const User = conn.define('user', {
@@ -25,7 +27,31 @@ const User = conn.define('user', {
     validate: {
       notEmpty: true
     }
-  }
+  },
+  firstName: {
+    type: STRING
+  },
+  lastName: {
+    type: STRING
+  },
+  address: {
+    type: STRING
+  },
+  email: {
+    type: STRING,
+    validate: {
+      isEmail: true,
+    }
+  },
+ 
+  phone: {
+    type: STRING,
+    validate: {
+        validator: function(v) {
+            return phoneValidationRegex.test(v); 
+        },
+    }
+}
 });
 
 User.prototype.createOrder = async function(){

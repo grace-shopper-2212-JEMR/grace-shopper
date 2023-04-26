@@ -2,6 +2,9 @@ const express = require('express');
 const app = express.Router();
 const { User } = require('../db');
 const jwt = require('jsonwebtoken');
+const { isLoggedIn } = require('./middleware.js');
+
+
 
 
 app.post('/', async(req, res, next)=> {
@@ -13,6 +16,7 @@ app.post('/', async(req, res, next)=> {
   }
 });
 
+// prefix is /api/auth
 app.get('/', async(req, res, next)=> {
   try {
     res.send(await User.findByToken(req.headers.authorization));
@@ -22,16 +26,27 @@ app.get('/', async(req, res, next)=> {
   }
 });
 
+
 app.post('/register', async(req, res, next)=> {
   try{
     res.send(await User.register(req.body)); 
+   }
+  catch(ex){
+    next(ex);
+  }
+});
+
+//prof code
+app.get('/', isLoggedIn, (req, res, next)=> {
+  try {
+    res.send(req.user);
   }
   catch(ex){
     next(ex);
   }
 });
 
-
+// prefix is /api/auth
 app.put('/:token', async(req, res, next)=> {
   try{
     const user = await User.findByToken(req.params.token);
