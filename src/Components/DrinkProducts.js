@@ -36,10 +36,16 @@ const DrinkProducts = () =>{
         columnGap: 1,
         rowGap: 1,
         gridTemplateColumns: 'repeat(3, 1fr)',
-        borderColor: 'red',
+        borderColor: 'primary.main',
         borderRadius: 2,
       }}>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ 
+      maxWidth: 345,
+      ':hover':{
+        boxShadow: 2,
+        zIndex: 2
+
+      }}}>
       <CardActionArea>
         <CardMedia
           component="img"
