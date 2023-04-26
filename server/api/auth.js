@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express.Router();
 const { User } = require('../db');
+const jwt = require('jsonwebtoken');
 const { isLoggedIn } = require('./middleware.js');
 
-module.exports = app;
+
 
 
 app.post('/', async(req, res, next)=> {
@@ -25,6 +26,16 @@ app.get('/', async(req, res, next)=> {
   }
 });
 
+
+app.post('/register', async(req, res, next)=> {
+  try{
+    res.send(await User.register(req.body)); 
+   }
+  catch(ex){
+    next(ex);
+  }
+});
+
 //prof code
 app.get('/', isLoggedIn, (req, res, next)=> {
   try {
@@ -34,7 +45,6 @@ app.get('/', isLoggedIn, (req, res, next)=> {
     next(ex);
   }
 });
-//
 
 // prefix is /api/auth
 app.put('/:token', async(req, res, next)=> {
@@ -48,3 +58,13 @@ app.put('/:token', async(req, res, next)=> {
   }
 });
 
+app.get('/:token', async(req, res, next)=> {
+  try{
+    res.send(await User.findByToken(req.params.token));
+  }
+  catch(ex){
+    next(ex);
+  }
+});
+
+module.exports = app;
