@@ -9,7 +9,7 @@ import drinks from './drinks'
 const reducer = combineReducers({
   auth,
   cart,
-  register
+  register,
   drinks
 });
 
