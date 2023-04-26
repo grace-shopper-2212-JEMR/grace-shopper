@@ -10,6 +10,7 @@ import DrinkProductPage from './DrinkProductPage';
 import Merchs from './Merchs';
 import Merch from './Merch';
 import Account from './Account';
+import About from './About';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks } from '../store';
@@ -58,6 +59,7 @@ const App = ()=> {
               <Route path='/merch/:id' element={ <Merch /> } />
               <Route path='/register' element={ <Register />} />
               <Route path='/account' element={ <Account /> } />
+              <Route path='/about' element={ <About /> } />
             </Routes>
           </div>
         // )
