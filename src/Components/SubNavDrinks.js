@@ -8,20 +8,24 @@ function SubNavDrinks() {
  
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container sx={{ 
+        maxWidth: "xl",
+        maxHeight:"32px"
+        }}>
+
         <Toolbar disableGutters>
         
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="/drinks/shirts"
+            href="/drinks/coffee"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -35,13 +39,13 @@ function SubNavDrinks() {
             variant="h5"
             noWrap
             component="a"
-            href="/drinks/hats"
+            href="/drinks/tea"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -61,7 +65,7 @@ function SubNavDrinks() {
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
