@@ -32,6 +32,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // export default Nav;
 
+// to install MUI styles and icons copy this to terminal: npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+
+
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -47,6 +50,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import CoronavirusSharpIcon from '@mui/icons-material/CoronavirusSharp';
+import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -84,7 +88,7 @@ export default function Nav() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <CoronavirusSharpIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <EmojiFoodBeverageIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -100,7 +104,7 @@ export default function Nav() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Logo
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -139,7 +143,7 @@ export default function Nav() {
               ))}
             </Menu>
           </Box>
-          <CoronavirusSharpIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <EmojiFoodBeverageIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -156,7 +160,7 @@ export default function Nav() {
               textDecoration: 'none',
             }}
           >
-            GS JERM STORE
+            Script for Java 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -173,7 +177,7 @@ export default function Nav() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="/static/images/avatarDS.jpeg" />
               </IconButton>
             </Tooltip>
             <Menu
