@@ -4,7 +4,7 @@ const { User } = require('../db');
 const { isLoggedIn } = require('./middleware.js');
 
 
-module.exports = app;
+
 
 app.post('/', isLoggedIn, async (req, res, next)=> {
   try {
@@ -43,3 +43,4 @@ app.put('/cart', isLoggedIn, async(req, res, next)=> {
 });
 
 
+module.exports = app;
