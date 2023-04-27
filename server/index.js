@@ -4,7 +4,7 @@ const { syncAndSeed } = require('./db');
 
 const init = async()=> {
   try {
-    await syncAndSeed( async() => {
+    await syncAndSeed(async() => {
 
       const Coffee = await Drink.create({
         name: "Coffee",

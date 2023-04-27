@@ -18,11 +18,14 @@ import Box from '@mui/material/Box';
   // RESEARCH HOW TO DO AUTHORIZATION, WHERE AN ADMIN CAN ADD/UPDATE/DELETE A DRINK. I THINK IT PROBABLY JUST NEEDS AN 'ADMIN' TITLE AND YOU CAN DO if(auth.title === 'admin'){code}
 
 const DrinkProducts = () =>{
-  const [drinks, setDrinks] = useState([])
+  const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  
+  
   if (!drinks){return null}
+  console.log(drinks)
+  console.log('fuuuuck')
 
 
 
@@ -39,6 +42,7 @@ const DrinkProducts = () =>{
         borderColor: 'primary.main',
         borderRadius: 2,
       }}>
+  
     <Card sx={{ 
       maxWidth: 345,
       ':hover':{
