@@ -9,8 +9,7 @@ function SubNavDrinks() {
   return (
     <AppBar position="static">
       <Container sx={{ 
-        maxWidth: "xl",
-        maxHeight:"32px"
+        maxWidth: "xl"
         }}>
 
         <Toolbar disableGutters>
