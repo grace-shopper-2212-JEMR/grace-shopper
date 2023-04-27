@@ -43,7 +43,7 @@ const DrinkProducts = () =>{
 
       {drinks.map(drink => {
         return (
-      <Card sx={{ 
+      <Card key={ drink.id }sx={{ 
       maxWidth: 345,
       ':hover':{
         boxShadow: 2,
