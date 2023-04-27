@@ -25,7 +25,6 @@ const drinks = (state = [], action)=> {
 export const fetchDrinks = ()=> {
   return async(dispatch)=> {
     const response = await axios.get('/api/drinks');
-    console.log('response', response)
     dispatch({type: 'SET_DRINKS', drinks: response.data})
   };
 };

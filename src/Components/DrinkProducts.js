@@ -26,7 +26,11 @@ import Box from '@mui/material/Box';
 const DrinkProducts = () =>{
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const navigate = useNavigate()  
+  
+  if (!drinks){return null}
+  console.log(drinks)
+  
 
   const _moreDetails =(drink)=>{
     console.log(drink)
@@ -38,6 +42,7 @@ const DrinkProducts = () =>{
     console.log(drink.id, 'add to cart')
   }
 
+
   if (!drinks){return null}
 
   return (
@@ -45,7 +50,6 @@ const DrinkProducts = () =>{
       < SubNavDrinks />
     <Box
       sx={{
-
         m: 5,
         mx: 'auto',
         px: '1rem',
@@ -56,12 +60,15 @@ const DrinkProducts = () =>{
         gridTemplateColumns: 'repeat(3, 1fr)',
         borderColor: 'primary.main',
         borderRadius: "2rem",
-      }}>
-
+      }}>  
+    <Card sx={{ 
+      maxWidth: 345,
+      
       {drinks.map(drink => {
         return (
       <Card key={ drink.id }sx={{ 
       maxWidth: 425,
+
       ':hover':{
         boxShadow: 2,
         zIndex: 2
