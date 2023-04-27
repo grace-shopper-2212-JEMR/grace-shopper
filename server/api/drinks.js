@@ -7,6 +7,8 @@ const { isLoggedIn } = require('./middleware.js');
 // prefix is /api/drinks
 app.get('/', async(req, res, next)=> {
   try {
+    const response = await Drink.findAll()
+    console.log('api drinks', response)
     res.send(await Drink.findAll())
   }
   catch(ex){

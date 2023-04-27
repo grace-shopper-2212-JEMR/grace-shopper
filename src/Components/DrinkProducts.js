@@ -25,8 +25,6 @@ const DrinkProducts = () =>{
   
   if (!drinks){return null}
   console.log(drinks)
-  console.log('fuuuuck')
-
 
 
   return (
@@ -42,32 +40,36 @@ const DrinkProducts = () =>{
         borderColor: 'primary.main',
         borderRadius: 2,
       }}>
-  
-    <Card sx={{ 
+
+      {drinks.map(drink => {
+        return (
+      <Card sx={{ 
       maxWidth: 345,
       ':hover':{
         boxShadow: 2,
         zIndex: 2
-
       }}}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://images.ctfassets.net/v601h1fyjgba/3BPpnehRjlQ9xzGPcYU2lU/6ad989f0eb91676186dceeb8de1be459/Cappuccino.jpg"
-          alt="Cappuccino"
+          image={drink.imageUrl}
+          alt={drink.name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Cappuccino
+            {drink.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            A traditional European double espresso with steamed milk
+            {drink.name} and we'll insert a description
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
-    <Card sx={{ maxWidth: 345 }}>
+        )
+      })}
+  
+      {/* <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -102,7 +104,7 @@ const DrinkProducts = () =>{
           </Typography>
         </CardContent>
       </CardActionArea>
-    </Card>
+    </Card> */}
     </Box>
     <div>
       <h2>This is the Drink Products page. We'll put coffees and teas that people can order here.</h2>
