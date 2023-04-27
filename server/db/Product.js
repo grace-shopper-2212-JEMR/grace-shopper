@@ -32,8 +32,8 @@ const Merch = conn.define('merch', {
   imageUrl: {
     type: STRING,
   },
-  size: {
-    type: ENUM('SMALL', 'MEDIUM', 'LARGE'),
+  defaultSize: {
+    type: STRING,
     allowNull: false, 
     validate: {
       notEmpty: true,
@@ -58,8 +58,8 @@ const Drink = conn.define('drink', {
   imageUrl: {
     type: STRING,
   },
-  size: {
-    type: ENUM('SMALL', 'MEDIUM', 'LARGE'),
+  defaultSize: {
+    type: STRING,
     allowNull: false, 
     validate: {
       notEmpty: true,
@@ -86,7 +86,7 @@ const Drink = conn.define('drink', {
 module.exports = {
   Product, 
   Merch,
-  Drink, 
+  Drink,
 };
 
 
