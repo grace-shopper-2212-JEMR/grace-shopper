@@ -32,9 +32,10 @@ const Merch = conn.define('merch', {
   imageUrl: {
     type: STRING,
   },
-  defaultSize: {
-    type: STRING,
-    allowNull: false, 
+  size: {
+    type: ENUM("Small", "Medium", "Large"),
+    defaultValue: "Medium",
+    AllowNull: false, 
     validate: {
       notEmpty: true,
     },
@@ -58,9 +59,10 @@ const Drink = conn.define('drink', {
   imageUrl: {
     type: STRING,
   },
-  defaultSize: {
-    type: STRING,
-    allowNull: false, 
+  size: {
+    type: ENUM("Small", "Medium", "Large"),
+    defaultValue: "Medium",
+    AllowNull: false, 
     validate: {
       notEmpty: true,
     },
