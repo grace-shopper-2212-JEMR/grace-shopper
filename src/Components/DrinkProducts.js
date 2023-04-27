@@ -61,14 +61,11 @@ const DrinkProducts = () =>{
         borderColor: 'primary.main',
         borderRadius: "2rem",
       }}>  
-    <Card sx={{ 
-      maxWidth: 345,
-      
-      {drinks.map(drink => {
+
+  {drinks.map(drink => {
         return (
       <Card key={ drink.id }sx={{ 
       maxWidth: 425,
-
       ':hover':{
         boxShadow: 2,
         zIndex: 2
