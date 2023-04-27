@@ -11,6 +11,7 @@ import Merchs from './Merchs';
 import Merch from './Merch';
 import Account from './Account';
 import About from './About';
+import Logout from './Logout';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks } from '../store';
@@ -51,13 +52,15 @@ const App = ()=> {
             </nav> */}
 
             <Routes>
-              {/* <Route path='/home' element={ <Home /> } /> */}
+              <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
               <Route path='/menu' element={ <DrinkProducts /> } />
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
               <Route path='/merch' element={ <Merchs /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
               <Route path='/register' element={ <Register />} />
+              <Route path='/login' element={ <Login />} />
+              <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
             </Routes>
