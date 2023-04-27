@@ -32,8 +32,8 @@ const syncAndSeed = async()=> {
     isHot: true,  
   })
 
-  const Cappucino = await Drink.create({
-    name: "Cappucino",
+  const Cappuccino = await Drink.create({
+    name: "Cappuccino",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
     defaultSize: 'SMALL',
     isTea: false,
