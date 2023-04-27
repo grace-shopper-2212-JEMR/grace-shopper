@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { attemptLogin } from '../store';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Login = ()=> {
   const dispatch = useDispatch();
@@ -34,6 +35,10 @@ const Login = ()=> {
           onChange = { onChange }
         />
         <button>Login</button>
+        <div>
+          Not an existing customer? {' '}
+          <Link to={'/register'}>Create A New User</Link>
+        </div>
       </form>
     </div>
   );

@@ -28,7 +28,7 @@ const DrinkProducts = () =>{
 
   return (
     <>
-
+      < SubNavDrinks />
     <Box
       sx={{
         margin: 0,
@@ -102,7 +102,7 @@ const DrinkProducts = () =>{
     </Box>
     <div>
       <h2>This is the Drink Products page. We'll put coffees and teas that people can order here.</h2>
-      < SubNavDrinks />
+
     </div>
   </>
   )

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Home from './Home';
 import Login from './Login';
 import Cart from './Cart';
-
+import Register from './Register';
 import Nav from './Nav';
 
 import DrinkProducts from './DrinkProducts';
@@ -10,6 +10,7 @@ import DrinkProductPage from './DrinkProductPage';
 import Merchs from './Merchs';
 import Merch from './Merch';
 import Account from './Account';
+import About from './About';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks } from '../store';
@@ -32,13 +33,13 @@ const App = ()=> {
     <div>
       <Nav />
       <h1>Acme Shopping</h1>
-      {
+      {/* {
         auth.id ? <Home /> : <Login />
-      }
+      } */}
       {
-        !!auth.id  && (
+        // !!auth.id  && (
           <div>
-             <nav>
+             {/* <nav>
               <Link to='/'>Home</Link>
               <Link to='/cart'>Cart</Link>
 
@@ -47,7 +48,7 @@ const App = ()=> {
               <Link to='/merch'>Merch</Link>
               <Link to='/merch/:id'>Merch Detail</Link>
               
-            </nav>
+            </nav> */}
 
             <Routes>
               {/* <Route path='/home' element={ <Home /> } /> */}
@@ -56,10 +57,12 @@ const App = ()=> {
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
               <Route path='/merch' element={ <Merchs /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
+              <Route path='/register' element={ <Register />} />
               <Route path='/account' element={ <Account /> } />
+              <Route path='/about' element={ <About /> } />
             </Routes>
           </div>
-        )
+        // )
       }
     </div>
   );
