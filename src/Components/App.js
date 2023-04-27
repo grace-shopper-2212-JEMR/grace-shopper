@@ -20,12 +20,16 @@ import { Link, Routes, Route } from 'react-router-dom';
 const App = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(fetchDrinks());
+  }, [])
   useEffect(()=> {
     dispatch(loginWithToken());
   }, []);
 
   useEffect(()=> {
-    dispatch(fetchDrinks())
+
     if(auth.id){
       dispatch(fetchCart());
     }
@@ -62,7 +66,7 @@ const App = ()=> {
               <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
-              <Route path='/about' element={ <About /> } />
+              {/* <Route path='/about' element={ <About /> } /> */}
             </Routes>
           </div>
         // )
