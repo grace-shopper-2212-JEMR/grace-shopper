@@ -7,7 +7,7 @@ const LineItem  = require('./LineItem');
 Order.belongsTo(User);
 LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
-LineItem.belongsTo(Product);
+// LineItem.belongsTo(Product);
 
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
