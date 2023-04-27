@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
 import SubNavDrinks from "./SubNavDrinks";
-import { useNavigate } from "react-router-dom";
-import { fetchDrinks, createDrink, editDrink, deleteDrink } from "../store/drinks";
+import DrinkProductPage from "./DrinkProductPage";
+
+// import { fetchDrinks, createDrink, editDrink, deleteDrink } from "../store/drinks";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 // NOTES
@@ -17,97 +21,82 @@ import Box from '@mui/material/Box';
 
   // RESEARCH HOW TO DO AUTHORIZATION, WHERE AN ADMIN CAN ADD/UPDATE/DELETE A DRINK. I THINK IT PROBABLY JUST NEEDS AN 'ADMIN' TITLE AND YOU CAN DO if(auth.title === 'admin'){code}
 
+
+
 const DrinkProducts = () =>{
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate()  
   
   if (!drinks){return null}
   console.log(drinks)
-  console.log('fuuuuck')
+  
+
+  const _moreDetails =(drink)=>{
+    console.log(drink)
+    // console.log(drink.id, 'more details')
+    navigate(`/menu/${drink.id}`)
+  }
+  const _addToCart =(drink)=>{
+    console.log(drink)
+    console.log(drink.id, 'add to cart')
+  }
 
 
+  if (!drinks){return null}
 
   return (
     <>
       < SubNavDrinks />
     <Box
       sx={{
-        margin: 0,
+        m: 5,
+        mx: 'auto',
+        px: '1rem',
+        maxWidth: 1200,
         display: 'grid',
         columnGap: 1,
-        rowGap: 1,
+        rowGap: '1rem',
         gridTemplateColumns: 'repeat(3, 1fr)',
         borderColor: 'primary.main',
-        borderRadius: 2,
-      }}>
-  
+        borderRadius: "2rem",
+      }}>  
     <Card sx={{ 
       maxWidth: 345,
+      
+      {drinks.map(drink => {
+        return (
+      <Card key={ drink.id }sx={{ 
+      maxWidth: 425,
+
       ':hover':{
         boxShadow: 2,
         zIndex: 2
-
       }}}>
-      <CardActionArea>
+        <Link to={`${drink.id}`}>
         <CardMedia
           component="img"
-          height="140"
-          image="https://images.ctfassets.net/v601h1fyjgba/3BPpnehRjlQ9xzGPcYU2lU/6ad989f0eb91676186dceeb8de1be459/Cappuccino.jpg"
-          alt="Cappuccino"
-        />
+          image={drink.imageUrl}
+          alt={drink.name}
+          sx={{ padding:"0", borderRadius: "1rem", objectFit: "contain" }}
+          />
+          </Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Cappuccino
+            {drink.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            A traditional European double espresso with steamed milk
+            {drink.name} and we'll insert a description
           </Typography>
         </CardContent>
+          <CardActionArea sx={{textAlign:'center'}}>
+        <Button onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
+        <Button onClick={(ev) => _addToCart(drink)} size="small">Add to Cart</Button>
       </CardActionArea>
     </Card>
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="https://images.ctfassets.net/v601h1fyjgba/3BPpnehRjlQ9xzGPcYU2lU/6ad989f0eb91676186dceeb8de1be459/Cappuccino.jpg"
-          alt="Cappuccino"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Cappuccino
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            A traditional European double espresso with steamed milk
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="https://images.ctfassets.net/v601h1fyjgba/3BPpnehRjlQ9xzGPcYU2lU/6ad989f0eb91676186dceeb8de1be459/Cappuccino.jpg"
-          alt="Cappuccino"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Cappuccino
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            A traditional European double espresso with steamed milk
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+        )
+      })}
     </Box>
-    <div>
-      <h2>This is the Drink Products page. We'll put coffees and teas that people can order here.</h2>
-
-    </div>
   </>
   )
 }

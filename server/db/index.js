@@ -23,6 +23,47 @@ const syncAndSeed = async()=> {
     Product.create({ name: 'bazz' }),
     User.create({ username: 'ethyl', password: '123' }),
   ]);
+  
+  const Coffee = await Drink.create({
+    name: "Coffee",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    defaultSize: 'SMALL', 
+    isTea: false,
+    isHot: true,  
+  })
+
+  const Cappuccino = await Drink.create({
+    name: "Cappuccino",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    defaultSize: 'SMALL',
+    isTea: false,
+    isHot: true,
+  })
+
+  const Latte = await Drink.create({
+    name: "Latte",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    defaultSize: 'SMALL',
+    isTea: false,
+    isHot: true,
+  })
+
+
+
+  const Tea = await Drink.create({
+    name: "Black Tea",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    defaultSize: 'SMALL',
+    isTea: true,
+    isHot: true,
+  })
+
+  const Tshirt = await Merch.create({
+    name: "T-Shirt",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    defaultSize: 'SMALL',
+  })
+
 
   const cart = await ethyl.getCart();
   await ethyl.addToCart({ product: bazz, quantity: 3});
@@ -41,9 +82,13 @@ const syncAndSeed = async()=> {
   };
 };
 
+// console.log('db index', console.log(syncAndSeed()))
 
 module.exports = {
   syncAndSeed,
   User,
-  Product
+  Product,
+  Merch, 
+  Drink,
+  LineItem
 };

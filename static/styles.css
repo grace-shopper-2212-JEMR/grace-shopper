@@ -16,3 +16,7 @@ nav {
   display: flex;
   justify-content: space-around;
 }
+
+#drinkProductDiv{
+  border: 2px solid blue
+}
