@@ -104,7 +104,7 @@ export default function Nav() {
               textDecoration: 'none',
             }}
           >
-            Logo
+            Script for Java
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -166,7 +166,7 @@ export default function Nav() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => navigateTo(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
