@@ -39,7 +39,7 @@ const App = ()=> {
       {
         // !!auth.id  && (
           <div>
-             <nav>
+             {/* <nav>
               <Link to='/'>Home</Link>
               <Link to='/cart'>Cart</Link>
 
@@ -48,7 +48,7 @@ const App = ()=> {
               <Link to='/merch'>Merch</Link>
               <Link to='/merch/:id'>Merch Detail</Link>
               
-            </nav>
+            </nav> */}
 
             <Routes>
               {/* <Route path='/home' element={ <Home /> } /> */}
