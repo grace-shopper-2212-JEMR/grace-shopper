@@ -1,5 +1,9 @@
 const app = require('./app');
 const { syncAndSeed } = require('./db');
+const Drink = db.Drink;
+const Merch = db.Merch;
+const Product = db.Product;
+
 
 const init = async()=> {
   try {
