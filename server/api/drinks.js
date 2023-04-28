@@ -23,4 +23,30 @@ app.get('/:id', async(req, res, next)=> {
   }
 });
 
+app.get('/coffee', async(req, res, next)=> {
+  try {
+    res.send(await Drink.findAll())
+  }
+  catch(ex){
+    next(ex)
+  }
+});
+app.get('/tea', async(req, res, next)=> {
+  try {
+    res.send(await Drink.findAll())
+  }
+  catch(ex){
+    next(ex)
+  }
+});
+app.get('/shots', async(req, res, next)=> {
+  try {
+    res.send(await Drink.findAll())
+  }
+  catch(ex){
+    next(ex)
+  }
+});
+
+
 module.exports = app;
