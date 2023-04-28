@@ -39,10 +39,10 @@ const Login = ()=> {
           value={ credentials.password }
           onChange = { onChange }
         />
-        <button> Login
-        {/* <Button variant='contained'>Login</Button> */}
-        {/* need to figure out how to make the Button act like the typical button html tag */}
-        </button>
+        <Button 
+        onSubmit={ login }> 
+          Login
+        </Button>
       </form>
       <div>
           Not an existing customer? {' '}
