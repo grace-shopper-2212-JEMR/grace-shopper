@@ -7,14 +7,14 @@ import Nav from './Nav';
 
 import DrinkProducts from './DrinkProducts';
 import DrinkProductPage from './DrinkProductPage';
-import Merchs from './Merchs';
+import Merches from './Merches';
 import Merch from './Merch';
 import Account from './Account';
 import About from './About';
 import Logout from './Logout';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { loginWithToken, fetchCart, fetchDrinks } from '../store';
+import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
 
 const App = ()=> {
@@ -23,6 +23,9 @@ const App = ()=> {
 
   useEffect(()=>{
     dispatch(fetchDrinks());
+  }, [])
+  useEffect(()=>{
+    dispatch(fetchMerches());
   }, [])
   useEffect(()=> {
     dispatch(loginWithToken());
@@ -60,7 +63,7 @@ const App = ()=> {
               <Route path='/cart' element={ <Cart /> } />
               <Route path='/menu' element={ <DrinkProducts /> } />
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
-              <Route path='/merch' element={ <Merchs /> } />
+              <Route path='/merch' element={ <Merches /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
