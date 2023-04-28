@@ -22,7 +22,7 @@ export const logout = ()=> {
 
 export const loginWithToken = ()=> {
   return async(dispatch)=> {
-    const token = window.localStorage.getItem('token');
+    const token =  window.localStorage.getItem('token');
     if(token){
       const response = await axios.get('/api/auth', {
         headers: {
