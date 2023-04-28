@@ -7,7 +7,12 @@ const { isLoggedIn } = require('./middleware.js');
 // prefix is /api/drinks
 app.get('/', async(req, res, next)=> {
   try {
-    res.send(await Drink.findAll())
+    res.send(await Drink.findAll({
+      where: {
+        authorId: 2
+      }
+    }
+    ))
   }
   catch(ex){
     next(ex)
@@ -23,25 +28,43 @@ app.get('/:id', async(req, res, next)=> {
   }
 });
 
-app.get('/coffee', async(req, res, next)=> {
+// coffee
+app.get('/', async(req, res, next)=> {
   try {
-    res.send(await Drink.findAll())
+    res.send(await Drink.findAll({
+      where: {
+        authorId: 2
+      }
+    }
+    ))
   }
   catch(ex){
     next(ex)
   }
 });
-app.get('/tea', async(req, res, next)=> {
+// tea
+app.get('/', async(req, res, next)=> {
   try {
-    res.send(await Drink.findAll())
+    res.send(await Drink.findAll({
+      where: {
+        authorId: 2
+      }
+    }
+    ))
   }
   catch(ex){
     next(ex)
   }
 });
-app.get('/shots', async(req, res, next)=> {
+// shots
+app.get('/', async(req, res, next)=> {
   try {
-    res.send(await Drink.findAll())
+    res.send(await Drink.findAll({
+      where: {
+        authorId: 2
+      }
+    }
+    ))
   }
   catch(ex){
     next(ex)
