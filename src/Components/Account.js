@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateAuth } from '../store';
 import { useNavigate, Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const Account = ()=> {
   const [firstName, setFirstName] = useState('');
@@ -46,7 +47,7 @@ const Account = ()=> {
                   <div style={{ marginBottom: 8 }}/>
                   <TextField label="Phone" variant="outlined" value={ phone } onChange={ev => setPhone(ev.target.value)}/>
       
-                  <Button onSubmit={ _update } disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</Button>
+                  <Button onClick={ _update } disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</Button>
                 </form>
             </div>
         

@@ -25,7 +25,7 @@ const Login = ()=> {
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={ login }>
+      <form >
         <TextField
           label='username'
           value = { credentials.username }
@@ -40,7 +40,7 @@ const Login = ()=> {
           onChange = { onChange }
         />
         <Button 
-        onSubmit={ login }> 
+        onClick={ login }> 
           Login
         </Button>
       </form>
