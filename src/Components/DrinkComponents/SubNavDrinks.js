@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import DrinksCoffees from './DrinksCoffees';
 import DrinksTeas from './DrinksTeas';
 import DrinksSmoothies from './DrinksSmoothies';
-import Merch from './Merch';
+import Merch from '../MerchComponents/Merch';
 
 function SubNavDrinks() {
  

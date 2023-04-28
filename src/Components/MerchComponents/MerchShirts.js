@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 
-const Merchs = () =>{
+const MerchShirts = () =>{
 
   const { merches } = useSelector(state => state);
   const dispatch = useDispatch()
@@ -21,13 +21,12 @@ const Merchs = () =>{
   
   if (!merches){return null}
 
+  const shirts = merches.filter(m => m.category == 'shirt')
+
   const _moreDetails =(merch)=>{
-    console.log(merch)
-    // console.log(drink.id, 'more details')
     navigate(`/merch/${merch.id}`)
   }
   const _addToCart =(merch)=>{
-    console.log(merch)
     console.log(merch.id, 'add to cart')
   }
 
@@ -51,7 +50,7 @@ const Merchs = () =>{
         borderRadius: "2rem",
       }}>  
 
-  {merches.map(merch => {
+  {shirts.map(merch => {
         return (
       <Card key={ merch.id }sx={{ 
       maxWidth: 425,
@@ -86,4 +85,4 @@ const Merchs = () =>{
   </>
   )
 }
-export default Merchs
+export default MerchShirts
