@@ -40,7 +40,7 @@ const App = ()=> {
   return (
     <div>
       <Nav />
-      <h1>Acme Shopping</h1>
+      <h1>maybe instead of Acme Shopping we do a big page-wide pic?</h1>
       {/* {
         auth.id ? <Home /> : <Login />
       } */}

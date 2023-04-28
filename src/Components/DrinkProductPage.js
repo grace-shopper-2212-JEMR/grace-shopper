@@ -15,7 +15,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const DrinkProductPage = (props) =>{
+const DrinkProductPage = () =>{
   // const {drink} = props
   const {id} = useParams();
   const { drinks } = useSelector(state => state);

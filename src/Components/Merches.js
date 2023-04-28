@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import SubNavMerch from './SubNavMerch'
 
 import Card from '@mui/material/Card';
@@ -24,7 +24,7 @@ const Merchs = () =>{
   const _moreDetails =(merch)=>{
     console.log(merch)
     // console.log(drink.id, 'more details')
-    navigate(`/menu/${merch.id}`)
+    navigate(`/merch/${merch.id}`)
   }
   const _addToCart =(merch)=>{
     console.log(merch)
