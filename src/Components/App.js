@@ -5,13 +5,17 @@ import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
 
-import DrinkProducts from './DrinkProducts';
-import DrinksCoffees from './DrinksCoffees';
-import DrinksTeas from './DrinksTeas';
-import DrinksSmoothies from './DrinksSmoothies';
-import DrinkProductPage from './DrinkProductPage';
-import Merches from './Merches';
-import Merch from './Merch';
+import DrinkProducts from './DrinkComponents/DrinkProducts';
+import DrinksCoffees from './DrinkComponents/DrinksCoffees';
+import DrinksTeas from './DrinkComponents/DrinksTeas';
+import DrinksSmoothies from './DrinkComponents/DrinksSmoothies';
+import DrinkProductPage from './DrinkComponents/DrinkProductPage';
+import Merches from './MerchComponents/Merches';
+import Merch from './MerchComponents/Merch';
+import MerchShirts from './MerchComponents/MerchShirts';
+import MerchHats from './MerchComponents/MerchHats';
+import MerchMugs from './MerchComponents/MerchMugs';
+
 import Account from './Account';
 import About from './About';
 import Logout from './Logout';
@@ -73,7 +77,13 @@ const App = ()=> {
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
 
               <Route path='/merch' element={ <Merches /> } />
+
+                <Route path='/merch/shirts' element={<MerchShirts />}/>
+                <Route path='/merch/hats' element={<MerchHats />}/>
+                <Route path='/merch/mugs' element={<MerchMugs />}/>
+
               <Route path='/merch/:id' element={ <Merch /> } />
+
 
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />

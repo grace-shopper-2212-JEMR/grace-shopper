@@ -3,6 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import MerchHats from './MerchHats';
+import MerchMugs from './MerchMugs';
+import MerchShirts from './MerchShirts';
+import { Link } from 'react-router-dom';
 
 function SubNavMerch() {
  
@@ -17,8 +21,6 @@ function SubNavMerch() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/shirts"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
@@ -31,14 +33,12 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Shirts
+            <Link to='../merch/shirts' element={<MerchShirts/>} style={{ textDecoration: 'none', color: 'inherit' }}>Shirts</Link>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/hats"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
@@ -51,14 +51,12 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Hats
+            <Link to='../merch/hats' element={<MerchHats/>} style={{ textDecoration: 'none', color: 'inherit' }}>Hats</Link>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/mugs"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
@@ -71,14 +69,12 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Mugs
+            <Link to='../merch/mugs' element={<MerchMugs/>} style={{ textDecoration: 'none', color: 'inherit' }}>Mugs</Link>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/shirts"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex'},
@@ -91,14 +87,12 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Shirts
+            <Link to='../merch/shirts' element={<MerchShirts/>} style={{ textDecoration: 'none', color: 'inherit' }}>Shirts</Link>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/hats"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex'},
@@ -111,14 +105,12 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Hats
+            <Link to='../merch/hats' element={<MerchHats/>} style={{ textDecoration: 'none', color: 'inherit' }}>Hats</Link>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/merch/mugs"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex'},
@@ -131,7 +123,7 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            Mugs
+            <Link to='../merch/mugs' element={<MerchMugs/>} style={{ textDecoration: 'none', color: 'inherit' }}>Mugs</Link>
           </Typography>
 
         </Toolbar>
