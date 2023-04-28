@@ -6,6 +6,9 @@ import Register from './Register';
 import Nav from './Nav';
 
 import DrinkProducts from './DrinkProducts';
+import DrinksCoffees from './DrinksCoffees';
+import DrinksTeas from './DrinksTeas';
+import DrinksSmoothies from './DrinksSmoothies';
 import DrinkProductPage from './DrinkProductPage';
 import Merches from './Merches';
 import Merch from './Merch';
@@ -61,10 +64,17 @@ const App = ()=> {
             <Routes>
               <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
+
               <Route path='/menu' element={ <DrinkProducts /> } />
+                <Route path='/menu/coffee' element={<DrinksCoffees />}/>
+                <Route path='/menu/tea' element={<DrinksTeas />}/>
+                <Route path='/menu/smoothies' element={<DrinksSmoothies />}/>
+
               <Route path='/menu/:id' element={ <DrinkProductPage /> } />
+
               <Route path='/merch' element={ <Merches /> } />
               <Route path='/merch/:id' element={ <Merch /> } />
+
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />

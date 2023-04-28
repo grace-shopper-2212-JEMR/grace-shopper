@@ -15,20 +15,19 @@ import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
-// NOTES
-
-  // ALL OF THESE CARDS WILL BE EVENTUALLY MAPPED WHEN WE HAVE THE DATA. WE'LL DO SOMETHING LIKE {drink.image} and {drink.description} or something.
-
-  // RESEARCH HOW TO DO AUTHORIZATION, WHERE AN ADMIN CAN ADD/UPDATE/DELETE A DRINK. I THINK IT PROBABLY JUST NEEDS AN 'ADMIN' TITLE AND YOU CAN DO if(auth.title === 'admin'){code}
 
 
 
-const DrinkProducts = () =>{
+const DrinksCoffees = () =>{
+  // return (console.log('coffee drinks!!!'))
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
   
   if (!drinks){return null}
+
+  let coffees = drinks.filter(d => d.category == 'coffee')
+  console.log
 
   const _moreDetails =(drink)=>{
     console.log(drink)
@@ -36,7 +35,6 @@ const DrinkProducts = () =>{
     navigate(`/menu/${drink.id}`)
   }
   const _addToCart =(drink)=>{
-    console.log(drink)
     console.log(drink.id, 'add to cart')
   }
 
@@ -60,7 +58,7 @@ const DrinkProducts = () =>{
         borderRadius: "2rem",
       }}>  
 
-  {drinks.map(drink => {
+  {coffees.map(drink => {
         return (
       <Card key={ drink.id }sx={{ 
       maxWidth: 425,
@@ -96,4 +94,4 @@ const DrinkProducts = () =>{
   )
 }
 
-export default DrinkProducts
+export default DrinksCoffees
