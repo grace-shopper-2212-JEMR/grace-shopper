@@ -58,6 +58,15 @@ app.put('/:token', async(req, res, next)=> {
   }
 });
 
+// app.get('/github', async(req, res, next)=> {
+//   try{
+//     res.send('hello world');
+//   }
+//   catch(ex){
+//     next(ex);
+//   }
+// });
+
 app.get('/:token', async(req, res, next)=> {
   try{
     res.send(await User.findByToken(req.params.token));

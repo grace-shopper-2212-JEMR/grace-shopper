@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Home from './Home';
 import Login from './Login';
 import Cart from './Cart';
@@ -20,6 +20,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 const App = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
+  const prevAuth = useRef({});
 
   useEffect(()=>{
     dispatch(fetchDrinks());
@@ -29,32 +30,29 @@ const App = ()=> {
   }, []);
 
   useEffect(()=> {
-
-    if(auth.id){
+    if(!prevAuth.current.id && auth.id){
       dispatch(fetchCart());
     }
+    if(prevAuth.current.id && !auth.id){
+      console.log('logged out')
+    }
   }, [auth]);
+
+  useEffect(()=> {
+    prevAuth.current = auth
+  })
   return (
     <div>
       <Nav />
-      <h1>Acme Shopping</h1>
-      {/* {
-        auth.id ? <Home /> : <Login />
-      } */}
+      
+      
+         <div>
+          <a href={`https://github.com/login/oauth/authorize?client_id=${window.gitHubClient_id}`}>Login With Github</a>
+          </div> 
+      
+     
       {
-        // !!auth.id  && (
-          <div>
-             {/* <nav>
-              <Link to='/'>Home</Link>
-              <Link to='/cart'>Cart</Link>
-
-              <Link to='/menu'>Menu</Link>
-              <Link to='/menu/:id'>Menu (single)</Link>
-              <Link to='/merch'>Merch</Link>
-              <Link to='/merch/:id'>Merch Detail</Link>
-              
-            </nav> */}
-
+        <div>
             <Routes>
               <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
