@@ -5,12 +5,14 @@ import auth from './auth';
 import cart from './cart';
 import register from './register';
 import drinks from './drinks'
+import merches from './merches'
 
 const reducer = combineReducers({
   auth,
   cart,
   register,
-  drinks
+  drinks,
+  merches
 });
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
@@ -21,3 +23,4 @@ export * from './auth';
 export * from './cart';
 export * from './register';
 export * from './drinks';
+export * from './merches';
