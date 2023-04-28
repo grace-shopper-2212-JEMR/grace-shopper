@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { loginWithToken } from './auth';
 
 export const register = (credentials)=> {
     return async(dispatch)=> {
       const response = await axios.post('/api/auth/register', credentials);
-      const token = response.data.token;
+      const token = response.data;
       window.localStorage.setItem('token', token);
       dispatch(loginWithToken());
   

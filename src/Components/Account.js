@@ -46,7 +46,7 @@ const Account = ()=> {
                   <div style={{ marginBottom: 8 }}/>
                   <TextField label="Phone" variant="outlined" value={ phone } onChange={ev => setPhone(ev.target.value)}/>
       
-                  <button disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</button>
+                  <Button onSubmit={ _update } disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</Button>
                 </form>
             </div>
         

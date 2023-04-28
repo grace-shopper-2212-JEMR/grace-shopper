@@ -8,7 +8,10 @@ function SubNavMerch() {
  
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container sx={{ 
+        maxWidth: "xl"
+        }}>
+
         <Toolbar disableGutters>
         
           <Typography
@@ -21,7 +24,7 @@ function SubNavMerch() {
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -41,7 +44,7 @@ function SubNavMerch() {
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -61,7 +64,7 @@ function SubNavMerch() {
               display: { xs: 'flex', md: 'none'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',

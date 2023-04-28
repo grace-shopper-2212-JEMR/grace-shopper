@@ -18,11 +18,11 @@ const Register = ()=> {
     };
 
     try {
-      await dispatch(register(credentials));
-      navigate('/products');
+      dispatch(register(credentials));
+      navigate('/home');
     }
     catch(ex){
-
+      console.log(ex)
     }
   };
   return (

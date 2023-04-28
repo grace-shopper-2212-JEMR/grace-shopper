@@ -163,6 +163,7 @@ User.authenticate = async function({ username, password }){
 
 User.register = async function(credentials){
   const user = await this.create(credentials);
+  console.log(user.generateToken())
   return user.generateToken();
 }
 
