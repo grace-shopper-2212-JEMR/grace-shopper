@@ -3,7 +3,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-const DrinkProductPage = (props) =>{
+const DrinkProductPage = () =>{
   // const {drink} = props
   const {id} = useParams();
   const { drinks } = useSelector(state => state);
