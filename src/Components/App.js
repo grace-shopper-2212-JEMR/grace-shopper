@@ -15,12 +15,15 @@ import MerchShirts from './MerchComponents/MerchShirts';
 import MerchHats from './MerchComponents/MerchHats';
 import MerchMugs from './MerchComponents/MerchMugs';
 import Account from './Account';
-import About from './About';
+import About from './About/About';
 import Logout from './Logout';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
+import AboutLocations from './About/AboutLocations';
+import AboutCareers from './About/AboutCareers';
+import AboutContact from './About/AboutContact';
 
 const App = ()=> {
   const { auth } = useSelector(state => state);
@@ -45,7 +48,7 @@ const App = ()=> {
   return (
     <div>
       <Nav />
-      <h1>maybe instead of Acme Shopping we do a big page-wide pic?</h1>
+      <img src='static\images\home-banner.jpg' style={{borderTop: '2px solid white', borderBottom: '2px solid white', width: '100%'}}></img>
       {/* {
         auth.id ? <Home /> : <Login />
       } */}
@@ -88,10 +91,14 @@ const App = ()=> {
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
+              <Route path='/about/locations' element={<AboutLocations />}/>
+                <Route path='/about/careers' element={<AboutCareers />}/>
+                <Route path='/about/contact' element={<AboutContact />}/>
             </Routes>
           </div>
         // )
       }
+         <Nav />
     </div>
   );
 };

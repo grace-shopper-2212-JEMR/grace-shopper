@@ -1,42 +1,9 @@
-// import React, { useEffect } from 'react';
-// import Home from './Home';
-// import Login from './Login';
-// import Cart from './Cart';
-import { useSelector, useDispatch } from 'react-redux';
-// import { loginWithToken, fetchCart } from '../store';
-// import { Link, Routes, Route } from 'react-router-dom';
-
-// const App = ()=> {
-  
-//   return (
-//     <div>
-//       {
-//         auth.id ? <Home /> : <Login />
-//       }
-//       {
-//         !!auth.id  && (
-//           <div>
-//             <nav>
-//               <Link to='/'>Home</Link>
-//               <Link to='/cart'>Cart</Link>
-//             </nav>
-//             {/* <Routes>
-//               <Route path='/cart' element={ <Cart /> } />
-//             </Routes> */}
-//           </div>
-//         )
-//       }
-//     </div>
-//   );
-// };
-
-// export default Nav;
-
-// to install MUI styles and icons copy this to terminal: npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+// THIS DOESN'T ACTUALLY EXIST YET -- IT'S JUST A COPY PASTE OF THE MAIN NAV. I DO WANT TO EXPAND IT, BUT SUPER LOW PRIORITY --JDB
 
 
 
 import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
