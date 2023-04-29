@@ -66,7 +66,7 @@ const DrinksCoffees = () =>{
         boxShadow: 2,
         zIndex: 2
       }}}>
-        <Link to={`${drink.id}`}>
+        <Link to={`/menu/${drink.id}`}>
         <CardMedia
           component="img"
           image={drink.imageUrl}

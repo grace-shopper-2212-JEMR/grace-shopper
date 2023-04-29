@@ -43,13 +43,13 @@ const Merch = (props) =>{
 
 
   return (
-    <>
-    <div id="merchProductDiv">
+    <div id="merchProductDiv" style={{ display: "flex"}}>
+    {/* <div >
 
       <h2>This is the page for a SINGLE {merch.name} detail page</h2>
-    </div>
-    <div style={{ marginBottom: 100 }}/>
-    <Card sx={{ maxWidth: 345 }}>
+    </div> */}
+  
+    {/* <Card sx={{ maxWidth: 345 }}>
        <CardMedia
          sx={{ height: 140 }}
          image={merch.imageUrl}
@@ -67,9 +67,9 @@ const Merch = (props) =>{
        <CardActions>
          <Button size="small">Add to Order</Button>
        </CardActions>
-     </Card>
+     </Card> */}
 
-     <br /><br /><br /><br /><br />
+     
      <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         // avatar={
@@ -85,12 +85,12 @@ const Merch = (props) =>{
         title={ merch.name }
         subheader= {'Size: ' + merch.size + ' lets put the price here as well?'}
       />
-      <CardMedia
+      {/* <CardMedia
         component="img"
         height="194"
         image={ merch.imageUrl }
         alt={ merch.name }
-      />
+      /> */}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           Other info about the merch...
@@ -116,12 +116,21 @@ const Merch = (props) =>{
         <CardContent>
           <Typography paragraph>Info:</Typography>
           <Typography paragraph>
-            Maybe we include something special about the blend or something random like that for the drop down?
+            Maybe we include something special about the item for the drop down?
           </Typography>
         </CardContent>
       </Collapse>
     </Card>
-    </>
+    <div style={{ marginRight: 300 }}/>
+    <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+        component="img"
+        height="345"
+        image={ merch.imageUrl }
+        alt={ merch.name }
+      />
+    </Card>
+    </div>
   )
 }
 

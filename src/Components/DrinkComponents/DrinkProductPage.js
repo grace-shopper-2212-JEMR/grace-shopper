@@ -41,13 +41,13 @@ const DrinkProductPage = () =>{
   };
 
   return (
-    <>
-    <div id="drinkProductDiv">
+    <div id="drinkProductDiv" style={{ display: "flex"}}>
+    {/* <div >
 
       <h2>This is the page for a SINGLE {drink.name} drink product. </h2>
-    </div>
-    <div style={{ marginBottom: 100 }}/>
-    <Card sx={{ maxWidth: 345 }}>
+      </div> */}
+    
+    {/* <Card sx={{ maxWidth: 345 }}>
        <CardMedia
          sx={{ height: 140 }}
          image={drink.imageUrl}
@@ -67,9 +67,8 @@ const DrinkProductPage = () =>{
        <CardActions>
          <Button size="small">Add to Order</Button>
        </CardActions>
-     </Card>
-
-     <br /><br /><br /><br /><br />
+     </Card> */}
+     
      <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         // avatar={
@@ -85,12 +84,12 @@ const DrinkProductPage = () =>{
         title={ drink.name }
         subheader= {'Size: ' + drink.size + ' lets put the price here as well?'}
       />
-      <CardMedia
+      {/* <CardMedia
         component="img"
         height="194"
         image={ drink.imageUrl }
         alt={ drink.name }
-      />
+      /> */}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           Ingredients for the drink maybe? Other things that we want?
@@ -125,7 +124,16 @@ const DrinkProductPage = () =>{
         </CardContent>
       </Collapse>
     </Card>
-    </>
+    <div style={{ marginRight: 300 }}/>
+    <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+        component="img"
+        height="345"
+        image={ drink.imageUrl }
+        alt={ drink.name }
+      />
+    </Card>
+    </div>
   )
 }
 
