@@ -12,7 +12,8 @@ import Merch from '../MerchComponents/Merch';
 function SubNavDrinks() {
  
   return (
-    <AppBar position="static">
+    <AppBar position="static"
+    style={{ background: '#029987' }}>
       <Container sx={{ 
         maxWidth: "xl"
         }}>

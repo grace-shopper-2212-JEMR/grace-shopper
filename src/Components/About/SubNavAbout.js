@@ -3,12 +3,12 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import MerchHats from './MerchHats';
-import MerchMugs from './MerchMugs';
-import MerchShirts from './MerchShirts';
+import AboutLocations from './AboutLocations';
+import AboutCareers from './AboutCareers';
+import AboutContact from './AboutContact';
 import { Link } from 'react-router-dom';
 
-function SubNavMerch() {
+function SubNavAbout() {
  
   return (
     <AppBar position="static"
@@ -34,7 +34,7 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/shirts' element={<MerchShirts/>} style={{ textDecoration: 'none', color: 'inherit' }}>Shirts</Link>
+            <Link to='../about/locations' element={<AboutLocations/>} style={{ textDecoration: 'none', color: 'inherit' }}>Locations</Link>
           </Typography>
 
           <Typography
@@ -52,9 +52,10 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/hats' element={<MerchHats/>} style={{ textDecoration: 'none', color: 'inherit' }}>Hats</Link>
+            <Link to='../about/contact' element={<AboutContact/>} style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link>
           </Typography>
 
+          
           <Typography
             variant="h5"
             noWrap
@@ -70,8 +71,9 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/mugs' element={<MerchMugs/>} style={{ textDecoration: 'none', color: 'inherit' }}>Mugs</Link>
+            <Link to='../about/careers' element={<AboutCareers/>} style={{ textDecoration: 'none', color: 'inherit' }}>Careers</Link>
           </Typography>
+
 
           <Typography
             variant="h5"
@@ -88,8 +90,9 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/shirts' element={<MerchShirts/>} style={{ textDecoration: 'none', color: 'inherit' }}>Shirts</Link>
+            <Link to='../about/locations' element={<AboutLocations/>} style={{ textDecoration: 'none', color: 'inherit' }}>Locations</Link>
           </Typography>
+
 
           <Typography
             variant="h5"
@@ -106,9 +109,9 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/hats' element={<MerchHats/>} style={{ textDecoration: 'none', color: 'inherit' }}>Hats</Link>
+            <Link to='../about/contact' element={<AboutContact/>} style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link>
           </Typography>
-
+          
           <Typography
             variant="h5"
             noWrap
@@ -124,7 +127,7 @@ function SubNavMerch() {
               justifyContent: 'center'
             }}
           >
-            <Link to='../merch/mugs' element={<MerchMugs/>} style={{ textDecoration: 'none', color: 'inherit' }}>Mugs</Link>
+            <Link to='../about/careers' element={<AboutCareers/>} style={{ textDecoration: 'none', color: 'inherit' }}>Careers</Link>
           </Typography>
 
         </Toolbar>
@@ -132,4 +135,4 @@ function SubNavMerch() {
     </AppBar>
   );
 }
-export default SubNavMerch;
+export default SubNavAbout;
