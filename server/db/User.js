@@ -3,7 +3,7 @@ const { STRING, UUID, UUIDV4,  } = conn.Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT || 'shhh';
-
+const axios = require('axios');
 const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/ 
 
 
@@ -21,13 +21,7 @@ const User = conn.define('user', {
     },
     unique: true
   },
-  password: {
-    type: STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
+  
   firstName: {
     type: STRING
   },
@@ -120,12 +114,9 @@ User.prototype.removeFromCart = async function({ product, quantityToRemove}){
   return this.getCart();
 };
 
-
-User.addHook('beforeSave', async(user)=> {
-  if(user.changed('password')){
-    user.password = await bcrypt.hash(user.password, 5);
-  }
-});
+User.prototype.generateToken = function(){
+  return jwt.sign({ id: this.id }, JWT);
+};
 
 User.findByToken = async function(token){
   try {
@@ -143,9 +134,48 @@ User.findByToken = async function(token){
   }
 }
 
-User.prototype.generateToken = function(){
-  return jwt.sign({ id: this.id }, JWT);
-};
+
+User.authenticateGithub = async function(code){
+  let response = await axios.post(
+    'https://github.com/login/oauth/access_token',
+    {
+      client_id: process.env.client_id,
+      client_secret: process.env.client_secret,
+      code
+    },
+    {
+      headers: {
+        accept: 'application/json'
+      }
+    }
+  );
+  if(response.data.error){
+    const error = Error(response.data.error);
+    error.status = 401;
+    throw error;
+  }
+  response = await axios.get(
+    'https://api.github.com/user',
+    {
+      headers: {
+        Authorization: `Bearer ${ response.data.access_token}`
+      }
+    }
+  );
+  
+  const login = response.data.login;
+  let user = await User.findOne({
+    where: {
+      username: login
+    }
+  })
+  if(!user){
+    user = await User.create({
+      username:login
+    })
+  }
+  return user.generateToken();
+} 
 
 User.authenticate = async function({ username, password }){
   const user = await this.findOne({

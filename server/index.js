@@ -6,7 +6,7 @@ catch(ex){
   console.log('deploying? Add a client_id and client_secret environment variable ')
   console.log(ex);
 }
-console.log(process.env.gitHubClient_id)
+console.log(process.env.client_id)
 
 const app = require('./app');
 app.engine('html', require('ejs').renderFile);

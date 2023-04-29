@@ -58,14 +58,20 @@ app.put('/:token', async(req, res, next)=> {
   }
 });
 
-// app.get('/github', async(req, res, next)=> {
-//   try{
-//     res.send('hello world');
-//   }
-//   catch(ex){
-//     next(ex);
-//   }
-// });
+app.get('/github', async(req, res, next)=> {
+  try{
+    const { token } = await User.authenticateGithub(req.query.code);
+    res.send(`
+      <script>
+        window.localStorage.setItem('token', '${ token }');
+        window.location = '/';
+      </script>
+    `);
+  }
+  catch(ex){
+    next(ex);
+  }
+});
 
 app.get('/:token', async(req, res, next)=> {
   try{
