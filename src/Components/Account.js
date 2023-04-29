@@ -28,6 +28,7 @@ const Account = ()=> {
   const _update = async(ev)=> {
     ev.preventDefault();
     dispatch(updateAuth({ firstName, lastName, address, email, phone }));
+    navigate('/menu')
   };
   return (
     <div>

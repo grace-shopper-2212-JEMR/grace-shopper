@@ -4,7 +4,6 @@ import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
-
 import DrinkProducts from './DrinkComponents/DrinkProducts';
 import DrinksCoffees from './DrinkComponents/DrinksCoffees';
 import DrinksTeas from './DrinkComponents/DrinksTeas';
@@ -15,7 +14,6 @@ import Merch from './MerchComponents/Merch';
 import MerchShirts from './MerchComponents/MerchShirts';
 import MerchHats from './MerchComponents/MerchHats';
 import MerchMugs from './MerchComponents/MerchMugs';
-
 import Account from './Account';
 import About from './About';
 import Logout from './Logout';

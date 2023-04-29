@@ -59,7 +59,7 @@ const MerchMugs = () =>{
         boxShadow: 2,
         zIndex: 2
       }}}>
-        <Link to={`${merch.id}`}>
+        <Link to={`/merch/${merch.id}`}>
         <CardMedia
           component="img"
           image={merch.imageUrl}

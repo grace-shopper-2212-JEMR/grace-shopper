@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 import SubNavDrinks from "./SubNavDrinks";
-import DrinkProductPage from "./DrinkProductPage";
+//import DrinkProductPage from "./DrinkProductPage";
 
 // import { fetchDrinks, createDrink, editDrink, deleteDrink } from "../store/drinks";
 import Card from '@mui/material/Card';
@@ -39,7 +39,6 @@ const DrinkProducts = () =>{
     console.log(drink)
     console.log(drink.id, 'add to cart')
   }
-
 
   if (!drinks){return null}
 
