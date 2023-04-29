@@ -1,6 +1,6 @@
 const conn = require('./conn');
 const User = require('./User');
-const { Product, Merch, Drink } = require('./Product');
+const { Product } = require('./Product');
 const Order = require('./Order');
 const LineItem  = require('./LineItem');
 
@@ -8,8 +8,7 @@ Order.belongsTo(User);
 LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
 LineItem.belongsTo(Product); 
-LineItem.belongsTo(Merch);
-LineItem.belongsTo(Drink);
+
 
 
 const syncAndSeed = async()=> {
@@ -18,121 +17,126 @@ const syncAndSeed = async()=> {
     User.create({ username: 'moe', password: '123' }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
-    Product.create({ name: 'foo' }),
-    Product.create({ name: 'bar' }),
-    Product.create({ name: 'bazz' }),
+    Product.create({ name: 'foo', category: "shirt" }),
+    Product.create({ name: 'bar', category: "hat"  }),
+    Product.create({ name: 'bazz', category: "mug"  }),
     User.create({ username: 'ethyl', password: '123' }),
   ]);
   
-  const Coffee = await Drink.create({
+  const Coffee = await Product.create({
     name: "Coffee",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: true,  
+    category: "coffee",
   })
 
-  const Cappuccino = await Drink.create({
+  const Cappuccino = await Product.create({
     name: "Cappuccino",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: true,
+    category: "coffee",
   })
 
-  const Latte = await Drink.create({
+  const Latte = await Product.create({
     name: "Latte",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: true,
+    category: "coffee",
   })
 
-  const IcedCoffee = await Drink.create({
+  const IcedCoffee = await Product.create({
     name: "Iced Coffee",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: false,
+    category: "coffee",
   })
 
-  const IcedLatte = await Drink.create({
+  const IcedLatte = await Product.create({
     name: "Iced Latte",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: false,
+    category: "coffee",
   })
 
-  const Espresso = await Drink.create({
+  const Espresso = await Product.create({
     name: "Espresso",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: true,
+    category: "coffee",
   })
 
-  const ColdBrew = await Drink.create({
+  const ColdBrew = await Product.create({
     name: "Cold Brew",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: false,
-    isHot: false,
+    category: "coffee",
   })
 
 
-  const BlackTea = await Drink.create({
+  const BlackTea = await Product.create({
     name: "Black Tea",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: true,
+    category: "tea",
   })
 
-  const IcedTea = await Drink.create({
+  const IcedTea = await Product.create({
     name: "Iced Tea",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: true,
+    category: "tea",
   })
 
-  const GreenTea = await Drink.create({
+  const GreenTea = await Product.create({
     name: "Green Tea",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: true,
+    category: "tea",
   })
 
-  const PeppermintTea = await Drink.create({
+  const PeppermintTea = await Product.create({
     name: "Peppermint Tea",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: true,
+    category: "tea",
   })
 
-  const Matcha = await Drink.create({
+  const Matcha = await Product.create({
     name: "Matcha",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: true,
+    category: "tea",
   })
 
-  const IcedMatcha = await Drink.create({
-    name: "IcedMatcha",
+  const IcedMatcha = await Product.create({
+    name: "Iced Matcha",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    isTea: true,
-    isHot: false,
+    category: "tea",
   })
 
+  const GreenSmoothie = await Product.create({
+    name: "Greens Smoothie",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "smoothie",
+  })
 
+  const StrawberryBananaSmoothie = await Product.create({
+    name: "Strawberry Banana Smoothie",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "smoothie",
+  })
 
-  const Tshirt = await Merch.create({
+  const ProteinSmoothie = await Product.create({
+    name: "Protein Smoothie",
+    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "smoothie",
+  })
+
+  const Tshirt = await Product.create({
     name: "T-Shirt",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "shirt",
   })
 
-  const Hat = await Merch.create({
+  const Hat = await Product.create({
     name: "Baseball hat",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "hat",
   })
 
-  const Mug = await Merch.create({
+  const Mug = await Product.create({
     name: "Logo Mug",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    category: "mug"
   })
-
 
 
 
@@ -159,7 +163,5 @@ module.exports = {
   syncAndSeed,
   User,
   Product,
-  Merch, 
-  Drink,
   LineItem
 };

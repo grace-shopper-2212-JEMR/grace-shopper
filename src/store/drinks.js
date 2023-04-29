@@ -24,26 +24,26 @@ const drinks = (state = [], action)=> {
 
 export const fetchDrinks = ()=> {
   return async(dispatch)=> {
-    const response = await axios.get('/api/drinks');
+    const response = await axios.get('/api/menu');
     dispatch({type: 'SET_DRINKS', drinks: response.data})
   };
 };
 export const createDrink = (drink)=> {
   return async(dispatch)=> {
-    const response = await axios.post(`api/drinks`, drink);
+    const response = await axios.post(`api/menu`, drink);
     console.log(response, 'response')
     dispatch({type: 'CREATE_DRINK', drink: response.data})
   };
 };
 export const editDrink = (drink)=> {
   return async(dispatch)=> {
-    const response = await axios.put(`api/drinks/${drink.id}`, drink);
+    const response = await axios.put(`api/menu/${drink.id}`, drink);
     dispatch({type: 'EDIT_DRINK', drink: response.data})
   };
 };
 export const deleteDrink = (drink)=> {
   return async(dispatch)=> {
-    await axios.delete(`api/drinks/${drink.id}`);
+    await axios.delete(`api/menu/${drink.id}`);
     dispatch({type: 'DELETE_DRINK', drink})
   };
 };
