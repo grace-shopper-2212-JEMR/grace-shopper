@@ -90,7 +90,7 @@ User.prototype.getCart = async function(){
   return cart;
 }
 
-User.prototype.addToCart = async function({ product, quantity}){
+User.prototype.addToCart = async function({ product, quantity = 1}){
   const cart = await this.getCart();
   let lineItem = cart.lineItems.find( lineItem => {
     return lineItem.productId === product.id; 

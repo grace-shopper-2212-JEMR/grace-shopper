@@ -14,8 +14,7 @@ import Box from '@mui/material/Box';
 
 
 const Merches = () =>{
-
-  const { merches } = useSelector(state => state);
+  const { merches, auth } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
   
@@ -26,7 +25,10 @@ const Merches = () =>{
     navigate(`/merch/${merch.id}`)
   }
   const _addToCart =(merch)=>{
-    console.log(merch.id, 'add to cart')
+    
+    // auth.addToCart({product: merch.name, quantity: 1})
+    console.log(merch.id, merch , 'add to cart')
+    console.log(auth)
   }
 
 
