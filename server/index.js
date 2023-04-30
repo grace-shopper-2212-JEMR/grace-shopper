@@ -1,4 +1,15 @@
+try{
+  require('../env.js');
+}
+catch(ex){
+  console.log('running locally? Add an env.js file with client_id and client_secret')
+  console.log('deploying? Add a client_id and client_secret environment variable ')
+  console.log(ex);
+}
+console.log(process.env.client_id)
+
 const app = require('./app');
+app.engine('html', require('ejs').renderFile);
 const { syncAndSeed } = require('./db');
 
 

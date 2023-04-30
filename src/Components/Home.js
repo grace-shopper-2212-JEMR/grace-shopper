@@ -34,7 +34,7 @@ const Home = ()=> {
                   <div>
                   Feel free browse through our delicious selection of drinks or our fashionable merch, but get full functionality by logging in!
                   </div>
-                  <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button>
+                  {/* <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button> */}
                 </div>
             </div>
         )
