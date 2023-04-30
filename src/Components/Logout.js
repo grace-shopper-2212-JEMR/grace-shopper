@@ -24,9 +24,9 @@ const Logout = ()=> {
         )  : (
             <div>
                 <h1>You're Not Logged In!</h1>
-                <div>
+                {/* <div>
                     <Link to={`/register`}>Register Here</Link> or <Link to='/login'> Login </Link>
-                </div>
+                </div> */}
             </div>
         )
         } 

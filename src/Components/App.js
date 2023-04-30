@@ -90,8 +90,7 @@ const App = ()=> {
                 <Route path='/about/contact' element={<AboutContact />}/>
             </Routes>
           </div>
-        // )
-      }
+     
          <Nav />
     </div>
   );
