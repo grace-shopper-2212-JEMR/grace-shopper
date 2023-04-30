@@ -12,6 +12,18 @@ const Home = ()=> {
       
        {
         auth.id ? 
+
+     (
+      <div>
+      <h1>You're Not Logged In!</h1>
+      <div>
+        <div>
+        Feel free browse through our delicious selection of drinks or our fashionable merch, but get full functionality by logging in!
+        </div>
+        {/* <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button> */}
+      </div>
+  </div>        
+
         console.log(auth.id)
         (
             <div>
@@ -24,16 +36,16 @@ const Home = ()=> {
                 </div>
             </div>
         
+
         )  : (
+          <div>
+          <h1>Welcome {auth.username}</h1>
+          <div>
             <div>
-                <h1>You're Not Logged In!</h1>
-                <div>
-                  <div>
-                  Feel free browse through our delicious selection of drinks or our fashionable merch, but get full functionality by logging in!
-                  </div>
-                  {/* <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button> */}
-                </div>
+              Please browse amongst our delicious selection of drinks or our fashionable merch.
             </div>
+          </div>
+      </div>
         )
         } 
     </div>
