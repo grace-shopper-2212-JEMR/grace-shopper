@@ -9,14 +9,11 @@ const Home = ()=> {
   const dispatch = useDispatch();
   return (
     <div>
-      {/* <h1>Home</h1>
-      <div>
-        
-        Welcome { auth.username }!!
-        <Button variant="contained" onClick={()=> dispatch(logout())}>Logout</Button>
-      </div> */}
+      
        {
-        auth.id ? (
+        auth.id ? 
+        console.log(auth.id)
+        (
             <div>
                 <h1>Welcome {auth.username}</h1>
                 <div>
