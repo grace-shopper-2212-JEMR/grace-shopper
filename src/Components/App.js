@@ -57,23 +57,6 @@ const App = ()=> {
       <Nav />
       
           <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a>
-          
-      
-          {/* { 
-          !auth.id? <div>
-          <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a>
-          </div> :
-      <img src='static\images\home-banner.jpg' style={{borderTop: '2px solid white', borderBottom: '2px solid white', width: '100%'}}></img>
-      {/* {
-        auth.id ? <Home /> : <Login />
-      } */}
-      {
-        // !!auth.id  && (
-          <div>
-           Navigate('/')
-          
-          </div> 
-          } */}
      
       {
         <div>
