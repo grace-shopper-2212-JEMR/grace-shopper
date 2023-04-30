@@ -57,8 +57,10 @@ const App = ()=> {
       <Nav />
       
           <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a>
-     
-      {
+
+          
+      
+
         <div>
             <Routes>
               <Route path='/home' element={ <Home /> } />
