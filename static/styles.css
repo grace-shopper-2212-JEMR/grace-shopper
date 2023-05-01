@@ -31,5 +31,8 @@ nav {
   border: 2px solid blue;
 }
 
-
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
