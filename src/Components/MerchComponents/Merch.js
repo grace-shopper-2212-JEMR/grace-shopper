@@ -42,10 +42,19 @@ const Merch = () =>{
 
 
   return (
-    <div id="merchProductDiv" style={{ display: "flex"}}>
-    {/* <div >
+    <div id="ProductDiv" >
+    <div id="productDivLeft">
+    <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+        component="img"
+        height="345"
+        image={ merch.imageUrl }
+        alt={ merch.name }
+      />
+    </Card>
+     </div>
 
-      <h2>This is the page for a SINGLE {merch.name} detail page</h2>
+     { /* <h2>This is the page for a SINGLE {merch.name} detail page</h2>
     </div> */}
   
     {/* <Card sx={{ maxWidth: 345 }}>
@@ -68,7 +77,7 @@ const Merch = () =>{
        </CardActions>
      </Card> */}
 
-     
+    <div id="productDivright">
      <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         // avatar={
@@ -120,15 +129,7 @@ const Merch = () =>{
         </CardContent>
       </Collapse>
     </Card>
-    <div style={{ marginRight: 300 }}/>
-    <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-        component="img"
-        height="345"
-        image={ merch.imageUrl }
-        alt={ merch.name }
-      />
-    </Card>
+    </div>
     </div>
   )
 }

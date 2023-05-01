@@ -16,7 +16,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const DrinkProductPage = () =>{
-  // const {drink} = props
   const {id} = useParams();
   const { drinks } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
@@ -41,7 +40,17 @@ const DrinkProductPage = () =>{
   };
 
   return (
-    <div id="drinkProductDiv" style={{ display: "flex"}}>
+    <div id="ProductDiv" >
+      <div id="productDivLeft">
+        <Card>
+        <CardMedia
+            component="img"
+            height="600"
+            image={ drink.imageUrl }
+            alt={ drink.name }
+          />
+          </Card>
+        </div>
     {/* <div >
 
       <h2>This is the page for a SINGLE {drink.name} drink product. </h2>
@@ -69,7 +78,9 @@ const DrinkProductPage = () =>{
        </CardActions>
      </Card> */}
      
-     <Card sx={{ maxWidth: 345 }}>
+     <div id="productDivRight">
+
+     <Card>
       <CardHeader
         // avatar={
         //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -124,15 +135,7 @@ const DrinkProductPage = () =>{
         </CardContent>
       </Collapse>
     </Card>
-    <div style={{ marginRight: 300 }}/>
-    <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-        component="img"
-        height="345"
-        image={ drink.imageUrl }
-        alt={ drink.name }
-      />
-    </Card>
+    </div>
     </div>
   )
 }
