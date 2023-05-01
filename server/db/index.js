@@ -21,6 +21,7 @@ const syncAndSeed = async()=> {
     Product.create({ name: 'bar', category: "hat"  }),
     Product.create({ name: 'bazz', category: "mug"  }),
     User.create({ username: 'ethyl', password: '123' }),
+    Product.create({ name: "Script for Java Mug", imageUrl: "https://imgbox.com/4wLvVwAT", category: "mug"})
   ]);
   
   const Coffee = await Product.create({
@@ -157,14 +158,19 @@ const syncAndSeed = async()=> {
   })
 
   const Mug = await Product.create({
+<<<<<<< Updated upstream
     name: "Logo Mug",
     imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
     category: "mug",
     description:'Our high-quality mugs are designed with our cafe logo and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
+=======
+    name: "Script for Java Mug",
+    imageUrl: "https://imgbox.com/4wLvVwAT",
+    category: "mug"
+>>>>>>> Stashed changes
   })
 
-
-
+  
   const cart = await ethyl.getCart();
   await ethyl.addToCart({ product: bazz, quantity: 3});
   await ethyl.addToCart({ product: foo, quantity: 2});

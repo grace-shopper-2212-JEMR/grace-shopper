@@ -1,5 +1,5 @@
 const conn = require('./conn');
-const { STRING, BOOLEAN, ENUM, UUID, UUIDV4, TEXT } = conn.Sequelize;
+const { VIRTUAL, STRING, BOOLEAN, ENUM, UUID, UUIDV4, TEXT } = conn.Sequelize;
 
 const Product = conn.define('product', {
   id: {
@@ -23,6 +23,10 @@ const Product = conn.define('product', {
   },
   imageUrl: {
     type: TEXT,
+  },
+  hasImage: {
+    type: BOOLEAN,
+    defaultValue: false,
   },
   size: {
     type: ENUM("Small", "Medium", "Large"),
