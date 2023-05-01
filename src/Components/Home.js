@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom'
-// import backgroundImg from './images/coffee_cup_illustration_blue.jpeg'
+import backgroundImg from 'src/images/coffee_cup_illustration_blue.jpeg'
 const Home = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Home = ()=> {
 
         )  : (
           <div>
-            {/* <img src={backgroundImg}/> */}
+            <img src={backgroundImg}/>
           <h1>Welcome {auth.username}</h1>
           <div>
             <div>
