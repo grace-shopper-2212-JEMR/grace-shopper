@@ -24,20 +24,21 @@ const Home = ()=> {
       </div>
   </div>        
 
-        console.log(auth.id)
-        (
-            <div>
-                <h1>Welcome {auth.username}</h1>
-                <div>
-                  <div>
-                    Please browse amongst our delicious selection of drinks or our fashionable merch.
-                  </div>
-                  <Button variant="contained" onClick={()=> dispatch(logout())}>Logout</Button>
-                </div>
-            </div>
+     
+        // (  
+        //     <div>
+        //         <h1>Welcome {auth.username}</h1>
+        //         <div>
+        //           <div>
+        //             Please browse amongst our delicious selection of drinks or our fashionable merch.
+        //           </div>
+        //           <Button variant="contained" onClick={()=> dispatch(logout())}>Logout</Button>
+        //         </div>
+        //     </div>
         
 
-        )  : (
+        )  
+        : (
           <div>
           <h1>Welcome {auth.username}</h1>
           <div>
