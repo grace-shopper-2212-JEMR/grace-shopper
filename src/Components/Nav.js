@@ -85,7 +85,7 @@ export default function Nav() {
 
 
   return (
-    <AppBar position="static" style={{ background: '#029987' }}>
+    <AppBar position="static" style={{ background: '#004C60' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <EmojiFoodBeverageIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

@@ -13,7 +13,7 @@ body {
 }
 
 .app-body{
-  min-height: calc((100%) -  140px);
+  min-height: calc((100%) -  137px);
   border-bottom: 2px solid red
 }
 
@@ -31,13 +31,29 @@ nav {
   justify-content: space-around;
 }
 
-#drinkProductDiv{
-  border: 2px solid blue;
+#ProductDiv{
+  margin: 1rem auto;
+  max-width: fit-content;
+  display: flex;
+  padding: 2rem 4rem;
+  justify-content: center;
+  border-left: 1px solid #029987;
+  border-top: 1px solid #029987;
+  border-right: 3px solid #029987;
+  border-bottom: 3px solid #029987;
+  border-radius: 0 0 1rem 0;
+}
+
+#ProductDiv > div {
+  margin: 1rem
 }
 
 .background {
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  border: 2px solid red;
+  background-image: url('images/coffee_cup_illustration_blue.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%
+  /* background-position: fixed; */
+
+  /* border: 2px solid red; */
 }
 

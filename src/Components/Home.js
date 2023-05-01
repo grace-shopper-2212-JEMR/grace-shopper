@@ -8,7 +8,7 @@ const Home = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
   return (
-    <div className='background' style={{ backgroundImage: "url(static/images/coffee_cup_illustration_blue.jpeg)" }}>
+    // <div className='background' style={{ backgroundImage: "url(static/images/coffee_cup_illustration_blue.jpeg)" }}>
     <div>
       
        {
@@ -40,7 +40,7 @@ const Home = ()=> {
         )
         } 
           </div>
-    </div>
+    // </div>
   );
 };
 
