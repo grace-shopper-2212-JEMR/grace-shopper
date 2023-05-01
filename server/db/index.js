@@ -25,6 +25,7 @@ const syncAndSeed = async()=> {
   
   const Coffee = await Product.create({
     name: "Coffee",
+    imageUrl: 'https://images.unsplash.com/photo-1525480122447-64809d765ec4',
     category: "coffee",
   })
 // try to create the DB photos that was unsucsessful as of now //
@@ -36,92 +37,92 @@ const syncAndSeed = async()=> {
 
   const Cappuccino = await Product.create({
     name: "Cappuccino",
-    imageUrl: "https://images.unsplash.com/photo-1582291734204-7a4dfa96871b",
+    imageUrl: "https://images.unsplash.com/photo-1513175112772-985b903e3fa5",
     category: "coffee",
   })
 
   const Latte = await Product.create({
     name: "Latte",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1517705708367-762e7e2eee6c",
     category: "coffee",
   })
 
   const IcedCoffee = await Product.create({
     name: "Iced Coffee",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1517701604599-bb29b565090c",
     category: "coffee",
   })
 
   const IcedLatte = await Product.create({
     name: "Iced Latte",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1534414671319-4fc58cc112e1",
     category: "coffee",
   })
 
   const Espresso = await Product.create({
     name: "Espresso",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     category: "coffee",
   })
 
   const ColdBrew = await Product.create({
     name: "Cold Brew",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1558122104-355edad709f6",
     category: "coffee",
   })
 
 
   const BlackTea = await Product.create({
     name: "Black Tea",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1606163017137-888c0177b3dd",
     category: "tea",
   })
 
   const IcedTea = await Product.create({
     name: "Iced Tea",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1654923064639-834d2bf32716",
     category: "tea",
   })
 
   const GreenTea = await Product.create({
     name: "Green Tea",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1622480916113-9000ac49b79d",
     category: "tea",
   })
 
   const PeppermintTea = await Product.create({
     name: "Peppermint Tea",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1655252205284-4b184957de44",
     category: "tea",
   })
 
   const Matcha = await Product.create({
     name: "Matcha",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1565117661210-fd54898de423",
     category: "tea",
   })
 
   const IcedMatcha = await Product.create({
     name: "Iced Matcha",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1617892165107-76fb45f50f7c",
     category: "tea",
   })
 
   const GreenSmoothie = await Product.create({
     name: "Greens Smoothie",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1557753478-d111aef068be",
     category: "smoothie",
   })
 
   const StrawberryBananaSmoothie = await Product.create({
     name: "Strawberry Banana Smoothie",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1586707101133-4f0c4ce4e554",
     category: "smoothie",
   })
 
   const ProteinSmoothie = await Product.create({
     name: "Protein Smoothie",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1645783916385-1c99860a2a42",
     category: "smoothie",
   })
 
