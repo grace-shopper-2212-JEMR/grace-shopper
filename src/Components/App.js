@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Home from './Home';
-import Login from './Login';
+// import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
@@ -85,7 +85,7 @@ const App = ()=> {
 
 
               <Route path='/register' element={ <Register />} />
-              <Route path='/login' element={ <Login />} />
+              {/* <Route path='/login' element={ <Login />} /> */}
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
