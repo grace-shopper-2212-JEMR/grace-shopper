@@ -16,14 +16,15 @@ import MerchHats from './MerchComponents/MerchHats';
 import MerchMugs from './MerchComponents/MerchMugs';
 import Account from './Account';
 import About from './About/About';
+import AboutLocations from './About/AboutLocations';
+import AboutCareers from './About/AboutCareers';
+import AboutContact from './About/AboutContact';
 import Logout from './Logout';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
-import AboutLocations from './About/AboutLocations';
-import AboutCareers from './About/AboutCareers';
-import AboutContact from './About/AboutContact';
+
 
 const App = ()=> {
   const { auth } = useSelector(state => state);
@@ -64,7 +65,7 @@ const App = ()=> {
       
 
             <Routes>
-              <Route path='/home' element={ <Home /> } />
+              <Route path='/' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
 
               <Route path='/menu' element={ <DrinkProducts /> } />
@@ -94,6 +95,9 @@ const App = ()=> {
             </Routes>
           </div>
      
+        
+
+
          <Nav />
     </div>
   );

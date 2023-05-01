@@ -16,8 +16,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const Merch = (props) =>{
-  // const {merch} = props
+const Merch = () =>{
   const {id} = useParams();
   const { merches } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
