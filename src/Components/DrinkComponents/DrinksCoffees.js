@@ -60,20 +60,26 @@ const DrinksCoffees = () =>{
 
   {coffees.map(drink => {
         return (
-      <Card key={ drink.id }sx={{ 
-      maxWidth: 425,
-      ':hover':{
-        boxShadow: 2,
-        zIndex: 2
-      }}}>
-        <Link to={`/menu/${drink.id}`}>
-        <CardMedia
-          component="img"
-          image={drink.imageUrl}
-          alt={drink.name}
-          sx={{ padding:"0", borderRadius: "1rem", objectFit: "contain" }}
-          />
-          </Link>
+          <Card key={ drink.id }sx={{ 
+            maxWidth: 375,
+            ':hover':{
+              boxShadow: 5
+            }
+            }}>
+              <Link to={`${drink.id}`}>
+              <CardMedia
+                component="img"
+                image={drink.imageUrl}
+                alt={drink.name}
+                sx={{ 
+                  aspectRatio: "4/5",
+                  objectFit: "cover",
+                  padding:"0", 
+                  borderRadius: ".5rem",
+                }}
+                />
+                </Link>
+          
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {drink.name}

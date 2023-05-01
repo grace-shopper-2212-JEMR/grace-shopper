@@ -32,6 +32,9 @@ const Product = conn.define('product', {
       notEmpty: true,
     },
   },
+  description: {
+    type: TEXT,
+  }
 });
 
 module.exports = {

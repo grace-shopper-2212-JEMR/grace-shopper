@@ -62,7 +62,7 @@ const DrinkProducts = () =>{
   {drinks.map(drink => {
         return (
       <Card key={ drink.id }sx={{ 
-      maxWidth: 425,
+      maxWidth: 375,
       ':hover':{
         boxShadow: 5
       }
@@ -73,11 +73,11 @@ const DrinkProducts = () =>{
           image={drink.imageUrl}
           alt={drink.name}
           sx={{ 
+            aspectRatio: "4/5",
+            objectFit: "cover",
             padding:"0", 
-            borderRadius: ".5rem", 
-            objectFit: "contain",
+            borderRadius: ".5rem",
           }}
-
           />
           </Link>
         <CardContent>
@@ -85,7 +85,7 @@ const DrinkProducts = () =>{
             {drink.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {drink.name} and we'll insert a description
+            {drink.description}
           </Typography>
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>
