@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Home from './Home';
-import Login from './Login';
+// import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
@@ -16,14 +16,15 @@ import MerchHats from './MerchComponents/MerchHats';
 import MerchMugs from './MerchComponents/MerchMugs';
 import Account from './Account';
 import About from './About/About';
+import AboutLocations from './About/AboutLocations';
+import AboutCareers from './About/AboutCareers';
+import AboutContact from './About/AboutContact';
 import Logout from './Logout';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
-import AboutLocations from './About/AboutLocations';
-import AboutCareers from './About/AboutCareers';
-import AboutContact from './About/AboutContact';
+
 
 const App = ()=> {
   const { auth } = useSelector(state => state);
@@ -53,17 +54,18 @@ const App = ()=> {
     prevAuth.current = auth
   })
   return (
-    <div>
+    <div >
       <Nav />
       
+        <div className='app-body'>
+          {/* THIS DIV IS SO THE FOOTER STICKS TO THE BOTTOM */}
           <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a>
 
           
       
 
-        <div>
             <Routes>
-              <Route path='/home' element={ <Home /> } />
+              <Route path='/' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
 
               <Route path='/menu' element={ <DrinkProducts /> } />
@@ -83,7 +85,7 @@ const App = ()=> {
 
 
               <Route path='/register' element={ <Register />} />
-              <Route path='/login' element={ <Login />} />
+              {/* <Route path='/login' element={ <Login />} /> */}
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
@@ -93,6 +95,9 @@ const App = ()=> {
             </Routes>
           </div>
      
+        
+
+
          <Nav />
     </div>
   );

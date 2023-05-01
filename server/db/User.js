@@ -115,7 +115,9 @@ User.prototype.removeFromCart = async function({ product, quantityToRemove}){
 };
 
 User.prototype.generateToken = function(){
-  return jwt.sign({ id: this.id }, JWT);
+  return {
+    token: jwt.sign({ id: this.id }, process.env.JWT || 'shhh')
+  }
 };
 
 User.findByToken = async function(token){
@@ -162,7 +164,7 @@ User.authenticateGithub = async function(code){
       }
     }
   );
-  
+
   const login = response.data.login;
   let user = await User.findOne({
     where: {
@@ -183,12 +185,12 @@ User.authenticate = async function({ username, password }){
       username
     }
   });
-  if(user && await bcrypt.compare(password, user.password)){
-    return jwt.sign({ id: user.id }, JWT);
-  }
+  if(!user || !(await bcrypt.compare(password, user.password))){
   const error = new Error('bad credentials');
   error.status = 401;
   throw error;
+  }
+  return user.generateToken();
 }
 
 User.register = async function(credentials){

@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0
+}
 html {
   overflow-y: scroll;
 }
@@ -5,8 +9,12 @@ html {
 body {
   font-family: verdana;
   margin: 0;
-  background-color: #f5f5f5
+  background-color: #f5f5f5;
+}
 
+.app-body{
+  min-height: calc((100%) -  140px);
+  border-bottom: 2px solid red
 }
 
 form {
@@ -25,5 +33,11 @@ nav {
 
 #drinkProductDiv{
   border: 2px solid blue;
+}
+
+.background {
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  border: 2px solid red;
 }
 

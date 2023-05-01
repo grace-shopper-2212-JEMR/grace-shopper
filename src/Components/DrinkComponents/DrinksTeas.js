@@ -83,8 +83,8 @@ const DrinksTeas = () =>{
           </Typography>
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>
-        <Button onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
-        <Button onClick={(ev) => _addToCart(drink)} size="small">Add to Cart</Button>
+        <Button component='span' onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
+        <Button component='span' onClick={(ev) => _addToCart(drink)} size="small">Add to Cart</Button>
       </CardActionArea>
     </Card>
         )
