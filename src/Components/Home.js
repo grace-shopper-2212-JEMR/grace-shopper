@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom'
-
+// import backgroundImg from './images/coffee_cup_illustration_blue.jpeg'
 const Home = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
@@ -11,9 +11,10 @@ const Home = ()=> {
     <div>
       
        {
-        auth.id ? 
+        (!auth.id) ? 
      (
       <div>
+
       <h1>You're Not Logged In!</h1>
       <div>
         <div>
@@ -24,12 +25,14 @@ const Home = ()=> {
   </div>        
         )  : (
           <div>
+            {/* <img src={backgroundImg}/> */}
           <h1>Welcome {auth.username}</h1>
           <div>
             <div>
               Please browse amongst our delicious selection of drinks or our fashionable merch.
             </div>
           </div>
+        
       </div>
         )
         } 
