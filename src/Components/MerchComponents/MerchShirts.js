@@ -75,8 +75,8 @@ const MerchShirts = () =>{
           </Typography>
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>
-        <Button onClick={(ev) => _moreDetails(merch)} size="small">More Details</Button>
-        <Button onClick={(ev) => _addToCart(merch)} size="small">Add to Cart</Button>
+        <Button component='span' onClick={(ev) => _moreDetails(merch)} size="small">More Details</Button>
+        <Button component='span' onClick={(ev) => _addToCart(merch)} size="small">Add to Cart</Button>
       </CardActionArea>
     </Card>
         )
