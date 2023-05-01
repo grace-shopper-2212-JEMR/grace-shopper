@@ -11,7 +11,9 @@ const Home = ()=> {
     <div>
       
        {
+
         (!auth.id) ? 
+
      (
       <div>
 
@@ -23,6 +25,20 @@ const Home = ()=> {
         {/* <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button> */}
       </div>
   </div>        
+
+        console.log(auth.id)
+        (
+            <div>
+                <h1>Welcome {auth.username}</h1>
+                <div>
+                  <div>
+                    Please browse amongst our delicious selection of drinks or our fashionable merch.
+                  </div>
+                  <Button variant="contained" onClick={()=> dispatch(logout())}>Logout</Button>
+                </div>
+            </div>
+        
+
         )  : (
           <div>
             {/* <img src={backgroundImg}/> */}

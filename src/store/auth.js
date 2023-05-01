@@ -15,7 +15,7 @@ export const updateAuth = (auth)=> {
 };
 
 export const logout = ()=> {
-  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('auth');
   return { type: 'SET_AUTH', auth: {} };
 };
 
