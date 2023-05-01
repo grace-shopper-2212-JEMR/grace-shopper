@@ -53,19 +53,25 @@ const MerchHats = () =>{
   {hats.map(merch => {
         return (
       <Card key={ merch.id }sx={{ 
-      maxWidth: 425,
-      ':hover':{
-        boxShadow: 2,
-        zIndex: 2
-      }}}>
+            maxWidth: 375,
+            ':hover':{
+              boxShadow: 5
+            }
+            }}>
         <Link to={`/merch/${merch.id}`}>
         <CardMedia
           component="img"
           image={merch.imageUrl}
           alt={merch.name}
-          sx={{ padding:"0", borderRadius: "1rem", objectFit: "contain" }}
+          sx={{ 
+            aspectRatio: "4/5",
+            objectFit: "cover",
+            padding:"0", 
+            borderRadius: ".5rem",
+          }}
           />
           </Link>
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {merch.name}
