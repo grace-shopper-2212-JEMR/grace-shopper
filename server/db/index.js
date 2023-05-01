@@ -27,16 +27,16 @@ const syncAndSeed = async()=> {
     name: "Coffee",
     category: "coffee",
   })
-
-  await Coffee.update({name: 'Coffee'})
-  require('fs').readFile('coffee1.jpg', 'base64', async(err, data)=> {
-    const imageUrl = `data:image/jpeg;base64,${data}`;
-    await Coffee.update({imageUrl})
-  });
+// try to create the DB photos that was unsucsessful as of now //
+  // await Coffee.update({name: 'Coffee'})
+  // require('fs').readFile('coffee1.jpg', 'base64', async(err, data)=> {
+  //   const imageUrl = `data:image/jpeg;base64,${data}`;
+  //   await Coffee.update({imageUrl})
+  // });
 
   const Cappuccino = await Product.create({
     name: "Cappuccino",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1582291734204-7a4dfa96871b",
     category: "coffee",
   })
 
