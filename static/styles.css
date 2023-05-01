@@ -27,3 +27,7 @@ nav {
   border: 2px solid blue;
 }
 
+.background-image {
+  background-image: url("./static/images/coffee_cup_illustration_blue.jpeg");
+}
+
