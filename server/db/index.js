@@ -158,16 +158,11 @@ const syncAndSeed = async()=> {
   })
 
   const Mug = await Product.create({
-<<<<<<< Updated upstream
-    name: "Logo Mug",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
-    category: "mug",
-    description:'Our high-quality mugs are designed with our cafe logo and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
-=======
     name: "Script for Java Mug",
     imageUrl: "https://imgbox.com/4wLvVwAT",
-    category: "mug"
->>>>>>> Stashed changes
+    category: "mug",
+    description:'Our high-quality mugs are designed with our cafe logo and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
+
   })
 
   
