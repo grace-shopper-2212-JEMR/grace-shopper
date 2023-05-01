@@ -116,7 +116,7 @@ User.prototype.removeFromCart = async function({ product, quantityToRemove}){
 
 User.prototype.generateToken = function(){
   return {
-    token: jwt.sign({ id: this.id }, process.env.JWT)
+    token: jwt.sign({ id: this.id }, process.env.JWT || 'shhh')
   }
 };
 
