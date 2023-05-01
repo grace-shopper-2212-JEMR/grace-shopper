@@ -24,7 +24,9 @@ const Home = ()=> {
         {/* <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button> */}
       </div>
   </div>        
+
         )  : (
+
           <div>
            
           <h1>Welcome {auth.username}</h1>
