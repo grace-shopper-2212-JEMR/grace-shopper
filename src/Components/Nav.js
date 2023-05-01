@@ -144,6 +144,7 @@ export default function Nav() {
               ))}
             </Menu>
           </Box>
+          
           <EmojiFoodBeverageIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -163,6 +164,7 @@ export default function Nav() {
           >
             Script for Java 
           </Typography>
+            
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -175,10 +177,46 @@ export default function Nav() {
             ))}
           </Box>
 
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex'},
+              flexGrow: 0,
+              fontFamily: 'monospace',
+              fontWeight: 400,
+              letterSpacing: '.1rem',
+              color: 'white',
+              textDecoration: 'none',
+              justifyContent: 'center'
+            }}
+          >
+            <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>
+          </Typography>
+
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none'},
+              flexGrow: 0,
+              fontFamily: 'monospace',
+              fontWeight: 400,
+              letterSpacing: '.05rem',
+              color: 'white',
+              textDecoration: 'none',
+              justifyContent: 'center'
+            }}
+          >
+            <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none' }}>Github</a>
+          </Typography>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatarDS.jpeg" />
+                <Avatar alt="Dwight Avatar" src="/static/images/avatarDS.jpeg" />
               </IconButton>
             </Tooltip>
             <Menu
