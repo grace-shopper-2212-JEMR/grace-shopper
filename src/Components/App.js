@@ -65,7 +65,7 @@ const App = ()=> {
         <div className='app-body'>
 
           {/* THIS DIV IS SO THE FOOTER STICKS TO THE BOTTOM */}
-          <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a>
+          {/* <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a> */}
 
           
       
