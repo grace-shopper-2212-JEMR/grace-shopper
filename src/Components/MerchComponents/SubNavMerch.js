@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 function SubNavMerch() {
  
   return (
+    <div id='subnav'>
     <AppBar position="static"
     style={{ background: '#029987' }}>
       <Container sx={{ 
@@ -130,6 +131,7 @@ function SubNavMerch() {
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
   );
 }
 export default SubNavMerch;

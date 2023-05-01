@@ -14,7 +14,6 @@ body {
 
 .app-body{
   min-height: calc((100%) -  137px);
-  border-bottom: 2px solid red
 }
 
 form {
@@ -29,6 +28,12 @@ form > * {
 nav {
   display: flex;
   justify-content: space-around;
+}
+
+#subnav{
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 #ProductDiv{
@@ -56,4 +61,13 @@ nav {
 
   /* border: 2px solid red; */
 }
+
+#aboutDiv{
+  margin: 1rem auto 2rem;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
