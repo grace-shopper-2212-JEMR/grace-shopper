@@ -8,10 +8,12 @@ import DrinksCoffees from './DrinksCoffees';
 import DrinksTeas from './DrinksTeas';
 import DrinksSmoothies from './DrinksSmoothies';
 import Merch from '../MerchComponents/Merch';
+import DrinkProducts from './DrinkProducts';
 
 function SubNavDrinks() {
  
   return (
+    <div id='subnav'>
     <AppBar position="static"
     style={{ background: '#029987' }}>
       <Container sx={{ 
@@ -19,6 +21,24 @@ function SubNavDrinks() {
         }}>
 
         <Toolbar disableGutters>
+
+        <Typography
+            variant="h5"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none'},
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 400,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              justifyContent: 'center'
+            }}
+          >
+            <Link to='../menu/' element={<DrinkProducts/>} style={{ textDecoration: 'none', color: 'inherit' }}>All Drinks</Link>
+          </Typography>
         
           <Typography
             variant="h5"
@@ -89,6 +109,24 @@ function SubNavDrinks() {
               justifyContent: 'center'
             }}
           >           
+            <Link to='../menu/' element={<DrinkProducts/>} style={{ textDecoration: 'none', color: 'inherit' }}>All Drinks</Link>
+          </Typography>
+
+          <Typography
+            variant="h5"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex'},
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              justifyContent: 'center'
+            }}
+          >           
             <Link to='../menu/coffee' element={<DrinksCoffees/>} style={{ textDecoration: 'none', color: 'inherit' }}>Coffee</Link>
           </Typography>
 
@@ -133,6 +171,7 @@ function SubNavDrinks() {
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
   );
 }
 export default SubNavDrinks;

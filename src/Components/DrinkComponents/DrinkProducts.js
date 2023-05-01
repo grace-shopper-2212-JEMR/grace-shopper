@@ -56,7 +56,7 @@ const DrinkProducts = () =>{
         rowGap: '1rem',
         gridTemplateColumns: 'repeat(3, 1fr)',
         borderColor: 'primary.main',
-        borderRadius: "2rem",
+        borderRadius: '1rem'
       }}>  
 
   {drinks.map(drink => {
@@ -64,15 +64,20 @@ const DrinkProducts = () =>{
       <Card key={ drink.id }sx={{ 
       maxWidth: 425,
       ':hover':{
-        boxShadow: 2,
-        zIndex: 2
-      }}}>
+        boxShadow: 5
+      }
+      }}>
         <Link to={`${drink.id}`}>
         <CardMedia
           component="img"
           image={drink.imageUrl}
           alt={drink.name}
-          sx={{ padding:"0", borderRadius: "1rem", objectFit: "contain" }}
+          sx={{ 
+            padding:"0", 
+            borderRadius: ".5rem", 
+            objectFit: "contain",
+          }}
+
           />
           </Link>
         <CardContent>

@@ -2,7 +2,6 @@
 // import Home from './Home';
 // import Login from './Login';
 // import Cart from './Cart';
-import { useSelector, useDispatch } from 'react-redux';
 // import { loginWithToken, fetchCart } from '../store';
 // import { Link, Routes, Route } from 'react-router-dom';
 
@@ -37,6 +36,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
