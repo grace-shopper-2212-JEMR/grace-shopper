@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0
+}
 html {
   overflow-y: scroll;
 }
@@ -26,4 +30,6 @@ nav {
 #drinkProductDiv{
   border: 2px solid blue;
 }
+
+
 
