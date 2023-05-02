@@ -50,11 +50,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import CoronavirusSharpIcon from '@mui/icons-material/CoronavirusSharp';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import { useNavigate, Link } from 'react-router-dom';
 import auth from '../store/auth';
 import Logout from './Logout'
+
 
 
 export default function Nav() {

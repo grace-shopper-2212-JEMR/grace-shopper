@@ -14,7 +14,12 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
+import {addToCart} from "../../store"
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import CardActions from '@mui/material/CardActions';
 // NOTES
 
   // ALL OF THESE CARDS WILL BE EVENTUALLY MAPPED WHEN WE HAVE THE DATA. WE'LL DO SOMETHING LIKE {drink.image} and {drink.description} or something.
@@ -27,6 +32,7 @@ const DrinkProducts = () =>{
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
+  const [quantity, setQuantity] = useState(1);
   
   if (!drinks){return null}
 
@@ -35,8 +41,10 @@ const DrinkProducts = () =>{
     // console.log(drink.id, 'more details')
     navigate(`/menu/${drink.id}`)
   }
+
   const _addToCart =(drink)=>{
     console.log(drink.id, 'add to cart')
+
   }
 
   if (!drinks){return null}
@@ -91,7 +99,31 @@ const DrinkProducts = () =>{
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>
         <Button component='span' onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
-        <Button component='span' onClick={(ev) => _addToCart(drink)} size="small">Add to Cart</Button>
+        <CardActions>
+          {/* <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={quantity}
+                  label="quantity"
+                  onChange={(ev) => setQuantity(ev.target.value) }
+                >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+              </Select>
+        
+            </FormControl>
+          </Box> */}
+        <input value={quantity} onChange={(ev) => setQuantity(ev.target.value)}/>
+        <Button size="small" onClick={()=> clickToCart(drink, quantity)}>Add To Cart</Button>
+        </CardActions>
       </CardActionArea>
     </Card>
         )

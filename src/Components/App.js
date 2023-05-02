@@ -20,6 +20,7 @@ import AboutLocations from './About/AboutLocations';
 import AboutCareers from './About/AboutCareers';
 import AboutContact from './About/AboutContact';
 import Logout from './Logout';
+import Login from './Login';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';

@@ -15,12 +15,18 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {addToCart} from "../../store"
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const DrinkProductPage = () =>{
   const dispatch = useDispatch()
   const {id} = useParams();
   const { drinks } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   if (!drinks){return null}
 
   const drink = drinks.find(d => d.id===id)
@@ -42,7 +48,7 @@ const DrinkProductPage = () =>{
   };
 
   const clickToCart = () => {
-    dispatch(addToCart(drink))
+    dispatch(addToCart(drink, quantity))
   }
 
   return (
@@ -57,32 +63,6 @@ const DrinkProductPage = () =>{
           />
           </Card>
         </div>
-    {/* <div >
-
-      <h2>This is the page for a SINGLE {drink.name} drink product. </h2>
-      </div> */}
-    
-    {/* <Card sx={{ maxWidth: 345 }}>
-       <CardMedia
-         sx={{ height: 140 }}
-         image={drink.imageUrl}
-         title={drink.name}
-       />
-       <CardContent>
-         <Typography gutterBottom variant="h5" component="div">
-             {drink.name}
-         </Typography>
-         <Typography variant="body2" color="text.secondary">
-             Size: {drink.size}
-              <br />
-             { drink.isHot ? 'Item is Hot, CAUTION' : ''}
-             { drink.isTea ? "Sip it or Spill it, Enjoy your Tea!" : ""}
-         </Typography>
-       </CardContent>
-       <CardActions>
-         <Button size="small">Add to Order</Button>
-       </CardActions>
-     </Card> */}
      
      <div id="productDivRight">
 
@@ -121,7 +101,28 @@ const DrinkProductPage = () =>{
           <FavoriteIcon />
         </IconButton>
         <CardActions>
-         <Button size="small" onClick={()=> clickToCart()}>Add To Cart</Button>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={quantity}
+                  label="quantity"
+                  onChange={(ev) => setQuantity(ev.target.value) }
+                >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+              </Select>
+        
+            </FormControl>
+          </Box>
+        <Button size="small" onClick={()=> clickToCart()}>Add To Cart</Button>
         </CardActions>
         <ExpandMore
           expand={expanded}
