@@ -50,13 +50,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import CoronavirusSharpIcon from '@mui/icons-material/CoronavirusSharp';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import { useNavigate } from 'react-router-dom';
 
 
 const pages = ['Home', 'Menu', 'Merch', 'About'];
-const settings = ['Account', 'Cart', 'Logout'];
+const settings = ['Account', 'Cart', 'Login', 'Logout'];
 
 export default function Nav() {
   const { auth } = useSelector(state => state);

@@ -20,6 +20,7 @@ import AboutLocations from './About/AboutLocations';
 import AboutCareers from './About/AboutCareers';
 import AboutContact from './About/AboutContact';
 import Logout from './Logout';
+import Login from './Login';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
@@ -91,7 +92,7 @@ const App = ()=> {
 
 
               <Route path='/register' element={ <Register />} />
-              {/* <Route path='/login' element={ <Login />} /> */}
+              <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />

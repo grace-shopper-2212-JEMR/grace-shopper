@@ -20,7 +20,7 @@ export const fetchCart = ()=> {
   };
 };
 
-export const addToCart = (product, quantity = 1) => {
+export const addToCart = (product, quantity) => {
   return async(dispatch)=> {
     const token = window.localStorage.getItem('token');
     const response = await axios.post('/api/orders/cart',{
