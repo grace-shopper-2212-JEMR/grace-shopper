@@ -77,7 +77,7 @@ const MerchMugs = () =>{
             {merch.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {merch.name} and we'll insert a description
+            {merch.description} 
           </Typography>
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>

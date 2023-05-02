@@ -41,10 +41,10 @@ const DrinkProducts = () =>{
     // console.log(drink.id, 'more details')
     navigate(`/menu/${drink.id}`)
   }
-  
 
-  const clickToCart = (drink, quantity) => {
-    dispatch(addToCart(drink, quantity))
+  const _addToCart =(drink)=>{
+    console.log(drink.id, 'add to cart')
+
   }
 
   if (!drinks){return null}
@@ -72,7 +72,9 @@ const DrinkProducts = () =>{
       maxWidth: 375,
       ':hover':{
         boxShadow: 5
-      }
+      },
+      display: 'flex', 
+      flexDirection: 'column' 
       }}>
         <Link to={`${drink.id}`}>
         <CardMedia
@@ -87,7 +89,7 @@ const DrinkProducts = () =>{
           }}
           />
           </Link>
-        <CardContent>
+        <CardContent  sx={{flexGrow: 1}}>
           <Typography gutterBottom variant="h5" component="div">
             {drink.name}
           </Typography>

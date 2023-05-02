@@ -21,12 +21,6 @@ const About = () => {
        }}>
         Let me tell you, there's nothing quite like a good cup of coffee to get the brain humming and the ideas flowing. 
     </Typography>
-
-      <div id = 'aboutDiv'>
-      <div id = 'aboutDivLeft'>
-      <img src='static\images\silly coffee photos with guy and his computer.jpg' style={{borderRadius: '1rem'}}></img>   
-      </div>
-      <div id = "aboutDivRight">
       <Typography
        sx={{
           textIndent: '3rem',
@@ -59,10 +53,20 @@ const About = () => {
 
         Our company is the perfect blend of coffee and technology, and I can't think of a better way to start your day.
         </Typography>
+        <Typography
+       sx={{
+        textAlign: 'center',
+        fontFamily: 'verdana',
+        fontSize: '1.5rem',
+        fontWeight: '500',
+        mx: 'auto',
+        marginTop: '2rem',
+        marginBottom: '1rem',
+        maxWidth: '70%'
+       }}>
+        So come on in! Stop by any of our locations and feel free to hang out, get some work done, and drink some great coffee. 
+    </Typography>
     </div>
-    </div>
-    </div>
-
   )
 }
 

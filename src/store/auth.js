@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const auth = (state = { }, action)=> {
   if(action.type === 'SET_AUTH'){
     return action.auth;
@@ -15,8 +17,10 @@ export const updateAuth = (auth)=> {
 };
 
 export const logout = ()=> {
-  window.localStorage.removeItem('auth');
-  return { type: 'SET_AUTH', auth: {} };
+  return (dispatch)=> {
+    window.localStorage.removeItem('token');
+    dispatch({ type: 'SET_AUTH', auth: {} });
+  };
 };
 
 

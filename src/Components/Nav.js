@@ -51,17 +51,21 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import auth from '../store/auth';
+import Logout from './Logout'
 
 
-const pages = ['Home', 'Menu', 'Merch', 'About'];
-const settings = ['Account', 'Cart', 'Login', 'Logout'];
 
 export default function Nav() {
   const { auth } = useSelector(state => state);
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const pages = ['Home', 'Menu', 'Merch', 'About'];
+  let settings = []
+  auth.id ? (settings = ['Account', 'Cart', 'Logout']) : (settings = ['Account', 'Cart', 'Login'])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -191,7 +195,8 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>} style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            
           </Typography>
 
           <Typography
@@ -209,7 +214,7 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none' }}>Github</a>
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>}  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
           </Typography>
 
           <Box sx={{ flexGrow: 0 }}>
