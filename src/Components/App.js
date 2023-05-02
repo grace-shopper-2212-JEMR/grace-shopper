@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Home from './Home';
+import Home from './HomeComponents/Home';
 // import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
@@ -72,6 +72,7 @@ const App = ()=> {
 
             <Routes>
               <Route path='/' element={ <Home /> } />
+              <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
 
               <Route path='/menu' element={ <DrinkProducts /> } />
