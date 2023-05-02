@@ -23,9 +23,9 @@ const syncAndSeed = async()=> {
     User.create({ username: 'ethyl', password: '123' }),
 
     Product.create({ name: "Java Mug", imageUrl: "https://images.unsplash.com/photo-1682986501364-d4d746b3a49b", category: "mug",
-      description:'Java Mug - Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
+      description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
     Product.create({ name: "Script For Java Mug", imageUrl: "https://images.unsplash.com/photo-1682987528534-b07d285d1cd1", category: "mug",
-      description:' Script For Java Mug - Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
+      description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
 
    
 
