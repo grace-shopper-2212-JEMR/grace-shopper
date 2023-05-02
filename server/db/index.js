@@ -21,7 +21,14 @@ const syncAndSeed = async()=> {
     Product.create({ name: 'bar', category: "hat"  }),
     Product.create({ name: 'bazz', category: "mug"  }),
     User.create({ username: 'ethyl', password: '123' }),
+
+    Product.create({ name: "Java Mug", imageUrl: "https://images.unsplash.com/photo-1682986501364-d4d746b3a49b", category: "mug",
+      description:'Java Mug - Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
+      Product.create({ name: "Script For Java Mug", imageUrl: "https://images.unsplash.com/photo-1682987528534-b07d285d1cd1", category: "mug",
+      description:' Script For Java Mug - Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
+
     Product.create({ name: "Script for Java Mug", imageUrl: "https://imgbox.com/4wLvVwAT", category: "mug"})
+
   ]);
   
   const Coffee = await Product.create({
@@ -145,25 +152,26 @@ const syncAndSeed = async()=> {
 
   const Tshirt = await Product.create({
     name: "T-Shirt",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1682989375635-ca9058719432",
     category: "shirt",
     description: 'Our soft and comfortable t-shirts are made from high-quality materials, featuring our cafe logo and a stylish design to show off your love for our coffee.',
   })
 
   const Hat = await Product.create({
     name: "Baseball hat",
-    imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+    imageUrl: "https://images.unsplash.com/photo-1682992992053-2a7a52b82db4",
     category: "hat",
     description: 'Our adjustable hats are perfect for sunny days and are embroidered with our cafe logo, providing a stylish accessory for your coffee runs and outdoor activities.',
   })
 
-  const Mug = await Product.create({
-    name: "Script for Java Mug",
-    imageUrl: "https://imgbox.com/4wLvVwAT",
-    category: "mug",
-    description:'Our high-quality mugs are designed with our cafe logo and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
 
-  })
+  // const Mug = await Product.create({
+  //   name: "Logo Mug",
+  //   imageUrl: "https://www.firstbenefits.org/wp-content/uploads/2017/10/placeholder.png",
+  //   category: "mug",
+  //   description:'Our high-quality mugs are designed with our cafe logo and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
+  // })
+
 
   
   const cart = await ethyl.getCart();
