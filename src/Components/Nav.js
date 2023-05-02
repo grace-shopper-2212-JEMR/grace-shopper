@@ -63,10 +63,9 @@ export default function Nav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  if(auth){console.log(auth)}
-    const pages = ['Home', 'Menu', 'Merch', 'About'];
-    let settings = []
-    auth.id ? (settings = ['Account', 'Cart', 'Logout']) : (settings = ['Account', 'Cart', 'Login'])
+  const pages = ['Home', 'Menu', 'Merch', 'About'];
+  let settings = []
+  auth.id ? (settings = ['Account', 'Cart', 'Logout']) : (settings = ['Account', 'Cart', 'Login'])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

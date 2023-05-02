@@ -2,13 +2,20 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
 const Logout = ()=> {
-  const { auth } = useSelector(state => state);
-  const dispatch = useDispatch();
+    const { auth } = useSelector(state => state);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const _logout = (user) => {
+        dispatch(logout(user))
+        navigate('/')
+    }
+
   return (
     <div>
         {
@@ -17,7 +24,7 @@ const Logout = ()=> {
                 <h1>Logout</h1>
                 <div>
                     Are you sure you want to log out?
-                    <Button variant="contained" onClick={()=> dispatch(logout())}>Logout</Button>
+                    <Button variant="contained" onClick={(user)=> (_logout(user))}>Logout</Button>
                 </div>
             </div>
         

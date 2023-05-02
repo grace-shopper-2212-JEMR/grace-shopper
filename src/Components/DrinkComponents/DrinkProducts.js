@@ -36,7 +36,6 @@ const DrinkProducts = () =>{
     navigate(`/menu/${drink.id}`)
   }
   const _addToCart =(drink)=>{
-    console.log(drink)
     console.log(drink.id, 'add to cart')
   }
 

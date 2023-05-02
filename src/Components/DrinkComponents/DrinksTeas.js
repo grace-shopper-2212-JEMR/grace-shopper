@@ -29,12 +29,10 @@ const DrinksTeas = () =>{
   
 
   const _moreDetails =(drink)=>{
-    console.log(drink)
     // console.log(drink.id, 'more details')
     navigate(`/menu/${drink.id}`)
   }
   const _addToCart =(drink)=>{
-    console.log(drink)
     console.log(drink.id, 'add to cart')
   }
 

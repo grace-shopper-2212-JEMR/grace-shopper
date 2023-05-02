@@ -42,7 +42,6 @@ const DrinkProductPage = () =>{
   };
 
   const clickToCart = () => {
-   // console.log(drink)
     dispatch(addToCart(drink))
   }
 
