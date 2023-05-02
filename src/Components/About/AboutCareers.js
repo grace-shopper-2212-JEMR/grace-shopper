@@ -6,6 +6,12 @@ const AboutCareers = () => {
   return (
     <div>
       <SubNavAbout/>
+
+      <div id = 'aboutDiv'>
+      <div id = 'aboutDivLeft'>
+      <img src='static\images\silly coffee photos with guy and his computer.jpg' style={{borderRadius: '1rem'}}></img>   
+      </div>
+      <div id = "aboutDivRight">
        <Typography
        sx={{
         textAlign: 'center',
@@ -19,6 +25,8 @@ const AboutCareers = () => {
         Currently hiring 4 entry-level full stack. Remote optional, but any travel to and from Paris, France will be reimbursed. No coding test. $300k + benefits. Please contact us for further details and to apply.
 
         </Typography>
+        </div>
+        </div>
     </div>
   )
 }

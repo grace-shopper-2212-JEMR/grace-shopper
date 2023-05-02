@@ -126,7 +126,7 @@ function SubNavAbout() {
               display: { xs: 'none', md: 'flex'},
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 400,
+              fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
