@@ -78,7 +78,6 @@ const MerchMugs = () =>{
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {merch.description} 
-            console.log(merch.description)
           </Typography>
         </CardContent>
           <CardActionArea sx={{textAlign:'center'}}>
