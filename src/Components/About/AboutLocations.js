@@ -79,7 +79,9 @@ const AboutLocations = () => {
             maxWidth: 375,
             ':hover':{
               boxShadow: 5
-            }
+            },
+            display: 'flex', 
+            flexDirection: 'column' 
             }}>
               {/* <Link to={`${location.id}`}> */}
               <CardMedia
@@ -94,7 +96,7 @@ const AboutLocations = () => {
                 }}
                 />
                 {/* </Link> */}
-        <CardContent>
+        <CardContent  sx={{flexGrow: 1}}>
           <Typography gutterBottom variant="h5" component="div">
             {location.name}
           </Typography>
@@ -105,7 +107,7 @@ const AboutLocations = () => {
             <li style={{listStyleType: "none"}}>Saturday - Sunday: {location.ssHours}</li>
           </Typography>
         </CardContent>
-          <CardActionArea sx={{textAlign:'center', mt: "auto", display:'flex', alignItems: "flex-end"}}>
+          <CardActionArea sx={{textAlign:'center'}}>
         <Button component='span' onClick={()=>window.open(location.historyUrl)} size="small">Location History</Button>
         <Button component='span' onClick={()=>window.open(location.googleMaps)} size="small">Google Maps</Button>
       </CardActionArea>
