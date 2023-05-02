@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Home from './HomeComponents/Home';
-// import Login from './Login';
+import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
@@ -63,7 +63,8 @@ const App = ()=> {
         {/* original color of this image is #7CC9D1 */}
 
         <div className='app-body'>
-
+        
+        
           {/* THIS DIV IS SO THE FOOTER STICKS TO THE BOTTOM */}
           {/* <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a> */}
 
@@ -92,7 +93,7 @@ const App = ()=> {
 
 
               <Route path='/register' element={ <Register />} />
-              {/* <Route path='/login' element={ <Login />} /> */}
+              <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
@@ -100,6 +101,7 @@ const App = ()=> {
                 <Route path='/about/careers' element={<AboutCareers />}/>
                 <Route path='/about/contact' element={<AboutContact />}/>
             </Routes>
+            
           </div>
      
         
