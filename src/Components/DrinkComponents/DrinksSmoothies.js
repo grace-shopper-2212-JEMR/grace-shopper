@@ -64,7 +64,9 @@ const DrinksSmoothies = () =>{
             maxWidth: 375,
             ':hover':{
               boxShadow: 5
-            }
+            },
+            display: 'flex', 
+            flexDirection: 'column' 
             }}>
               <Link to={`${drink.id}`}>
               <CardMedia
@@ -79,7 +81,7 @@ const DrinksSmoothies = () =>{
                 }}
                 />
                 </Link>
-        <CardContent>
+        <CardContent  sx={{flexGrow: 1}}>
           <Typography gutterBottom variant="h5" component="div">
             {drink.name}
           </Typography>
