@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../store';
+import { logout } from '../../store';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom'
+import SubNavHome from './SubNavHome';
 
 const Home = ()=> {
   const { auth } = useSelector(state => state);
@@ -10,6 +11,7 @@ const Home = ()=> {
   return (
     // <div className='background' style={{ backgroundImage: "url(static/images/coffee_cup_illustration_blue.jpeg)" }}>
     <div>
+      <SubNavHome/>
       
        {
         (!auth.id) ? 
