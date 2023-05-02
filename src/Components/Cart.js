@@ -19,7 +19,7 @@ const Cart = ()=> {
       <div>
         {products.map(prod => {
           return (
-        <Accordion key={prod.id}>
+        <Accordion key={prod.id} disableGutters>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"

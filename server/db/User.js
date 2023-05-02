@@ -123,7 +123,9 @@ User.prototype.generateToken = function(){
 User.findByToken = async function(token){
   try {
     const { id } = jwt.verify(token, process.env.JWT || 'shhh');
+
     const user = await this.findByPk(id);
+  
     if(user){
       return user;
     }
