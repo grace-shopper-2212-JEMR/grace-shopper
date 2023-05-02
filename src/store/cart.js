@@ -20,6 +20,22 @@ export const fetchCart = ()=> {
   };
 };
 
+export const addToCart = (product, quantity = 1) => {
+  return async(dispatch)=> {
+    const token = window.localStorage.getItem('token');
+    const response = await axios.post('/api/orders/cart',{
+      product,
+      quantity
+    }, {
+      headers: {
+        authorization: token
+      }
+    });
+    console.log(response)
+    dispatch({ type: 'SET_CART', cart: response.data });
+  }
+}
+
 
 
 

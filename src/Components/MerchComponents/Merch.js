@@ -42,7 +42,7 @@ const Merch = () =>{
 
 
   return (
-    <div id="ProductDiv" >
+    <div id="productDiv" >
     <div id="productDivLeft">
     <Card sx={{ maxWidth: 345 }}>
     <CardMedia

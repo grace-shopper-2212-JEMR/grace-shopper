@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useSelector} from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -14,8 +14,10 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {addToCart} from "../../store"
 
 const DrinkProductPage = () =>{
+  const dispatch = useDispatch()
   const {id} = useParams();
   const { drinks } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
@@ -38,6 +40,11 @@ const DrinkProductPage = () =>{
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const clickToCart = () => {
+   // console.log(drink)
+    dispatch(addToCart(drink))
+  }
 
   return (
     <div id="ProductDiv" >
@@ -115,7 +122,7 @@ const DrinkProductPage = () =>{
           <FavoriteIcon />
         </IconButton>
         <CardActions>
-         <Button size="small">Add To Order</Button>
+         <Button size="small" onClick={()=> clickToCart()}>Add To Cart</Button>
         </CardActions>
         <ExpandMore
           expand={expanded}
@@ -130,7 +137,7 @@ const DrinkProductPage = () =>{
         <CardContent>
           <Typography paragraph>Info:</Typography>
           <Typography paragraph>
-            Maybe we include something special about the blend or something random like that for the drop down?
+            {drink.description}
           </Typography>
         </CardContent>
       </Collapse>
