@@ -1,5 +1,5 @@
 try{
-  require('../env.js');
+  const {client_id, client_secret} = require('../env')
 }
 catch(ex){
   console.log('running locally? Add an env.js file with client_id and client_secret')
