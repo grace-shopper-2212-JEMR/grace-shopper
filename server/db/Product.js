@@ -1,5 +1,6 @@
+
 const conn = require('./conn');
-const { VIRTUAL, STRING, BOOLEAN, ENUM, UUID, UUIDV4, TEXT } = conn.Sequelize;
+const { INTEGER, VIRTUAL, STRING, BOOLEAN, ENUM, UUID, UUIDV4, TEXT } = conn.Sequelize;
 
 const Product = conn.define('product', {
   id: {
@@ -39,12 +40,28 @@ const Product = conn.define('product', {
   description: {
     type: TEXT,
   },
-  review: {
-    type: TEXT,
-    validate: {
-      notEmpty: true
+  ratings: {
+    type: INTEGER,
+    defaultValue: 0,
+  },
+  numOfReviews: {
+    type: INTEGER,
+    default: 0
+  },
+  reviews: 
+    {
+      type: STRING,
+      required: true,
+      rating: {
+        type: INTEGER,
+        required: true
+      },
+      comment: {
+        type: STRING,
+        required: true
+      }
     },
-  }
+  
 });
 
 module.exports = {
