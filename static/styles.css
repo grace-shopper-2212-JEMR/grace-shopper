@@ -38,7 +38,7 @@ nav {
 
 #productDiv{
   margin: 1rem auto;
-  max-width: fit-content;
+  max-width: 90%;
   display: flex;
   padding: 2rem 4rem;
   justify-content: center;
@@ -50,6 +50,7 @@ nav {
 }
 
 #productDiv > div {
+  max-width: 100%;
   margin: 1rem
 }
 
@@ -64,7 +65,7 @@ nav {
 
 #aboutDiv{
   margin: 1rem auto;
-  max-width: fit-content;
+  max-width: 90%;
   display: flex;
   padding: 2rem 4rem;
   justify-content: center;
@@ -75,8 +76,15 @@ nav {
   border-radius: 0 0 1rem 0;
 }
 
-#aboutDiv > div {
-  margin: 1rem;
-  flex: 1 1 100%
+#aboutDiv > img {
+    margin: 1rem;
+    flex: 1 1 100%;
+
+}
+#aboutDivRight {
+    margin: 1rem;
+    flex: 1 1 100%;
+    /* flex-flow: nowrap;
+    align-items: center; */
 }
 

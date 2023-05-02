@@ -24,7 +24,7 @@ const About = () => {
 
       <div id = 'aboutDiv'>
       <div id = 'aboutDivLeft'>
-      <img src='static\images\silly coffee photos with guy and his computer.jpg' style={{borderRadius: '1rem'}}></img>   
+        <img src='static\images\silly coffee photos with guy and his computer.jpg' style={{borderRadius: '1rem', maxWidth: "100%"}}></img>   
       </div>
       <div id = "aboutDivRight">
       <Typography
