@@ -38,6 +38,12 @@ const Product = conn.define('product', {
   },
   description: {
     type: TEXT,
+  },
+  review: {
+    type: TEXT,
+    validate: {
+      notEmpty: true
+    },
   }
 });
 
