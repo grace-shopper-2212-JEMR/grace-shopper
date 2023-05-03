@@ -36,15 +36,15 @@ app.post('/register', async(req, res, next)=> {
   }
 });
 
-//prof code
-// app.get('/', isLoggedIn, (req, res, next)=> {
-//   try {
-//     res.send(req.user);
-//   }
-//   catch(ex){
-//     next(ex);
-//   }
-// });
+// prof code
+app.get('/', isLoggedIn, (req, res, next)=> {
+  try {
+    res.send(req.user);
+  }
+  catch(ex){
+    next(ex);
+  }
+});
 
 // prefix is /api/auth
 app.put('/:token', async(req, res, next)=> {
