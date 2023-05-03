@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const { User } = require('../db');
+const User  = require('../db');
 const jwt = require('jsonwebtoken');
 const { isLoggedIn } = require('./middleware.js');
 

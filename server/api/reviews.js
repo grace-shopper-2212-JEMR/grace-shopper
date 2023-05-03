@@ -12,7 +12,7 @@ app.get('/', async(req, res, next)=> {
         const reviews = await Review.findAll({
             include: [{
                 model: Product,
-                attributes: ['id', 'name', 'rating', 'comment']
+                attributes: ['id', 'name', ]
             }],
                 order: [
                     ['productId'] // add 'ASC' later to this array. not sure what that is?
@@ -116,4 +116,4 @@ app.delete('/:reviewId', async(req, res, next)=> {
 
 
 
-module.exports = Review;
+module.exports = app;

@@ -48,22 +48,8 @@ const Product = conn.define('product', {
     type: INTEGER,
     default: 0
   },
-  reviews: 
-    {
-      type: STRING,
-      required: true,
-      rating: {
-        type: INTEGER,
-        required: true
-      },
-      comment: {
-        type: STRING,
-        required: true
-      }
-    },
+  
   
 });
 
-module.exports = {
-  Product,
-};
+module.exports = Product;
