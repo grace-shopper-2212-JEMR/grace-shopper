@@ -7,10 +7,10 @@ const Review = conn.define('review', {
     primaryKey: true,
     defaultValue: UUIDV4
     },
-    userId: {
-        type: INTEGER,
-        allowNull: false
-    },
+    // userId: {
+    //     type: INTEGER,
+    //     allowNull: false
+    // },
     subject: {
         type: STRING,
     },

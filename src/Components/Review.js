@@ -11,7 +11,7 @@ const ReviewItem = ({ review, deleteReview }) => (
     <TableCell>{review.userId}</TableCell>
     <TableCell>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <IconButton component={Link} to={`/review/${review.id}`}>
+        <IconButton component={Link} to={`/reviews/${review.id}`}>
           <Edit />
         </IconButton>
         <IconButton onClick={(event) => deleteReview(event, review)}>
