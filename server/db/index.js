@@ -1,50 +1,57 @@
 const conn = require('./conn');
 const User = require('./User');
-const { Product } = require('./Product');
+const  Product  = require('./Product');
+const  Review  = require('./Review');
 const Order = require('./Order');
 const LineItem  = require('./LineItem');
 
 Order.belongsTo(User);
 LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
-LineItem.belongsTo(Product);  
+LineItem.belongsTo(Product); 
+Product.hasMany(Review)
+Review.belongsTo(Product)
+Review.belongsTo(User)
 
-
-
+//const [moe, lucy, larry, foo, bar, bazz, ethyl] = 
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
-  const [moe, lucy, larry, foo, bar, bazz, ethyl] = await Promise.all([
+  try {
+    const [moe, larry, lucy, ethyl] = await Promise.all([
+    
     User.create({ username: 'moe', password: '123' }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
-    User.create({ username: 'admin', password: 'admin', adminStatus: true }),
-    Product.create({ name: 'foo', category: "shirt", imageUrl: "https://bestteestore.net/wp-content/uploads/2023/03/Dave-Grohl-Mr.T-I-Pity-The-Foo-shirt1.jpg" }),
+    User.create({ username: 'ethyl', password: '123' }),
+  ]);
+
+  const [foo, bar, bazz] = await Promise.all([
+    Product.create({ name: 'foo', category: "shirt" }),
     Product.create({ name: 'bar', category: "hat"  }),
     Product.create({ name: 'bazz', category: "mug"  }),
-    Product.create({ name: 'quq', category: "mug"  }),
-    User.create({ username: 'ethyl', password: '123' }),
-
-    Product.create({ name: "Java Mug", imageUrl: "https://images.unsplash.com/photo-1682986501364-d4d746b3a49b", category: "mug",
-      description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
-    Product.create({ name: "Script For Java Mug", imageUrl: "https://images.unsplash.com/photo-1682987528534-b07d285d1cd1", category: "mug",
-      description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'}),
-
-   
-
   ]);
+  
+  const JavaMug = await Product.create({ 
+    name: "Java Mug", 
+    imageUrl: "https://images.unsplash.com/photo-1682986501364-d4d746b3a49b", 
+    category: "mug",
+    description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
+  });
+  
+  const ScriptForJavaMug = await Product.create({ 
+    name: "Script For Java Mug", 
+    imageUrl: "https://images.unsplash.com/photo-1682987528534-b07d285d1cd1", 
+    category: "mug",
+    description:'Our high-quality mugs are designed with one of our cafe logos and are perfect for enjoying your favorite coffee or tea in the comfort of your home or office.'
+  });
   
   const Coffee = await Product.create({
     name: "Coffee",
     imageUrl: 'https://i.ibb.co/kmqWxwc/coffees.jpg',
     category: "coffee",
     description: 'Our freshly brewed coffee is made from premium roasted beans and served hot with the option to select any variety of milks or sugars.',
-  })
-// try to create the DB photos that was unsucsessful as of now //
-  // await Coffee.update({name: 'Coffee'})
-  // require('fs').readFile('coffee1.jpg', 'base64', async(err, data)=> {
-  //   const imageUrl = `data:image/jpeg;base64,${data}`;
-  //   await Coffee.update({imageUrl})
-  // });
+  });
+  
 
   const Cappuccino = await Product.create({
     name: "Cappuccino",
@@ -87,7 +94,6 @@ const syncAndSeed = async()=> {
     category: "coffee",
     description: 'Our signature cold brew is steeped overnight for a smooth and full-bodied taste, served over ice for a refreshing experience.',
   })
-
 
   const BlackTea = await Product.create({
     name: "Black Tea",
@@ -167,6 +173,38 @@ const syncAndSeed = async()=> {
   })
 
 
+  // console.log(`seeded ${seedReviews.length} reviews`)
+
+const reviews = [
+  {
+    subject: 'Love this place!',
+    description: 'This is the best coffee I have ever had!',
+    rating: 10,
+    userId: moe.id,
+    productId: Coffee.id
+  },
+  {
+    subject: 'Always a long line',
+    description: 'My cold brew coffee is great everytime, but I hate waiting in the long line, so I order ahead now for faster service.',
+    rating: 7,
+    userId: larry.id,
+    productId: ColdBrew.id
+  },
+  {
+    subject: 'Big Smile from my barista',
+    description: 'The best barista in the morning. I always get greeted by name.',
+    rating: 9,
+    userId: lucy.id,
+    productId: Latte.id
+  }
+];
+
+await Promise.all(reviews.map(async (review) => {
+  const newReview = await Review.create(review);
+  const product = await Product.findByPk(review.productId);
+  await newReview.setProduct(product);
+}));
+
 
   const cart = await ethyl.getCart();
   await ethyl.addToCart({ product: bazz, quantity: 3});
@@ -182,14 +220,18 @@ const syncAndSeed = async()=> {
       bar,
       bazz
     }
-  };
-};
-
+  } 
+}catch(error){
+   console.log(error) 
+}
+}
 // console.log('db index', console.log(syncAndSeed()))
 
 module.exports = {
   syncAndSeed,
   User,
   Product,
-  LineItem
+  LineItem,
+  Order,
+  Review
 };
