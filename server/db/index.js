@@ -17,6 +17,7 @@ const syncAndSeed = async()=> {
     User.create({ username: 'moe', password: '123' }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
+    User.create({ username: 'admin', password: 'admin', adminStatus: true }),
     Product.create({ name: 'foo', category: "shirt", imageUrl: "https://bestteestore.net/wp-content/uploads/2023/03/Dave-Grohl-Mr.T-I-Pity-The-Foo-shirt1.jpg" }),
     Product.create({ name: 'bar', category: "hat"  }),
     Product.create({ name: 'bazz', category: "mug"  }),
@@ -34,7 +35,7 @@ const syncAndSeed = async()=> {
   
   const Coffee = await Product.create({
     name: "Coffee",
-    imageUrl: 'https://images.unsplash.com/photo-1525480122447-64809d765ec4',
+    imageUrl: 'https://i.ibb.co/kmqWxwc/coffees.jpg',
     category: "coffee",
     description: 'Our freshly brewed coffee is made from premium roasted beans and served hot with the option to select any variety of milks or sugars.',
   })
