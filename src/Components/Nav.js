@@ -1,40 +1,3 @@
-// import React, { useEffect } from 'react';
-// import Home from './Home';
-// import Login from './Login';
-// import Cart from './Cart';
-// import { loginWithToken, fetchCart } from '../store';
-// import { Link, Routes, Route } from 'react-router-dom';
-
-// const App = ()=> {
-  
-//   return (
-//     <div>
-//       {
-//         auth.id ? <Home /> : <Login />
-//       }
-//       {
-//         !!auth.id  && (
-//           <div>
-//             <nav>
-//               <Link to='/'>Home</Link>
-//               <Link to='/cart'>Cart</Link>
-//             </nav>
-//             {/* <Routes>
-//               <Route path='/cart' element={ <Cart /> } />
-//             </Routes> */}
-//           </div>
-//         )
-//       }
-//     </div>
-//   );
-// };
-
-// export default Nav;
-
-// to install MUI styles and icons copy this to terminal: npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-
-
-
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -50,10 +13,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { ShoppingCartSharp } from '@mui/icons-material';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import { useNavigate, Link } from 'react-router-dom';
 import auth from '../store/auth';
 import Logout from './Logout'
+import Cart from './Cart'
 
 
 
@@ -195,9 +160,11 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>} style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
             
           </Typography>
+
+          {/* <Link element={<Cart/>} sx={{ pr: 1, color: 'white'}}><ShoppingCartSharp /></Link> */}
 
           <Typography
             variant="h6"
@@ -214,12 +181,15 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>}  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
           </Typography>
+
+            <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link>
+          
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar alt="Dwight Avatar" src="/static/images/avatarDS.jpeg" />
               </IconButton>
             </Tooltip>
