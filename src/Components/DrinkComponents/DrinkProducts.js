@@ -28,46 +28,123 @@ import CardActions from '@mui/material/CardActions';
 
 
 
+// const DrinkProducts = () =>{
+//   const { drinks } = useSelector(state => state);
+//   const dispatch = useDispatch()
+//   const navigate = useNavigate()  
+//   const [quantity, setQuantity] = useState(1);
+  
+//   if (!drinks){return null}
+
+//   const _moreDetails =(drink)=>{
+//     console.log(drink)
+//     // console.log(drink.id, 'more details')
+//     navigate(`/menu/${drink.id}`)
+//   }
+
+//   const _addToCart =(drink)=>{
+//     console.log(drink.id, 'add to cart')
+
+//   }
+
+//   if (!drinks){return null}
+
+//   return (
+//     <>
+//       < SubNavDrinks />
+//     <Box
+//       sx={{
+//         m: 5,
+//         mx: 'auto',
+//         px: '1rem',
+//         maxWidth: 1200,
+//         display: 'grid',
+//         columnGap: 1,
+//         rowGap: '1rem',
+//         gridTemplateColumns: 'repeat(3, 1fr)',
+//         borderColor: 'primary.main',
+//         borderRadius: '1rem'
+//       }}>  
+
+//   {drinks.map(drink => {
+//         return (
+//       <Card key={ drink.id }sx={{ 
+//       maxWidth: 375,
+//       ':hover':{
+//         boxShadow: 5
+//       },
+//       display: 'flex', 
+//       flexDirection: 'column' 
+//       }}>
+//         <Link to={`${drink.id}`}>
+//         <CardMedia
+//           component="img"
+//           image={drink.imageUrl}
+//           alt={drink.name}
+//           sx={{ 
+//             aspectRatio: "4/5",
+//             objectFit: "cover",
+//             padding:"0", 
+//             borderRadius: ".5rem",
+//           }}
+//           />
+//           </Link>
+//         <CardContent  sx={{flexGrow: 1}}>
+//           <Typography gutterBottom variant="h5" component="div">
+//             {drink.name}
+//           </Typography>
+//           <Typography variant="body2" color="text.secondary">
+//             {drink.description}
+//           </Typography>
+//         </CardContent>
+//           <CardActionArea sx={{textAlign:'center'}}>
+//         <Button component='span' onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
+//         <CardActions>
+//           {/* <Box sx={{ minWidth: 120 }}>
+//             <FormControl fullWidth>
+//             <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
+//                 <Select
+//                   labelId="demo-simple-select-label"
+//                   id="demo-simple-select"
+//                   value={quantity}
+//                   label="quantity"
+//                   onChange={(ev) => setQuantity(ev.target.value) }
+//                 >
+//                 <MenuItem value={1}>1</MenuItem>
+//                 <MenuItem value={2}>2</MenuItem>
+//                 <MenuItem value={3}>3</MenuItem>
+//                 <MenuItem value={4}>4</MenuItem>
+//                 <MenuItem value={5}>5</MenuItem>
+//                 <MenuItem value={6}>6</MenuItem>
+//                 <MenuItem value={7}>7</MenuItem>
+//               </Select>
+        
+//             </FormControl>
+//           </Box> */}
+//         <input value={quantity} onChange={(ev) => setQuantity(ev.target.value)}/>
+//         <Button size="small" onClick={()=> clickToCart(drink, quantity)}>Add To Cart</Button>
+//         </CardActions>
+//       </CardActionArea>
+//     </Card>
+//         )
+//       })}
+//     </Box>
+//   </>
+//   )
+// }
+
 const DrinkProducts = () =>{
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
-  const [quantity, setQuantity] = useState(1);
+ 
+  
   
   if (!drinks){return null}
 
-  const _moreDetails =(drink)=>{
-    console.log(drink)
-    // console.log(drink.id, 'more details')
-    navigate(`/menu/${drink.id}`)
-  }
-
-  const _addToCart =(drink)=>{
-    console.log(drink.id, 'add to cart')
-
-  }
-
-  if (!drinks){return null}
-
-  return (
-    <>
-      < SubNavDrinks />
-    <Box
-      sx={{
-        m: 5,
-        mx: 'auto',
-        px: '1rem',
-        maxWidth: 1200,
-        display: 'grid',
-        columnGap: 1,
-        rowGap: '1rem',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        borderColor: 'primary.main',
-        borderRadius: '1rem'
-      }}>  
-
-  {drinks.map(drink => {
-        return (
+  const Drink = ({drink}) => {
+    const [quantity, setQuantity] = useState(1);
+    return (
       <Card key={ drink.id }sx={{ 
       maxWidth: 375,
       ':hover':{
@@ -122,14 +199,47 @@ const DrinkProducts = () =>{
             </FormControl>
           </Box> */}
         <input value={quantity} onChange={(ev) => setQuantity(ev.target.value)}/>
-        <Button size="small" onClick={()=> clickToCart(drink, quantity)}>Add To Cart</Button>
+        <Button size="small" onClick={()=> _addToCart(drink, quantity)}>Add To Cart</Button>
         </CardActions>
       </CardActionArea>
     </Card>
         )
+  }
+
+  const _moreDetails =(drink)=>{
+    console.log(drink)
+    // console.log(drink.id, 'more details')
+    navigate(`/menu/${drink.id}`)
+  }
+
+  const _addToCart =(drink, quantity)=>{
+    dispatch(addToCart(drink, quantity))
+  }
+
+  if (!drinks){return null}
+
+  return (
+    <>
+      < SubNavDrinks />
+    <Box
+      sx={{
+        m: 5,
+        mx: 'auto',
+        px: '1rem',
+        maxWidth: 1200,
+        display: 'grid',
+        columnGap: 1,
+        rowGap: '1rem',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        borderColor: 'primary.main',
+        borderRadius: '1rem'
+      }}>  
+
+      {drinks.map(drink => {
+        return <Drink drink = {drink} />
       })}
-    </Box>
-  </>
+      </Box>
+    </>
   )
 }
 
