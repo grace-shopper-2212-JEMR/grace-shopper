@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const {Product, Review, User} = require('../db')
+const {Product, Review} = require('../db')
 const { Op } = require("sequelize");
 
 const { isLoggedIn } = require('./middleware.js');
@@ -64,20 +64,22 @@ app.get('/user/:userid', async (req, res, next)=> {
 
 // add review :: /api/auth/reviews
 // check if this is review or reviews if not working
-Router.post('/', async (req, rest, next)=> {
-    try {
-        const newReview = await Review.create({
-            content: req.body.reviews.content,
-            rating: req.body.reviews.rating,
-        })
-        newReview.setProduct(req.body.productId)
-        newReview.setUser(req.body.userId)
 
-        res.status.(201).json(newReview)
+app.post('/', async (req, res, next) => {
+    try {
+      const newReview = await Review.create({
+        content: req.body.review.content,
+        rating: req.body.review.rating,
+      })
+  
+      newReview.setProduct(req.body.productId)
+      newReview.setUser(req.body.userId)
+  
+      res.status(201).json(newReview)
     } catch (err) {
-        next(err)
+      next(err)
     }
-})
+  })
 
 
 //update review :: /api/auth/reviews/:reviewId
@@ -100,28 +102,18 @@ app.put('/:reviewId', async(req, res, next)=> {
         next(err)
     }
 })
-// const product = await Product.findById(productId)
-// const isReviewed = product.reviews.find(
-//     r => r.user.toString() === req.user._id.toString()
-// )
 
-// if(isReviewed) {
-//     product.reviews.forEach(review => {
-//         if(review.user.toString() === req.user._id.toString()) {
-//             review.comment = comment;
-//             review.rating = rating;
-//         }
-//     })
-// } else {
-//     product.reviews.push(review)
-//     product.numOfReviews = product.reviews.length    
-// }
+// delete review :: /api/auth/reviews/:reviewId
+// may need isAllowed
+app.delete('/:reviewId', async(req, res, next)=> {
+    try{
+        const reviewDelete = await Review.findById(req.params.reviewId)
+        Review.destroy(reviewDelete)
+    } catch(err) {
+        next(err)
+    }
+});
 
-// product.ratings = product.reviews.reduce((acc, item) => item.rating + acc, 0) / product.reviews.length
 
-// await product.save({ validateBeforeSave: false});
-// res.status(200).json
-// success: true
-// })
 
-module.exports = review;
+module.exports = Review;
