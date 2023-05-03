@@ -7,7 +7,7 @@ const LineItem  = require('./LineItem');
 Order.belongsTo(User);
 LineItem.belongsTo(Order);
 Order.hasMany(LineItem);
-LineItem.belongsTo(Product); 
+LineItem.belongsTo(Product);  
 
 
 
@@ -17,9 +17,10 @@ const syncAndSeed = async()=> {
     User.create({ username: 'moe', password: '123' }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
-    Product.create({ name: 'foo', category: "shirt" }),
+    Product.create({ name: 'foo', category: "shirt", imageUrl: "https://bestteestore.net/wp-content/uploads/2023/03/Dave-Grohl-Mr.T-I-Pity-The-Foo-shirt1.jpg" }),
     Product.create({ name: 'bar', category: "hat"  }),
     Product.create({ name: 'bazz', category: "mug"  }),
+    Product.create({ name: 'quq', category: "mug"  }),
     User.create({ username: 'ethyl', password: '123' }),
 
     Product.create({ name: "Java Mug", imageUrl: "https://images.unsplash.com/photo-1682986501364-d4d746b3a49b", category: "mug",
