@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -17,6 +17,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Merch = () =>{
+  const dispatch = useDispatch()
   const {id} = useParams();
   const { merches } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
@@ -40,6 +41,9 @@ const Merch = () =>{
     setExpanded(!expanded);
   };
 
+  const clickToCart = () => {
+    dispatch(addToCart(merch))
+  }
 
   return (
     <div id="productDiv" >
@@ -109,7 +113,7 @@ const Merch = () =>{
           <FavoriteIcon />
         </IconButton>
         <CardActions>
-         <Button size="small">Add To Order</Button>
+         <Button size="small" onClick={()=> clickToCart()}>Add To Order</Button>
         </CardActions>
         <ExpandMore
           expand={expanded}

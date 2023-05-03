@@ -133,7 +133,7 @@ import CardActions from '@mui/material/CardActions';
 //   )
 // }
 
-const DrinkProducts = () =>{
+const DrinkProducts = () => {
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
@@ -235,8 +235,8 @@ const DrinkProducts = () =>{
         borderRadius: '1rem'
       }}>  
 
-      {drinks.map(drink => {
-        return <Drink drink = {drink} />
+      { drinks.map(drink => {
+        return <Drink drink = {drink} key={ drink.id } />
       })}
       </Box>
     </>
