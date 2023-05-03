@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT || 'shhh';
 const axios = require('axios');
+const { BOOLEAN } = require('sequelize');
 const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/ 
 
 
@@ -21,7 +22,10 @@ const User = conn.define('user', {
     },
     unique: true
   },
-  
+  adminStatus :{
+    type: BOOLEAN,
+    allowNull: true
+  },  
   firstName: {
     type: STRING
   },

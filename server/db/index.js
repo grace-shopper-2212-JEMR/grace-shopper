@@ -23,7 +23,6 @@ const syncAndSeed = async()=> {
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
     User.create({ username: 'ethyl', password: '123' }),
-    
   ]);
 
   const [foo, bar, bazz] = await Promise.all([
@@ -48,7 +47,7 @@ const syncAndSeed = async()=> {
   
   const Coffee = await Product.create({
     name: "Coffee",
-    imageUrl: 'https://images.unsplash.com/photo-1525480122447-64809d765ec4',
+    imageUrl: 'https://i.ibb.co/kmqWxwc/coffees.jpg',
     category: "coffee",
     description: 'Our freshly brewed coffee is made from premium roasted beans and served hot with the option to select any variety of milks or sugars.',
   });
@@ -56,42 +55,42 @@ const syncAndSeed = async()=> {
 
   const Cappuccino = await Product.create({
     name: "Cappuccino",
-    imageUrl: "https://images.unsplash.com/photo-1513175112772-985b903e3fa5",
+    imageUrl: "https://images.unsplash.com/photo-1513175112772-985b903e3fa5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     category: "coffee",
     description: 'A classic Italian espresso-based drink, made with a shot of espresso, steamed milk, and a layer of velvety frothed milk on top.',
   })
 
   const Latte = await Product.create({
     name: "Latte",
-    imageUrl: "https://images.unsplash.com/photo-1517705708367-762e7e2eee6c",
+    imageUrl: "https://miro.medium.com/v2/resize:fit:828/0*DGNIpvHTN_EWoAGI",
     category: "coffee",
     description: 'A smooth and creamy espresso-based drink, made with a shot of espresso, steamed milk, and a thin layer of froth on top.',
   })
 
   const IcedCoffee = await Product.create({
     name: "Iced Coffee",
-    imageUrl: "https://images.unsplash.com/photo-1517701604599-bb29b565090c",
+    imageUrl: "https://cdn.shopify.com/s/files/1/2103/9669/articles/singleserve_macchiato_1024x1024.jpg?v=1657604587",
     category: "coffee",
     description: ' Our chilled and refreshing coffee is brewed strong and served over ice, perfect for a hot summer day.',
   })
 
   const IcedLatte = await Product.create({
     name: "Iced Latte",
-    imageUrl: "https://images.unsplash.com/photo-1534414671319-4fc58cc112e1",
+    imageUrl: "https://images.unsplash.com/photo-1534414671319-4fc58cc112e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
     category: "coffee",
     description: 'A delicious and creamy iced coffee drink made with a shot of espresso, chilled milk, and served over ice.',
   })
 
   const Espresso = await Product.create({
     name: "Espresso",
-    imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
     category: "coffee",
     description: 'A single shot of premium quality espresso, perfect for a quick and powerful caffeine boost.',
   })
 
   const ColdBrew = await Product.create({
     name: "Cold Brew",
-    imageUrl: "https://images.unsplash.com/photo-1558122104-355edad709f6",
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/57fa9cafe4fcb5e6ab28144a/1675806609584-PVRIP5A9LOJHWIM5ISFD/organic+cold+brew?format=1500w",
     category: "coffee",
     description: 'Our signature cold brew is steeped overnight for a smooth and full-bodied taste, served over ice for a refreshing experience.',
   })
@@ -126,21 +125,21 @@ const syncAndSeed = async()=> {
 
   const Matcha = await Product.create({
     name: "Matcha",
-    imageUrl: "https://images.unsplash.com/photo-1565117661210-fd54898de423",
+    imageUrl: "https://cdn.shopify.com/s/files/1/0285/0082/0054/products/matcha_madness_4f1fd621-8f16-43ad-a27a-9997b4071e0d_900x.jpg?v=1660066856",
     category: "tea",
     description: 'A traditional Japanese tea made from finely ground green tea leaves, served with a frothy layer of milk for a creamy and satisfying experience.',
   })
 
   const IcedMatcha = await Product.create({
     name: "Iced Matcha",
-    imageUrl: "https://images.unsplash.com/photo-1617892165107-76fb45f50f7c",
+    imageUrl: "https://images.unsplash.com/photo-1617892165107-76fb45f50f7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     category: "tea",
     description: 'Our iced matcha is a refreshing and delicious drink made with chilled matcha powder and milk, served over ice for a sweet and creamy taste.',
   })
 
   const GreenSmoothie = await Product.create({
     name: "Greens Smoothie",
-    imageUrl: "https://images.unsplash.com/photo-1557753478-d111aef068be",
+    imageUrl: "https://images.unsplash.com/photo-1557753478-d111aef068be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1372&q=80",
     category: "smoothie",
     description: 'Our refreshing green smoothie is made with fresh spinach, kale, apple, banana, and honey for a delicious and healthy way to start your day.',
   })
@@ -154,7 +153,7 @@ const syncAndSeed = async()=> {
 
   const ProteinSmoothie = await Product.create({
     name: "Protein Smoothie",
-    imageUrl: "https://images.unsplash.com/photo-1645783916385-1c99860a2a42",
+    imageUrl: "https://images.unsplash.com/photo-1645783916385-1c99860a2a42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
     category: "smoothie",
     description: 'Our protein-packed smoothie is made with a blend of whey protein, banana, almond milk, and peanut butter for a nutritious and delicious drink that will keep you fueled throughout the day.',
   })

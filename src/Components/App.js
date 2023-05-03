@@ -22,6 +22,7 @@ import AboutContact from './About/AboutContact';
 import Logout from './Logout';
 import ReviewItem from './Review';
 
+
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -57,9 +58,6 @@ const App = ()=> {
   return (
     <div >
       <Nav />
-      
-        {/* <div className='background'> */}
-
         <img src='static\images\coffee_cup_illustration_blue.jpeg' style={{width: '100%'}}></img>     
         {/* original color of this image is #7CC9D1 */}
 

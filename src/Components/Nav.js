@@ -1,45 +1,9 @@
-// import React, { useEffect } from 'react';
-// import Home from './Home';
-// import Login from './Login';
-// import Cart from './Cart';
-// import { loginWithToken, fetchCart } from '../store';
-// import { Link, Routes, Route } from 'react-router-dom';
-
-// const App = ()=> {
-  
-//   return (
-//     <div>
-//       {
-//         auth.id ? <Home /> : <Login />
-//       }
-//       {
-//         !!auth.id  && (
-//           <div>
-//             <nav>
-//               <Link to='/'>Home</Link>
-//               <Link to='/cart'>Cart</Link>
-//             </nav>
-//             {/* <Routes>
-//               <Route path='/cart' element={ <Cart /> } />
-//             </Routes> */}
-//           </div>
-//         )
-//       }
-//     </div>
-//   );
-// };
-
-// export default Nav;
-
-// to install MUI styles and icons copy this to terminal: npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-
-
-
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Badge from '@mui/material/Badge';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -50,15 +14,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { ShoppingCartSharp } from '@mui/icons-material';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import { useNavigate, Link } from 'react-router-dom';
 import auth from '../store/auth';
 import Logout from './Logout'
+import Cart from './Cart'
 
 
 
 export default function Nav() {
-  const { auth } = useSelector(state => state);
+  const { auth, cart } = useSelector(state => state);
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -86,6 +52,13 @@ export default function Nav() {
     navigate(`/${page.toLowerCase()}`)
   }
 
+  const getCartLength = () => {
+    let sum = 0;
+    cart.lineItems.forEach(product => {
+      sum += product.quantity
+    })
+    return sum
+  }
 
 
   return (
@@ -195,7 +168,7 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>} style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
             
           </Typography>
 
@@ -214,12 +187,24 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link element={<Logout/>}  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
           </Typography>
+
+            {/* <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link> */}
+
+            <IconButton
+              size="large"
+              color="inherit"
+            >
+              <Badge badgeContent={getCartLength()} color="error">
+                <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link>
+              </Badge>
+            </IconButton>
+          
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar alt="Dwight Avatar" src="/static/images/avatarDS.jpeg" />
               </IconButton>
             </Tooltip>
