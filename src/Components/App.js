@@ -57,9 +57,6 @@ const App = ()=> {
   return (
     <div >
       <Nav />
-      
-        {/* <div className='background'> */}
-
         <img src='static\images\coffee_cup_illustration_blue.jpeg' style={{width: '100%'}}></img>     
         {/* original color of this image is #7CC9D1 */}
 
