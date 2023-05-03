@@ -19,14 +19,14 @@ const Home = ()=> {
       <div>
         <div> 
           <h1>You're Not Logged In!</h1>
-        <div className='background' style={{ backgroundImage: "url(static/images/coffee shop pink.jpeg)" }}>
+        {/* <div className='background' style={{ backgroundImage: "url(static/images/coffee shop pink.jpeg)" }}> */}
         <div>
           Feel free browse through our delicious selection of drinks or our fashionable merch, but get full functionality by logging in!
         </div>
         <Button variant='outlined' ><Link to={`/register`}>Register Here</Link></Button> or <Button variant='outlined'> <Link to='/login'> Login </Link></Button>
       </div>
       </div>
-    </div>        
+    // </div>        
 
         )  : (
 
