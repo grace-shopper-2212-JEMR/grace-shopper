@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const User  = require('../db');
+const {User}  = require('../db');
 const jwt = require('jsonwebtoken');
 const { isLoggedIn } = require('./middleware.js');
 
@@ -30,21 +30,21 @@ app.get('/', async(req, res, next)=> {
 app.post('/register', async(req, res, next)=> {
   try{
     res.send(await User.register(req.body)); 
-   }
+  }
   catch(ex){
     next(ex);
   }
 });
 
 //prof code
-app.get('/', isLoggedIn, (req, res, next)=> {
-  try {
-    res.send(req.user);
-  }
-  catch(ex){
-    next(ex);
-  }
-});
+// app.get('/', isLoggedIn, (req, res, next)=> {
+//   try {
+//     res.send(req.user);
+//   }
+//   catch(ex){
+//     next(ex);
+//   }
+// });
 
 // prefix is /api/auth
 app.put('/:token', async(req, res, next)=> {
@@ -57,6 +57,14 @@ app.put('/:token', async(req, res, next)=> {
     next(ex);
   }
 });
+
+app.get('/:token', async(req, res, next)=> {
+  try{
+    res.send(await User.findByToken(req.params.token));
+  }
+  catch(ex){
+    next(ex);
+  };
 
 app.get('/github', async(req, res, next)=> {
   try{
@@ -73,13 +81,7 @@ app.get('/github', async(req, res, next)=> {
   }
 });
 
-app.get('/:token', async(req, res, next)=> {
-  try{
-    res.send(await User.findByToken(req.params.token));
-  }
-  catch(ex){
-    next(ex);
-  }
+
 });
 
 module.exports = app;
