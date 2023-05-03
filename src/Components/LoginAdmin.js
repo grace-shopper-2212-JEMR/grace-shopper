@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-const Login = ()=> {
+const LoginAdmin = ()=> {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [credentials, setCredentials] = useState({
@@ -52,4 +52,4 @@ const Login = ()=> {
   );
 };
 
-export default Login;
+export default LoginAdmin;
