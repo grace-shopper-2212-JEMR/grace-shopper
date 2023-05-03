@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Badge from '@mui/material/Badge';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -23,7 +24,7 @@ import Cart from './Cart'
 
 
 export default function Nav() {
-  const { auth } = useSelector(state => state);
+  const { auth, cart } = useSelector(state => state);
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -51,6 +52,13 @@ export default function Nav() {
     navigate(`/${page.toLowerCase()}`)
   }
 
+  const getCartLength = () => {
+    let sum = 0;
+    cart.lineItems.forEach(product => {
+      sum += product.quantity
+    })
+    return sum
+  }
 
 
   return (
@@ -164,8 +172,6 @@ export default function Nav() {
             
           </Typography>
 
-          {/* <Link element={<Cart/>} sx={{ pr: 1, color: 'white'}}><ShoppingCartSharp /></Link> */}
-
           <Typography
             variant="h6"
             noWrap
@@ -184,7 +190,16 @@ export default function Nav() {
             {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
           </Typography>
 
-            <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link>
+            {/* <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link> */}
+
+            <IconButton
+              size="large"
+              color="inherit"
+            >
+              <Badge badgeContent={getCartLength()} color="error">
+                <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link>
+              </Badge>
+            </IconButton>
           
 
           <Box sx={{ flexGrow: 0 }}>
