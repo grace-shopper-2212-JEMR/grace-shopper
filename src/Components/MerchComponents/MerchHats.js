@@ -61,8 +61,8 @@ const MerchHats = () =>{
         <Link to={`/merch/${merch.id}`}>
         <CardMedia
           component="img"
-          image={merch.imageUrl}
-          alt={merch.name}
+          image={ merch.imageUrl }
+          alt={ merch.name }
           sx={{ 
             aspectRatio: "4/5",
             objectFit: "cover",
