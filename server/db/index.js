@@ -232,7 +232,7 @@ module.exports = {
   syncAndSeed,
   User,
   Product,
-  Review,
-  Order,
   LineItem,
-}
+  Order,
+  Review
+};
