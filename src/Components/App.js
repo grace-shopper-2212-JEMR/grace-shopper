@@ -24,7 +24,7 @@ import AboutCareers from './About/AboutCareers';
 import AboutContact from './About/AboutContact';
 import Logout from './Logout';
 import Review from './Review'
-// import Reviews from './Reviews';
+import Reviews from './Reviews';
 
 import Admin from './Admin/Admin';
 import NotAdmin from './Admin/NotAdmin';
@@ -105,9 +105,9 @@ const App = ()=> {
                 <Route path='/merch/hats' element={<MerchHats />}/>
                 <Route path='/merch/mugs' element={<MerchMugs />}/>
               <Route path='/merch/:id' element={ <Merch /> } />
-              {/* <Route path='/reviews' element={ <Reviews />} />  */}
               
-             !!auth.id <Route path='/reviews' element={ <Review />} /> 
+             <Route path='/reviews' element={ <Review />} />
+             <Route path='/reviews/:id' element={ <Review />} />
 
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
