@@ -4,6 +4,7 @@ import Login from './Login';
 import Cart from './Cart';
 import Register from './Register';
 import Nav from './Nav';
+import FooterNav from './FooterNav';
 import DrinkProducts from './DrinkComponents/DrinkProducts';
 import DrinksCoffees from './DrinkComponents/DrinksCoffees';
 import DrinksTeas from './DrinkComponents/DrinksTeas';
@@ -78,34 +79,28 @@ const App = ()=> {
                 <Route path='/menu/coffee' element={<DrinksCoffees />}/>
                 <Route path='/menu/tea' element={<DrinksTeas />}/>
                 <Route path='/menu/smoothies' element={<DrinksSmoothies />}/>
-
-              <Route path='/menu/:id' element={ <DrinkProductPage /> } />
-
+                <Route path='/menu/:id' element={ <DrinkProductPage /> } />
               <Route path='/merch' element={ <Merches /> } />
-
                 <Route path='/merch/shirts' element={<MerchShirts />}/>
                 <Route path='/merch/hats' element={<MerchHats />}/>
                 <Route path='/merch/mugs' element={<MerchMugs />}/>
-
-              <Route path='/merch/:id' element={ <Merch /> } />
-
-
+                <Route path='/merch/:id' element={ <Merch /> } />
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />
               <Route path='/account' element={ <Account /> } />
               <Route path='/about' element={ <About /> } />
               <Route path='/about/locations' element={<AboutLocations />}/>
-                <Route path='/about/careers' element={<AboutCareers />}/>
-                <Route path='/about/contact' element={<AboutContact />}/>
+              <Route path='/about/careers' element={<AboutCareers />}/>
+              <Route path='/about/contact' element={<AboutContact />}/>
+              <Route path='/drinks/search/:filterString' element = { < DrinkProducts />} />
+              <Route path='/merch/search/:filterString' element = { < Merches />} />
             </Routes>
             
           </div>
      
-        
-
-
          <Nav />
+         <FooterNav />
     </div>
     // </div>  
   );
