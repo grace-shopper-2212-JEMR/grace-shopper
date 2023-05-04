@@ -115,7 +115,7 @@ const App = ()=> {
               <Route path='/about/locations' element={<AboutLocations />}/>
               <Route path='/about/careers' element={<AboutCareers />}/>
               <Route path='/about/contact' element={<AboutContact />}/>
-              <Route path='/drinks/search/:filterString' element = { < DrinkProducts />} />
+              <Route path='/menu/search/:filterString' element = { < DrinkProducts />} />
               <Route path='/merch/search/:filterString' element = { < Merches />} />
             </Routes>
             
