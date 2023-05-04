@@ -112,8 +112,7 @@ const App = ()=> {
             </Routes>
             
           </div>
-     
-         <Nav />
+    
          <FooterNav />
     </div>
     // </div>  
