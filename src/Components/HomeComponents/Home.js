@@ -9,7 +9,6 @@ const Home = ()=> {
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
   return (
-    // <div className='background' style={{ backgroundImage: "url(static/images/coffee_cup_illustration_blue.jpeg)" }}>
     <div>
       <SubNavHome/>
       
@@ -19,7 +18,6 @@ const Home = ()=> {
       <div>
         <div> 
           <h1>You're Not Logged In!</h1>
-        {/* <div className='background' style={{ backgroundImage: "url(static/images/coffee shop pink.jpeg)" }}> */}
         <div>
           Feel free browse through our delicious selection of drinks or our fashionable merch, but get full functionality by logging in!
         </div>
@@ -44,7 +42,6 @@ const Home = ()=> {
         )
         } 
           </div>
-    // </div>
   );
 };
 

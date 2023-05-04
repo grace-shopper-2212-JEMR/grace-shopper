@@ -31,7 +31,7 @@ const Account = ()=> {
     navigate('/menu')
   };
   return (
-    <div>
+    <div style={{ margin: 'auto', maxWidth: '80%' }} >
       {
         auth.id ? (
             <div>
@@ -48,7 +48,7 @@ const Account = ()=> {
                   <div style={{ marginBottom: 8 }}/>
                   <TextField label="Phone" variant="outlined" value={ phone } onChange={ev => setPhone(ev.target.value)}/>
       
-                  <Button onClick={ _update } disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</Button>
+                  <Button style={{ fontSize: 18 }}onClick={ _update } disabled={ firstName === auth.firstName && lastName === auth.lastName && address === auth.address && email === auth.email && phone === auth.phone}>Update Profile</Button>
                 </form>
             </div>
         

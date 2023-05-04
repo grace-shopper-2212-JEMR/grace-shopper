@@ -27,10 +27,13 @@ import Review from './Review';
 // import Reviews from './Reviews';
 
 import Admin from './Admin/Admin';
+import NotAdmin from './Admin/NotAdmin';
 import AdminDrinksMain from './Admin/AdminDrinksMain';
-import AdminMerch from './Admin/AdminMerchesMain';
 import AdminDrinksCreate from './Admin/AdminDrinksCreate';
 import AdminDrinksDrink from "./Admin/AdminDrinksDrink";
+import AdminMerch from './Admin/AdminMerchesMain';
+import CreateMerch from './Admin/AdminMerchsCreate';
+import AdminMerchesMerch from './Admin/AdminMerchesMerch';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches, fetchReviews } from '../store';
@@ -72,14 +75,7 @@ const App = ()=> {
         <img src='static\images\coffee_cup_illustration_blue.jpeg' style={{width: '100%'}}></img>     
         {/* original color of this image is #7CC9D1 */}
 
-        <div className='app-body'>
-        
-        
-          {/* THIS DIV IS SO THE FOOTER STICKS TO THE BOTTOM */}
-          {/* <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`}>Login With Github</a> */}
-
-          
-      
+        <div className='app-body'>  
 
             <Routes>
               <Route path='/' element={ <Home /> } />
@@ -88,11 +84,14 @@ const App = ()=> {
               <Route path='/checkout' element={ <Checkout /> } />
               <Route path='/order/:id' element={ <Order /> } />
 
-              <Route path='/admin' element= { <Admin /> }/>
+              {auth.adminStatus === true ? <Route path='/admin' element= { <Admin /> }/> : <Route path='/admin' element= { <NotAdmin /> }/>}
               <Route path='/admin/drinks' element= { <AdminDrinksMain />} />
               <Route path= '/admin/drinks/:id' element= { <AdminDrinksDrink /> } />
-              <Route path='/admin/merch' element = { <AdminMerch /> } />
               <Route path='/admin/drinks/create' element = { <AdminDrinksCreate /> } />
+              <Route path='/admin/merch' element = { <AdminMerch /> } />
+              <Route path='/admin/merch/create' element = { <CreateMerch /> } />
+              <Route path='/admin/merch/:id' element = { <AdminMerchesMerch /> } />
+
 
               <Route path='/menu' element={ <DrinkProducts /> } />
                 <Route path='/menu/coffee' element={<DrinksCoffees />}/>
