@@ -40,8 +40,11 @@ const Login = ()=> {
           onChange = { onChange }
         />
         <Button type="submit"
-        onClick={ login }> 
+        onClick={ login } style={{fontSize: "1.2rem"}}> 
           Login
+        </Button>
+        <Button type="submit" style={{fontSize: "1.2rem"}}> 
+        <a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{ textDecoration: 'none'  }}>Login with Github</a>
         </Button>
       </form>
       <div>
