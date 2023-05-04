@@ -50,7 +50,15 @@ const reviews = (state = [], action)=> {
   export const createReview = (review)=> {
     return async(dispatch)=> {
       const token = window.localStorage.getItem('token')
-      const response = await axios.post(`/api/reviews/${token}`, review);
+      const response = await axios.post(
+        '/api/reviews/', 
+        review,
+        {
+          headers: {
+            authorization: token
+          }
+        }
+      );
 
       dispatch({type: 'CREATE_REVIEW', review: response.data})
     };
