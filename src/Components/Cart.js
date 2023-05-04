@@ -49,7 +49,9 @@ const Cart = ()=> {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-          <Typography><Button onClick={() => _removeFromCart(prod.product, 1)}>-</Button>{prod.quantity}<Button onClick={() => _addToCart(prod.product, 1)}>+</Button> {prod.product.name} <Button onClick={() => _removeFromCart(prod.product, prod.quantity)}>X</Button> </Typography>
+          <Typography><Button onClick={() => _removeFromCart(prod.product, 1)}>-</Button>{prod.quantity}
+          <Button onClick={() => _addToCart(prod.product, 1)}>+</Button> {prod.product.name} 
+          <Button onClick={() => _removeFromCart(prod.product, prod.quantity)}>X</Button> </Typography>
           </AccordionSummary>
             <AccordionDetails>
               <Typography>

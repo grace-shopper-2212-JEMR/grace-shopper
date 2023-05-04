@@ -20,6 +20,8 @@ const Merches = () =>{
   const { merches, auth } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
+  const { filterString } = useParams()
+  const filter = filterString ? JSON.parse(filterString) : {}
   
   if (!merches){return null}
 
@@ -32,6 +34,19 @@ const Merches = () =>{
 
     // console.log(merch.id, merch , 'add to cart')
     // console.log(auth)
+  }
+
+   const search = (ev) => {
+    ev.preventDefault()
+    const _filter = {...filter}
+    if(ev.target.name === "name"){
+      if(ev.target.value){
+        _filter.name = ev.target.value
+      } else {
+        delete _filter.name
+      }
+    }
+    navigate(`/merch/search/${JSON.stringify(_filter)}`)
   }
 
   if (!merches){return null}
@@ -119,10 +134,18 @@ const Merch = ({merch}) => {
         borderRadius: "1rem",
       }}>  
   
-  { merches.map(merch => {
+  { merches.filter( merch => {
+            if(filter.name && !merch.name.includes(filter.name)){
+              return false
+            }
+            return true
+          }).map(merch => {
         return <Merch merch = {merch} key={ merch.id } />
       })}
     </Box>
+    <form onSubmit={ ev => ev.preventDefault() } style={{maxWidth: 275 }}>
+                    <input value={ filter.name ? filter.name : '' } autoComplete='off' name='name' onChange={ search } placeholder='Search'/>
+    </form>
   </>
   )
 }
