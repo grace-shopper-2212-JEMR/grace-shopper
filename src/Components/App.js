@@ -3,6 +3,7 @@ import Home from './HomeComponents/Home';
 import Login from './Login';
 import Cart from './Cart';
 import Checkout from './Checkout';
+import Order from './Order';
 import Register from './Register';
 import Nav from './Nav';
 import FooterNav from './FooterNav';
@@ -79,6 +80,7 @@ const App = ()=> {
               <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
               <Route path='/checkout' element={ <Checkout /> } />
+              <Route path='/order/:id' element={ <Order /> } />
 
               <Route path='/admin' element= { <Admin /> }/>
               <Route path='/admin/drinks' element= { <AdminDrinksMain />} />
