@@ -157,6 +157,8 @@ User.findByToken = async function(token){
 }
 
 
+
+
 User.authenticateGithub = async function(code){
   let response = await axios.post(
     'https://github.com/login/oauth/access_token',

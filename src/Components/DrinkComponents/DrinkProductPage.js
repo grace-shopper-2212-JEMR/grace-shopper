@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch} from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -21,10 +21,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
 const DrinkProductPage = () =>{
   const dispatch = useDispatch()
   const {id} = useParams();
-  const { drinks } = useSelector(state => state);
+  const { drinks, reviews } = useSelector(state => state);
   const [expanded, setExpanded] = useState(false);
   const [quantity, setQuantity] = useState(1);
   if (!drinks){return null}
