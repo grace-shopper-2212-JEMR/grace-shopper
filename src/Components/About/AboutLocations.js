@@ -50,10 +50,6 @@ const locations = [
   },
 ]
 
-const locationHistory = (location) =>{
-  
-}
-
 
 const AboutLocations = () => {
   return (
@@ -83,7 +79,6 @@ const AboutLocations = () => {
             display: 'flex', 
             flexDirection: 'column' 
             }}>
-              {/* <Link to={`${location.id}`}> */}
               <CardMedia
                 component="img"
                 image={location.imageUrl}
@@ -95,7 +90,6 @@ const AboutLocations = () => {
                   borderRadius: ".5rem",
                 }}
                 />
-                {/* </Link> */}
         <CardContent  sx={{flexGrow: 1}}>
           <Typography gutterBottom variant="h5" component="div">
             {location.name}

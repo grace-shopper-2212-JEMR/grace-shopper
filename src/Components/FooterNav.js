@@ -1,5 +1,5 @@
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 
 
@@ -14,13 +14,10 @@ import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import { ShoppingCartSharp } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -194,7 +191,7 @@ export default function FooterNav() {
       <AppBar position="static" style={{ background: '#004C60', display: 'flex' }}>
         <Toolbar>
        
-          <div style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', marginRight: 100}}>
+          <div style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', alignItems:"flex-start", marginRight: 100}}>
           <Typography
             variant="subtitle2"
             component="a"
