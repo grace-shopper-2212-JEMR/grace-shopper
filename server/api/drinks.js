@@ -64,5 +64,24 @@ app.get('/smoothies', async(req, res, next)=> {
     next(ex)
   }
 });
+app.post('/', async (req, res, next)=> {
+  try {
+    res.send(await Product.create(req.body))
+  }
+  catch(ex) {
+    next(ex)
+  }
+});
+
+app.delete('/', async(req, res, next) => {
+  try{
+    const drink = await Drink.findByPk(req.params.id)
+    await drink.destroy() 
+    res.sendStatus(204) 
+  }
+  catch(ex) {
+    next(ex)
+  }
+});
 
 module.exports = app;

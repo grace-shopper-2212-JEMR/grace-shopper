@@ -1,6 +1,6 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useParams } from 'react-router-dom';
 
 
 import * as React from 'react';
@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { ShoppingCartSharp } from '@mui/icons-material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -36,6 +37,8 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
+
+
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -62,17 +65,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function FooterNav() {
-  const { auth } = useSelector(state => state);
+  const { auth, cart } = useSelector(state => state);
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const { filterString } = useParams()
+  const filter = filterString ? JSON.parse(filterString) : {}
+  console.log(filterString)
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -86,6 +93,28 @@ export default function FooterNav() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const getCartLength = () => {
+    let sum = 0;
+    cart.lineItems.forEach(product => {
+      sum += product.quantity
+    })
+    return sum
+  }
+
+  const search = (ev) => {
+    ev.preventDefault()
+    const _filter = {...filter}
+    if(ev.target.name === "name"){
+      if(ev.target.value){
+        _filter.name = ev.target.value
+      } else {
+        delete _filter.name
+      }
+    }
+    navigate(`/drinks/search/${JSON.stringify(_filter)}`)
+  }
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -162,100 +191,118 @@ export default function FooterNav() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 10, maxHeight: 1000 }}>
+      <AppBar position="static" style={{ background: '#004C60', display: 'flex' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+       
+          <div style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', marginRight: 100}}>
           <Typography
             variant="subtitle2"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            component="a"
+            href="/#/home"
+            sx={{ textDecoration: 'none', marginRight: .5, color: "white" }}
           >
             Home
           </Typography>
           <Typography
             variant="subtitle2"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            href="/#/login"
+            
+            component="a"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
           >
-            Menu
+            Login
           </Typography>
           <Typography
             variant="subtitle2"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            
+            href="/#/merch"
+            component="a"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
           >
-            Merch
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
           </Typography>
           <Typography
             variant="subtitle2"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            
+            component="a"
+            href="/#/about"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
           >
             About
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/account"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Account
+          </Typography>
+          </div>
+          <div style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column' }}>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/about/contact"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Contact
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/about/careers"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Careers
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/about/locations"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Locations
+          </Typography>
+          </div>
+          <div style={{ display: "flex", textDecoration: 'none', flexDirection: "column", marginLeft: 100,  }}>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/menu"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Drinks
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            
+            component="a"
+            href="/#/merch"
+            sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
+          >
+            Merch
+          </Typography>
+          
+          </div>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
+          
+          <IconButton
+              size="large"
+              color="inherit"
+            >
+              <Badge badgeContent={getCartLength()} color="error">
+                <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link>
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
         </Toolbar>
+
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
