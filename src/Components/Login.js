@@ -23,7 +23,7 @@ const Login = ()=> {
     navigate('/home')
   };
   return (
-    <div>
+    <div id="login">
       <h2>Login</h2>
       <form >
         <TextField
@@ -39,7 +39,7 @@ const Login = ()=> {
           value={ credentials.password }
           onChange = { onChange }
         />
-        <Button 
+        <Button type="submit"
         onClick={ login }> 
           Login
         </Button>
