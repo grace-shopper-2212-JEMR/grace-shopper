@@ -23,6 +23,12 @@ import Logout from './Logout';
 import ReviewItem from './Review';
 
 
+import Admin from './Admin/Admin';
+import AdminDrinksMain from './Admin/AdminDrinksMain';
+import AdminMerch from './Admin/AdminMerchesMain';
+import AdminDrinksCreate from './Admin/AdminDrinksCreate';
+import AdminDrinksDrink from "./Admin/AdminDrinksDrink";
+
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
@@ -35,13 +41,9 @@ const App = ()=> {
 
   useEffect(()=>{
     dispatch(fetchDrinks());
-  }, [])
-  useEffect(()=>{
     dispatch(fetchMerches());
-  }, [])
-  useEffect(()=> {
     dispatch(loginWithToken());
-  }, []);
+  }, [])
 
   useEffect(()=> {
     if(!prevAuth.current.id && auth.id){
@@ -74,6 +76,12 @@ const App = ()=> {
               <Route path='/' element={ <Home /> } />
               <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
+
+              <Route path='/admin' element= { <Admin /> }/>
+              <Route path='/admin/drinks' element= { <AdminDrinksMain />} />
+              <Route path= '/admin/drinks/:id' element= { <AdminDrinksDrink /> } />
+              <Route path='/admin/merch' element = { <AdminMerch /> } />
+              <Route path='/admin/drinks/create' element = { <AdminDrinksCreate /> } />
 
               <Route path='/menu' element={ <DrinkProducts /> } />
                 <Route path='/menu/coffee' element={<DrinksCoffees />}/>
