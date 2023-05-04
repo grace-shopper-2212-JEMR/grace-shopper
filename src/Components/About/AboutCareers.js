@@ -13,7 +13,6 @@ const jobs = [
     id: Math.floor(Math.random()*100),
     imageUrl: 'https://www.tasteofhome.com/wp-content/uploads/2019/08/pretty-barista-making-cup-coffee-shop-shutterstock_301690496.jpg',
     name: 'Baristas',
-    // FIX THE LOCATION ID
     locationId: 'All',
     salaryRange: '$55-60/hour',
     description: 'Responsible for preparing and serving coffee and other beverages to customers. They must ensure the quality and consistency of the drinks, provide excellent customer service, and maintain a clean and organized workspace.',
@@ -23,7 +22,6 @@ const jobs = [
     id: Math.floor(Math.random()*100),
     imageUrl: 'https://i.ibb.co/QnRQPm1/silly-coffee-photos-with-guy-and-his-computer.jpg',
     name: 'Website Developers',
-    // FIX THE LOCATION ID
     locationId: 'Remote/Hybrid',
     salaryRange: '$300k-$350k',
     description: 'Currently hiring 4 entry-level full stack. Remote optional, but any travel to and from Paris, France will be reimbursed. No coding test. $300k + benefits. Feel free to apply below.',
@@ -33,7 +31,6 @@ const jobs = [
     id: Math.floor(Math.random()*100),
     imageUrl: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/2-person-with-hand-full-of-coffee-beans-science-photo-library.jpg',
     name: 'SCA Coffee Buyers',
-    // FIX THE LOCATION ID
     locationId: 'Cambridge',
     salaryRange: '$450k-$500k',
     description: "As a Specialty Coffee Association coffee buyer, you would be responsible for sourcing, selecting, and purchasing high-quality coffee beans from around the world. You would work closely with coffee producers and roasters to ensure that the beans meet the SCA's rigorous standards for specialty coffee.",
@@ -69,7 +66,6 @@ const AboutCareers = () => {  return (
           display: 'flex', 
           flexDirection: 'column' 
           }}>
-            {/* <Link to={`${location.id}`}> */}
             <CardMedia
               component="img"
               image={job.imageUrl}
@@ -81,7 +77,6 @@ const AboutCareers = () => {  return (
                 borderRadius: ".5rem",
               }}
               />
-              {/* </Link> */}
       <CardContent sx={{flexGrow: 1}}>
         <Typography gutterBottom variant="h5" component="div">
           {job.name}
