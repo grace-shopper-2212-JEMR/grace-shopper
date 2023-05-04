@@ -126,9 +126,8 @@ const Merch = () =>{
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Info:</Typography>
           <Typography paragraph>
-            Maybe we include something special about the item for the drop down?
+            { merch.description }
           </Typography>
         </CardContent>
       </Collapse>
