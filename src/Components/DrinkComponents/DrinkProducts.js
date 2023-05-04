@@ -20,6 +20,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import CardActions from '@mui/material/CardActions';
 import InputBase from '@mui/material/InputBase';
+import { fontStyle } from "@mui/system";
 // NOTES
 
   // RESEARCH HOW TO DO AUTHORIZATION, WHERE AN ADMIN CAN ADD/UPDATE/DELETE A DRINK. I THINK IT PROBABLY JUST NEEDS AN 'ADMIN' TITLE AND YOU CAN DO if(auth.title === 'admin'){code}
@@ -83,10 +84,14 @@ const DrinkProducts = () => {
             {drink.description}
           </Typography>
         </CardContent>
-          <CardActionArea sx={{textAlign:'center', alignItems:'center'}}>
-        <Button component='span' onClick={(ev) => _moreDetails(drink)} size="small">More Details</Button>
-        <CardActions>
-          <Box sx={{ minWidth: 130 }}>
+          <CardActionArea onClick={(ev) => _moreDetails(drink)} sx={{textAlign:'center', alignItems:'center'}} >
+        <Button component='span' onClick={(ev) => _moreDetails(drink)} size="small"
+        sx={{ 
+          fontSize: 15,
+          ":hover": {textDecoration:"underline"}
+          }}>More Details</Button>
+        <CardActions sx={{justifyContent:"center" }}>
+          <Box sx={{ minWidth: 75, justifyContent:"flex-end" }}>
             <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
                 <Select
