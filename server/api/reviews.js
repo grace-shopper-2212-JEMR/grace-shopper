@@ -5,25 +5,35 @@ const { Op } = require("sequelize");
 
 const { isLoggedIn } = require('./middleware.js');
 
-// get all the reviews :: /api/auth/reviews
-  
-app.get('/:token', async(req, res, next)=> {
+// get all the reviews
+app.get('/', async(req, res, next)=> {
     try{
-        const user = await User.findByToken(req.params.token);
-        const review = await Review.findAll({
-            where: {
-                userId: user.id
-            }
-        });
-        res.send(review)
+        res.send(await Review.findAll())
     }
     catch(ex){
         next(ex)
     }
-})
+});
+
+// get all the reviews for a user 
+ 
+app.get('/:token', async(req, res, next)=> {
+    try{
+      const user = await User.findByToken(req.params.token);
+      const reviews = await Review.findAll({
+        where: {
+          userId: user.id
+        }
+      });
+      res.send(reviews);
+    }
+    catch(ex){
+      next(ex);
+    }
+  });
 
 // get a single review :: /api/auth/reviews/:reviewId
-app.get('/review/:reviewId', async (req, res, next) => {
+app.get('/:reviewId', async (req, res, next) => {
   try {
     const review = await Review.findByPk(req.params.reviewId, {
       include: [{ model: Product, attributes: ['id', 'name'] }]
@@ -37,35 +47,25 @@ app.get('/review/:reviewId', async (req, res, next) => {
   }
 });
 
-// get all reviews for a product :: /api/auth/product/:productId/reviews
-app.get('/product/:productId/reviews', async (req, res, next) => {
-  try {
-    const reviews = await Review.findAll({
-      where: { productId: req.params.productId },
-      include: [{ model: Product, attributes: ['id', 'name'] }]
-    });
-    res.json(reviews);
-  } catch (err) {
-    next(err);
-  }
-});
+// get all reviews for a drink ::  or does it need to be /api/auth/drinks/{drinkId}/reviews
+app.get('/drinks/:drinkId/reviews', async (req, res, next) => {
+    try {
+      const reviews = await Review.findAll({
+        where: { productId: req.params.drinkId },
+        include: [{ model: Product, attributes: ['id', 'name'] }]
+      });
+      res.json(reviews);
+    } catch (err) {
+      next(err);
+    }
+  });
 
-// get all the reviews for a user :: /api/auth/reviews/user/:userId
-app.get('/user/:userId/reviews', async (req, res, next) => {
-  try {
-    const reviews = await Review.findAll({
-      where: { userId: req.params.userId },
-      include: [{ model: Product, attributes: ['id', 'name'] }]
-    });
-    res.json(reviews);
-  } catch (err) {
-    next(err);
-  }
-});
+
 
 // add review :: /api/auth/reviews
-app.post('/reviews', isLoggedIn, async (req, res, next) => {
+app.post('/create/:token', isLoggedIn, async (req, res, next) => {
   try {
+    await User.findByToken(req.params.token);
     res.status(201).send(await Review.create(req.body))
   } 
   catch (ex) {
@@ -98,7 +98,7 @@ app.delete('/:reviewId', isLoggedIn, async (req, res, next) => {
       return res.status(401).json({ message: 'Unauthorized' });
     }
     res.sendStatus(204);
-  } catch{
+  } catch(err){
     next(err)
     }
 });
