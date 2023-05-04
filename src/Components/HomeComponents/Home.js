@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import SubNavHome from './SubNavHome';
 
 const Home = ()=> {
-  const { auth } = useSelector(state => state);
+  const { auth, reviews } = useSelector(state => state);
   const dispatch = useDispatch();
   return (
     // <div className='background' style={{ backgroundImage: "url(static/images/coffee_cup_illustration_blue.jpeg)" }}>
@@ -37,9 +37,9 @@ const Home = ()=> {
             <div>
               Please browse amongst our delicious selection of drinks or our fashionable merch.
             </div>
-            <Link to='/reviews'>Give us a Review</Link>
+            <Link to='/reviews'>Create And See Your Reviews</Link>
             <br/>
-            <Link to='/reviews'>Read The Reviews</Link>
+            <Link to='/reviews'>Read Our Reviews({reviews.length})</Link>
           </div>
         </div>
     

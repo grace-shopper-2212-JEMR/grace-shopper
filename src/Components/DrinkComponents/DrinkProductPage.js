@@ -92,7 +92,7 @@ const DrinkProductPage = () =>{
         <Typography variant="body2" color="text.secondary">
           Ingredients for the drink maybe? Other things that we want?
           <br />
-          <Link to='/product/${productId}/reviews'>Read The Reviews({reviews.length})</Link>
+          <Link to='/drinks/${drinkId}/reviews'>Read The Reviews({reviews.length})</Link>
           { drink.isHot ? 'Item is Hot, CAUTION' : ''}
           <br />
           { drink.isTea ? "Sip it or Spill it, Enjoy your Tea!" : ""}

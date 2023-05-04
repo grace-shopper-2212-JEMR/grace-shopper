@@ -23,7 +23,7 @@ import AboutLocations from './About/AboutLocations';
 import AboutCareers from './About/AboutCareers';
 import AboutContact from './About/AboutContact';
 import Logout from './Logout';
-import Review from './Review';
+import Review from './Review'
 // import Reviews from './Reviews';
 
 import Admin from './Admin/Admin';
@@ -33,7 +33,7 @@ import AdminDrinksCreate from './Admin/AdminDrinksCreate';
 import AdminDrinksDrink from "./Admin/AdminDrinksDrink";
 
 import { useSelector, useDispatch } from 'react-redux';
-import { loginWithToken, fetchCart, fetchDrinks, fetchMerches, fetchReviews } from '../store';
+import { loginWithToken, fetchCart, fetchDrinks, fetchMerches, fetchUserReviews } from '../store';
 import { Link, Routes, Route } from 'react-router-dom';
 
 
@@ -50,7 +50,7 @@ const App = ()=> {
 
   useEffect(()=> {
     if(auth.id){
-      dispatch(fetchReviews());
+      dispatch(fetchUserReviews());
     }
   }, [auth]);
 
@@ -104,8 +104,9 @@ const App = ()=> {
                 <Route path='/merch/hats' element={<MerchHats />}/>
                 <Route path='/merch/mugs' element={<MerchMugs />}/>
               <Route path='/merch/:id' element={ <Merch /> } />
-               {/* <Route path='/reviews' element={ <Reviews />} /> */}
-              <Route path='/reviews' element={ <Review />} />
+              {/* <Route path='/reviews' element={ <Reviews />} />  */}
+              
+              <Route path='/reviews' element={ <Review />} /> 
 
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
