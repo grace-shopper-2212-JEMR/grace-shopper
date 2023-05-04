@@ -4,20 +4,28 @@ import { Link } from 'react-router-dom';
 
 
 const Merches = () => {
-  const { merch } = useSelector(state => state)
+  const { merches } = useSelector(state => state)
   
   return (
-    <div>
-      <h1> Master Merches List </h1>
-  
+    <div style={{margin: 'auto', maxWidth: "80%", fontSize:"1.4rem", padding:"1rem"}} >
+      <h1> Master Merch List </h1>
+      <Link to={`/admin/merch/create`} > Create new merch </Link> 
       <ul>
-        
-  
+        {
+      merches.map(drink => {
+            return (
+              <ul>
+              <li key= {drink.id}> 
+                <Link to={`/admin/merch/${drink.id}`}> {drink.name} </Link>
+              </li>
+              </ul>
+            )
+        })    
+      }
       </ul>
   
-  
-      {/* <Link to={`/admin/drinks/create`} > Create a new Drink </Link> */}
-  
+    <h5><Link to={'/admin'}>Back to Admin Home</Link></h5>
+    
     </div>
   )
   }

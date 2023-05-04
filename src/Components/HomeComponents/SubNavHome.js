@@ -49,7 +49,7 @@ function SubNavHome() {
               flexWrap: "wrap",
               wordWrap: "normal",
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 400,
               letterSpacing: '0',
               color: 'inherit',
               textDecoration: 'none',

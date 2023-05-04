@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
-import { createDrink } from '../../store/drinks';
+import { createMerch } from '../../store';
 
-const sizes = ["Small", "Medium", "Large"]
-const categories = ["coffee", "tea", "smoothie", "shirt", "mug", "hat"]
+const categories = ["shirt", "mug", "hat"]
 
-const CreateDrink = () => {
+const CreateMerch = () => {
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
   const [imageURL, setImageURL] = useState('')
   const [hasImage, setHasImage] = useState(false) 
-  const [size, setSize] = useState('') 
   const [description, setDescription] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,38 +27,34 @@ const CreateDrink = () => {
 
   const create = async(ev) => {
     ev.preventDefault()
-    await dispatch(createDrink({name, category, imageURL, hasImage, size, description}))
-    navigate('/admin/drinks')
+    await dispatch(createMerch({name, category, imageURL, hasImage, description}))
+    navigate('/admin/merch')
 
   }
 
 
   return (
     <div style={{margin: 'auto', maxWidth: "80%", fontSize:"1.4rem", padding:"1rem"}} >
-      <h3> Create a new drink: </h3>
+      <h3> Create new merch: </h3>
       <form onSubmit= { create } >
-      <input placeholder='Drink Name' value= { name } onChange= { (ev) => {setName(ev.target.value)}} />
+
+      <input placeholder='Merch  Name' value= { name } onChange= { (ev) => {setName(ev.target.value)}} />
     
       <select value={ category } onChange= {(ev) => setCategory(ev.target.value)} >
-        <option hidden> Please select a drink category </option>
-        <option>coffee</option>
-        <option>tea</option> 
-        <option>smoothie</option>
+      <option>Pick a Category</option>
+        {categories.map( cat => {
+          return(
+            <option value={ cat } key={ cat.id }>{ cat }</option>
+            )})}
       </select>
+  
       
       <input placeholder='image url' value= { imageURL } onChange= { (ev) => {setImageURL(ev.target.value), useEffect()}} />
       
       <input placeholder='description' value= { description } onChange= { (ev) => {setDescription(ev.target.value)}} />
-
-      <select value={ size } onChange= {(ev) => setSize(ev.target.value)} >
-        <option hidden> Please select a size (Default: Medium) </option>
-        <option>Small</option>
-        <option>Medium</option>
-        <option>Large</option>
-      </select>
       
       
-      <button> Create Drink </button>
+      <button> Create Merch </button>
       </form>
     </div>
 
@@ -70,4 +64,4 @@ const CreateDrink = () => {
 
 
 
-export default CreateDrink; 
+export default CreateMerch; 

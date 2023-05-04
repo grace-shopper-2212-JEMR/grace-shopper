@@ -11,12 +11,10 @@ const Drinks = () => {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div style={{margin: 'auto', maxWidth: "80%", fontSize:"1.4rem", padding:"1rem"}} >
       <h1> Master Drinks List </h1>
-
-      {/* <button onClick= {navigate(`/admin/drinks/create`)} > Create a new Drink </button> */}
       
-      <Link to={`/admin/drinks/create`} > Create a new Drink </Link> 
+      <Link to={`/admin/drinks/create`} > Create a new drink </Link> 
      
       <ul> 
         {
@@ -35,6 +33,9 @@ const Drinks = () => {
       
       
       </ul>
+
+      <h5><Link to={'/admin'}>Back to Admin Home</Link></h5>
+
 
     </div>
 )
