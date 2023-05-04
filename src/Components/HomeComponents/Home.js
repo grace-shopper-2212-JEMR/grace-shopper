@@ -31,12 +31,19 @@ const Home = ()=> {
           <div id="homepage">           
           <h1>Welcome, {auth.username}!</h1>
           <div>
-            <div>
-              {auth.adminStatus === true? <Link to='/admin'>Admin Tools</Link> : ' Please browse amongst our delicious selection of drinks or our fashionable merch.'}
-            </div>
-            <Link to='/reviews'>Create And See Your Reviews</Link>
-            <br/>
-            <Link to='/reviews'>Read Our Reviews({reviews.length})</Link>
+            
+              {
+                auth.adminStatus === true? 
+                (<div><Link to='/admin'>Admin Tools</Link></div>): 
+                (<div>
+                  Please browse amongst our delicious selection of drinks or our fashionable merch.
+                  <br/>
+                  <Link to='/reviews'>Create And See Your Reviews</Link>
+                  <br/>
+                  <Link to='/reviews'>Read Our Reviews({reviews.length})</Link>
+                  </div>)
+                }
+
           </div>
         </div>
     
