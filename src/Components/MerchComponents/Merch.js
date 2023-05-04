@@ -58,51 +58,17 @@ const Merch = () =>{
     </Card>
      </div>
 
-     { /* <h2>This is the page for a SINGLE {merch.name} detail page</h2>
-    </div> */}
-  
-    {/* <Card sx={{ maxWidth: 345 }}>
-       <CardMedia
-         sx={{ height: 140 }}
-         image={merch.imageUrl}
-         title={merch.name}
-       />
-       <CardContent>
-         <Typography gutterBottom variant="h5" component="div">
-             {merch.name}
-         </Typography>
-         <Typography variant="body2" color="text.secondary">
-             Size: {merch.size}
-             
-         </Typography>
-       </CardContent>
-       <CardActions>
-         <Button size="small">Add to Order</Button>
-       </CardActions>
-     </Card> */}
-
     <div id="productDivright">
      <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        // avatar={
-        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-        //     R
-        //   </Avatar>
-        // }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
         title={ merch.name }
-        subheader= {'Size: ' + merch.size + ' lets put the price here as well?'}
+        subheader= {'Size: ' + merch.size + ' Price: ' + merch.price}
       />
-      {/* <CardMedia
-        component="img"
-        height="194"
-        image={ merch.imageUrl }
-        alt={ merch.name }
-      /> */}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           Other info about the merch...
