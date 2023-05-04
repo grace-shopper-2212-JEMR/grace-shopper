@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Home from './HomeComponents/Home';
 import Login from './Login';
 import Cart from './Cart';
+import Checkout from './Checkout';
 import Register from './Register';
 import Nav from './Nav';
 import DrinkProducts from './DrinkComponents/DrinkProducts';
@@ -76,6 +77,7 @@ const App = ()=> {
               <Route path='/' element={ <Home /> } />
               <Route path='/home' element={ <Home /> } />
               <Route path='/cart' element={ <Cart /> } />
+              <Route path='/checkout' element={ <Checkout /> } />
 
               <Route path='/admin' element= { <Admin /> }/>
               <Route path='/admin/drinks' element= { <AdminDrinksMain />} />
