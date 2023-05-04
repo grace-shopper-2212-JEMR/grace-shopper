@@ -24,7 +24,7 @@ function SubNavHome() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none'},
-              // flexGrow: 1,
+              flexGrow: 1,
               flexWrap: "wrap",
               wordWrap: "normal",
               fontFamily: 'monospace',
@@ -32,10 +32,11 @@ function SubNavHome() {
               letterSpacing: '0',
               color: 'inherit',
               textDecoration: 'none',
-              justifyContent: 'center'
+              justifyContent: 'center',
+
             }}
           >
-            <Link to='../menu/' element={<DrinkProducts/>} style={{ textDecoration: 'none', color: 'inherit' }}>Free shipping on orders $50 or more! An additional 10% off for any order over $100!</Link>
+            <Link to='../menu/' element={<DrinkProducts/>} style={{ textDecoration: 'none', color: 'inherit', }}>Spend a lot? Free shipping!</Link>
           </Typography>
 
 

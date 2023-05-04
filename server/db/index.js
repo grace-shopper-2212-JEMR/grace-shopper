@@ -26,12 +26,6 @@ const syncAndSeed = async()=> {
     User.create({ username: 'admin', password: 'admin', adminStatus: true }),
 
   ]);
-
-  const [foo, bar, bazz] = await Promise.all([
-    Product.create({ name: 'foo', category: "shirt" }),
-    Product.create({ name: 'bar', category: "hat"  }),
-    Product.create({ name: 'bazz', category: "mug"  }),
-  ]);
   
   const JavaMug = await Product.create({ 
     name: "Java Mug", 
@@ -236,11 +230,6 @@ await Promise.all(reviews.map(async (review) => {
       larry,
       ethyl,
       admin
-    },
-    products: {
-      foo,
-      bar,
-      bazz
     }
   } 
 }catch(error){

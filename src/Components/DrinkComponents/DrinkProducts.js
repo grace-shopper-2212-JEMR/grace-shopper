@@ -120,6 +120,9 @@ const DrinkProducts = () => {
   return (
     <>
       < SubNavDrinks />
+      <form onSubmit={ ev => ev.preventDefault() } style={{padding: "1rem", maxWidth: 275 }}>
+            <input value={ filter.name ? filter.name : '' } autoComplete='off' name='name' onChange={ search } placeholder='Search'/>
+        </form>
         <Box
           sx={{
             m: 5,
@@ -143,9 +146,7 @@ const DrinkProducts = () => {
             return <Drink drink = {drink} key={ drink.id } />
           })}
         </Box>
-                <form onSubmit={ ev => ev.preventDefault() } style={{maxWidth: 275 }}>
-                    <input value={ filter.name ? filter.name : '' } autoComplete='off' name='name' onChange={ search } placeholder='Search'/>
-                </form>
+
     </>
   )
 }
