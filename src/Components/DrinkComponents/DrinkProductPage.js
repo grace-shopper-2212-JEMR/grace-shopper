@@ -90,7 +90,7 @@ const DrinkProductPage = () =>{
       /> */}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Ingredients for the drink maybe? Other things that we want?
+          {/* Ingredients for the drink maybe? Other things that we want? */}
           <br />
           <Link to='/drinks/${drinkId}/reviews'>Read The Reviews({reviews.length})</Link>
           { drink.isHot ? 'Item is Hot, CAUTION' : ''}

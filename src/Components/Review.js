@@ -33,13 +33,13 @@ const Review = ({ match }) => {
     }
   };
 
-  // const destroy = async (review) => {
-  //   try {
-  //     await dispatch(destroyReview(review));
-  //   } catch (ex) {
-  //     console.error(ex);
-  //   }
-  // };
+  const destroy = async (review) => {
+    try {
+      await dispatch(deleteReview(review));
+    } catch (ex) {
+      console.error(ex);
+    }
+  };
 
   if (!reviews) {
     return 
@@ -47,14 +47,16 @@ const Review = ({ match }) => {
   } else {
 
   return (
+    
     <div>
       <ul>
         {
         reviews.map(review => {
           return (
           <li key={review.id}>
-          {review.subject}<br/>
-          {review.description}
+          Subject: {review.subject}<br/>
+          Review: {review.description}
+          <button onClick={ ()=> destroy(review)}>X</button><br/>
           </li>
           )
         })}
@@ -139,7 +141,7 @@ const Review = ({ match }) => {
               min="1"
               max="10"
               onChange={(ev) => setRating(ev.target.value)}
-              placeholder="Rating 1 - 10"
+              placeholder="Choose rating from the dropdown menu"
               required
             />{" "}
           </label>
@@ -165,24 +167,3 @@ const Review = ({ match }) => {
 }
 
 export default Review;
-// const ReviewItem = ({ review, deleteReview }) => (
-//   <TableRow>
-//     <TableCell>{review.id}</TableCell>
-//     <TableCell>{review.rating}</TableCell>
-//     <TableCell>{review.subject}</TableCell>
-//     <TableCell>{review.product.name}</TableCell>
-//     <TableCell>{review.userId}</TableCell>
-//     <TableCell>
-//       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-//         <IconButton component={Link} to={`/reviews/${review.id}`}>
-//           <Edit />
-//         </IconButton>
-//         <IconButton onClick={(event) => deleteReview(event, review)}>
-//           <Delete />
-//         </IconButton>
-//       </Box>
-//     </TableCell>
-//   </TableRow>
-// );
-
-// export default ReviewItem;
