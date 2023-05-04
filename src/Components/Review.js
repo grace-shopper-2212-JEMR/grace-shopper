@@ -42,8 +42,9 @@ const Review = ({ match }) => {
   };
 
   if (!reviews) {
-    return 
-    <div>You have No Reviews. Please Create a Review.</div>;
+    return (
+    <div>You have No Reviews. Please Create a Review.</div>
+    )
   } else {
 
   return (
@@ -71,6 +72,7 @@ const Review = ({ match }) => {
               id="drink"
               name="drink"
               value={drinkId}
+              disabled={ merchId}
               onChange={(ev) => setDrinkId(ev.target.value)}
             >
               <option value="" disabled hidden>
@@ -88,10 +90,12 @@ const Review = ({ match }) => {
   
           <label htmlFor="merch">Merch</label>
           <div className="formdropdown">
+         
             <select
               id="merch"
               name="merch"
               value={merchId}
+              disabled={ drinkId}
               onChange={(ev) => setMerchId(ev.target.value)}
             >
               <option value="" disabled hidden>
