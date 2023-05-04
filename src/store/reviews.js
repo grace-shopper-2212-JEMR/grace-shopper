@@ -2,9 +2,9 @@ import axios from "axios";
 
 const reviews = (state = [], action)=> {
   
-    if(action.type === 'SET_REVIEWS'){
-      return action.reviews;
-    };
+    // if(action.type === 'SET_REVIEWS'){
+    //   return action.reviews;
+    // };
     if(action.type === 'REQUEST_REVIEWS'){
       return action.reviews;
     };
@@ -30,19 +30,18 @@ const reviews = (state = [], action)=> {
   };
 
 //  fetch all reviews**
-  export const fetchReviews = () => {
-    return async(dispatch) => {
-      const response = await axios.get('/api/reviews');
-      dispatch({type: 'SET_REVIEWS', reviews: response.data})
-    }
-  }
+  // export const fetchReviews = () => {
+  //   return async(dispatch) => {
+  //     const response = await axios.get('/api/reviews');
+  //     dispatch({type: 'SET_REVIEWS', reviews: response.data})
+  //   }
+  // }
 
   // fetch reviews that belong to a user
   export const fetchUserReviews = ()=> {
     return async(dispatch)=> {
       const token = window.localStorage.getItem('token')
-      // const response = await axios.get(`/api/reviews`);
-      const response = await axios.get(`/api/reviews/:reviewId/${token}`);
+      const response = await axios.get(`/api/reviews/${token}`);
       dispatch({type: 'REQUEST_REVIEWS', reviews: response.data})
     };
   };
@@ -51,7 +50,7 @@ const reviews = (state = [], action)=> {
   export const createReview = (review)=> {
     return async(dispatch)=> {
       const token = window.localStorage.getItem('token')
-      const response = await axios.post(`/api/reviews/create/${token}`, review);
+      const response = await axios.post(`/api/reviews/${token}`, review);
       console.log(response, 'response')
 
       dispatch({type: 'CREATE_REVIEW', review: response.data})
