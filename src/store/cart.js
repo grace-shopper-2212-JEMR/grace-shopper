@@ -46,7 +46,6 @@ export const removeFromCart = (product, quantityToRemove) => {
         authorization: token
       }
     });
-    console.log(response)
     dispatch({ type: 'SET_CART', cart: response.data });
   }
 }

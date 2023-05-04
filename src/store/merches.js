@@ -31,7 +31,6 @@ export const fetchMerches = ()=> {
 export const createMerch = (merch)=> {
   return async(dispatch)=> {
     const response = await axios.post(`api/merches`, merch);
-    console.log(response, 'response')
     dispatch({type: 'CREATE_MERCH', merch: response.data})
   };
 };

@@ -41,7 +41,6 @@ const Checkout = ()=> {
 
   const pay = async(ev)=> {
     ev.preventDefault();
-    console.log(ev)
     const orderNum = Math.floor(Math.random()*1000000)
     navigate(`/order/${orderNum}`)
   };
