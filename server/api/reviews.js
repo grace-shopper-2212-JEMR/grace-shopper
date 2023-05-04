@@ -1,28 +1,29 @@
 const express = require('express');
 const app = express.Router();
-const { Product, Review } = require('../db');
+const { Product, Review, User } = require('../db');
 const { Op } = require("sequelize");
 
 const { isLoggedIn } = require('./middleware.js');
 
 // get all the reviews :: /api/auth/reviews
-app.get('/', async (req, res, next) => {
-  try {
-    const reviews = await Review.findAll({
-      include: [{
-        model: Product,
-        attributes: ['id', 'name']
-      }],
-      order: [['productId', 'ASC']]
-    });
-    res.json(reviews);
-  } catch (err) {
-    next(err);
-  }
-});
+  
+app.get('/:token', async(req, res, next)=> {
+    try{
+        const user = await User.findByToken(req.params.token);
+        const review = await Review.findAll({
+            where: {
+                userId: user.id
+            }
+        });
+        res.send(review)
+    }
+    catch(ex){
+        next(ex)
+    }
+})
 
 // get a single review :: /api/auth/reviews/:reviewId
-app.get('/:reviewId', async (req, res, next) => {
+app.get('/review/:reviewId', async (req, res, next) => {
   try {
     const review = await Review.findByPk(req.params.reviewId, {
       include: [{ model: Product, attributes: ['id', 'name'] }]
@@ -63,22 +64,21 @@ app.get('/user/:userId/reviews', async (req, res, next) => {
 });
 
 // add review :: /api/auth/reviews
-app.post('/', isLoggedIn, async (req, res, next) => {
+app.post('/reviews', isLoggedIn, async (req, res, next) => {
   try {
-    const { description, rating, productId } = req.body;
-    const newReview = await Review.create({ description, rating, productId, userId: req.user.id });
-    res.status(201).json(newReview);
-  } catch (err) {
-    next(err);
+    res.status(201).send(await Review.create(req.body))
+  } 
+  catch (ex) {
+    next(ex);
   }
 });
 
 // update review :: /api/auth/reviews/:reviewId
 app.put('/:reviewId', isLoggedIn, async (req, res, next) => {
   try {
-    const { description, rating } = req.body;
+    const { subject, description, rating } = req.body;
     const [rowsUpdated, [updatedReview]] = await Review.update(
-      { description, rating },
+      { subject, description, rating },
       { where: { id: req.params.reviewId, userId: req.user.id }, returning: true }
     );
     if (rowsUpdated === 0) {
