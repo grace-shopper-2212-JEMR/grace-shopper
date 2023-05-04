@@ -31,7 +31,6 @@ export const fetchDrinks = ()=> {
 export const createDrink = (drink)=> {
   return async(dispatch)=> {
     const response = await axios.post(`api/menu`, drink);
-    console.log(response, 'response')
     dispatch({type: 'CREATE_DRINK', drink: response.data})
   };
 };

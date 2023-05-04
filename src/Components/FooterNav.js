@@ -71,7 +71,6 @@ export default function FooterNav() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const { filterString } = useParams()
   const filter = filterString ? JSON.parse(filterString) : {}
-  console.log(filterString)
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
