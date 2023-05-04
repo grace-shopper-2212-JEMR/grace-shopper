@@ -53,7 +53,6 @@ const Checkout = ()=> {
           return (
         <Accordion key={prod.id} sx={{ minWidth: 200, maxWidth: 800 }} disableGutters >
           <AccordionSummary
-            // expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
