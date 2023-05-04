@@ -69,33 +69,18 @@ const DrinkProductPage = () =>{
 
      <Card>
       <CardHeader
-        // avatar={
-        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-        //     R
-        //   </Avatar>
-        // }
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
         title={ drink.name }
-        subheader= {'Size: ' + drink.size + ' lets put the price here as well?'}
+        subheader= {'Price: $' + drink.price }
       />
-      {/* <CardMedia
-        component="img"
-        height="194"
-        image={ drink.imageUrl }
-        alt={ drink.name }
-      /> */}
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {/* Ingredients for the drink maybe? Other things that we want? */}
+          {drink.description}
           <br />
-          <Link to='/drinks/${drinkId}/reviews'>Read The Reviews({reviews.length})</Link>
-          { drink.isHot ? 'Item is Hot, CAUTION' : ''}
-          <br />
-          { drink.isTea ? "Sip it or Spill it, Enjoy your Tea!" : ""}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
