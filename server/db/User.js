@@ -1,5 +1,5 @@
 const conn = require('./conn');
-const { STRING, UUID, UUIDV4,  } = conn.Sequelize;
+const { STRING, UUID, UUIDV4, BOOLEAN } = conn.Sequelize;
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT || 'shhh';
@@ -21,7 +21,10 @@ const User = conn.define('user', {
     },
     unique: true
   },
-  
+  adminStatus:{
+    type: BOOLEAN,
+    allowNull: true
+  },  
   firstName: {
     type: STRING
   },
@@ -132,7 +135,6 @@ User.prototype.generateToken = function(){
 
 User.register = async function(credentials){
   const user = await this.create(credentials);
-  console.log(user.generateToken())
   return user.generateToken();
 }
 

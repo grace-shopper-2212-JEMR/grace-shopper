@@ -19,7 +19,6 @@ import Box from '@mui/material/Box';
 
 
 const DrinksCoffees = () =>{
-  // return (console.log('coffee drinks!!!'))
   const { drinks } = useSelector(state => state);
   const dispatch = useDispatch()
   const navigate = useNavigate()  
@@ -27,15 +26,12 @@ const DrinksCoffees = () =>{
   if (!drinks){return null}
 
   let coffees = drinks.filter(d => d.category == 'coffee')
-  console.log
 
   const _moreDetails =(drink)=>{
     console.log(drink)
-    // console.log(drink.id, 'more details')
     navigate(`/menu/${drink.id}`)
   }
   const _addToCart =(drink)=>{
-    console.log(drink.id, 'add to cart')
   }
 
 

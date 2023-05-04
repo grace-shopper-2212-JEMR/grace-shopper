@@ -17,12 +17,14 @@ Review.belongsTo(User)
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
   try {
-    const [moe, larry, lucy, ethyl] = await Promise.all([
+    const [moe, larry, lucy, ethyl, admin] = await Promise.all([
     
     User.create({ username: 'moe', password: '123' }),
     User.create({ username: 'lucy', password: '123' }),
     User.create({ username: 'larry', password: '123' }),
     User.create({ username: 'ethyl', password: '123' }),
+    User.create({ username: 'admin', password: 'admin', adminStatus: true }),
+
   ]);
 
   const [foo, bar, bazz] = await Promise.all([
@@ -231,7 +233,9 @@ await Promise.all(reviews.map(async (review) => {
     users: {
       moe,
       lucy,
-      larry
+      larry,
+      ethyl,
+      admin
     },
     products: {
       foo,
