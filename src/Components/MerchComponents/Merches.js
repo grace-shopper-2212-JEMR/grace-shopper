@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import SubNavMerch from './SubNavMerch'
@@ -26,14 +26,10 @@ const Merches = () =>{
   if (!merches){return null}
 
   const _moreDetails =(merch)=>{
-
     navigate(`/merch/${merch.id}`)
   }
   const _addToCart = (merch, quantity)=>{
     dispatch(addToCart(merch, quantity))
-
-    // console.log(merch.id, merch , 'add to cart')
-    // console.log(auth)
   }
 
    const search = (ev) => {
@@ -50,8 +46,6 @@ const Merches = () =>{
   }
 
   if (!merches){return null}
-
-
 
 const Merch = ({merch}) => {
     const [quantity, setQuantity] = useState(1);
@@ -109,7 +103,6 @@ const Merch = ({merch}) => {
         
             </FormControl>
           </Box>
-        {/* <input value={quantity} onChange={(ev) => setQuantity(ev.target.value)}/> */}
         <Button component='span' size="small" onClick={()=> _addToCart(merch, quantity)}>Add To Cart</Button>
         </CardActions>
       </CardActionArea>
@@ -119,22 +112,25 @@ const Merch = ({merch}) => {
 
   return (
     <>
-         < SubNavMerch />
-    <Box
-      sx={{
-        m: 5,
-        mx: 'auto',
-        px: '1rem',
-        maxWidth: 1200,
-        display: 'grid',
-        columnGap: 1,
-        rowGap: '1rem',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        borderColor: 'primary.main',
-        borderRadius: "1rem",
-      }}>  
+      < SubNavMerch />
+         <form onSubmit={ ev => ev.preventDefault() } style={{padding:"1rem", maxWidth: 275 }}>
+            <input value={ filter.name ? filter.name : '' } autoComplete='off' name='name' onChange={ search } placeholder='Search'/>
+        </form>
+      <Box
+        sx={{
+          m: 5,
+          mx: 'auto',
+          px: '1rem',
+          maxWidth: 1200,
+          display: 'grid',
+          columnGap: 1,
+          rowGap: '1rem',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          borderColor: 'primary.main',
+          borderRadius: "1rem",
+        }}>  
   
-  { merches.filter( merch => {
+      { merches.filter( merch => {
             if(filter.name && !merch.name.includes(filter.name)){
               return false
             }
@@ -143,9 +139,6 @@ const Merch = ({merch}) => {
         return <Merch merch = {merch} key={ merch.id } />
       })}
     </Box>
-    <form onSubmit={ ev => ev.preventDefault() } style={{maxWidth: 275 }}>
-                    <input value={ filter.name ? filter.name : '' } autoComplete='off' name='name' onChange={ search } placeholder='Search'/>
-    </form>
   </>
   )
 }
