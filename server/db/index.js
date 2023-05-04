@@ -13,7 +13,7 @@ Product.hasMany(Review)
 Review.belongsTo(Product)
 Review.belongsTo(User)
 
-//const [moe, lucy, larry, foo, bar, bazz, ethyl] = 
+
 const syncAndSeed = async()=> {
   await conn.sync({ force: true });
   try {
@@ -221,8 +221,8 @@ await Promise.all(reviews.map(async (review) => {
 
 
   const cart = await ethyl.getCart();
-  await ethyl.addToCart({ product: bazz, quantity: 3});
-  await ethyl.addToCart({ product: foo, quantity: 2});
+  await ethyl.addToCart({ product: Hat, quantity: 3});
+  await ethyl.addToCart({ product: ScriptForJavaMug, quantity: 2});
   return {
     users: {
       moe,
