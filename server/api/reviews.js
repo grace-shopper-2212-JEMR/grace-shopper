@@ -17,6 +17,7 @@ app.get('/', async(req, res, next)=> {
 
 // get all the reviews for a user 
  
+//do you need this route? You have all the reviews and you know who the user is on the front end, so you could always find the reviews for the logged in user
 app.get('/:token', async(req, res, next)=> {
     try{
       const user = await User.findByToken(req.params.token);
@@ -50,9 +51,10 @@ app.get('/:reviewId', async (req, res, next) => {
 
 
 // add review :: /api/auth/reviews
-app.post('/:token', isLoggedIn, async (req, res, next) => {
+app.post('/', isLoggedIn, async (req, res, next) => {
   try {
-    await User.findByToken(req.params.token);
+    //what are we doing with user here?
+    //await User.findByToken(req.params.token);
     res.status(201).send(await Review.create(req.body))
   } 
   catch (ex) {
