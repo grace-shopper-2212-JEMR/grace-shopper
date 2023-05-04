@@ -12,8 +12,17 @@ body {
   background-color: #f5f5f5;
 }
 
+#login{
+  text-align: center;
+  margin: 1rem auto -100px;
+  width: 20%;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #029987
+}
+
 .app-body{
-  min-height: calc((100%) -  137px);
+  min-height: calc((100%) -  416px);
 }
 
 form {
