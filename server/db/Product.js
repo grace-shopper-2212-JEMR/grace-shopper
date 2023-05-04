@@ -46,8 +46,11 @@ const Product = conn.define('product', {
   },
   numOfReviews: {
     type: INTEGER,
-    default: 0
+    default: 0,
   },
+  price: {
+    type: INTEGER,
+  }
   
   
 });
