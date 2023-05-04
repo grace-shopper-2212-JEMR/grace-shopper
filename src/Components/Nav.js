@@ -29,9 +29,12 @@ export default function Nav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const pages = ['Home', 'Menu', 'Merch', 'About'];
+
+  let pages = []
+  auth.adminStatus === true ? pages = ['Home', 'Menu', 'Merch', 'About', 'Admin'] : pages = ['Home', 'Menu', 'Merch', 'About'];
   let settings = []
   auth.id ? (settings = ['Account', 'Cart', 'Logout']) : (settings = ['Account', 'Cart', 'Login'])
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -168,7 +171,7 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Logout</Link>)}
             
           </Typography>
 
@@ -187,7 +190,7 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Github Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Logout</Link>)}
           </Typography>
 
             {/* <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link> */}
