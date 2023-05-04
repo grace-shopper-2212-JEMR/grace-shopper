@@ -15,16 +15,7 @@ const Review = ({ match }) => {
   const [merchId, setMerchId] = useState('');
   const [errors, setErrors] = useState([]);
 
-  useEffect(()=> {
-    const review = reviews.find((review)=> review.id === parseInt(match.params.id));
-    if(review){
-      setSubject(review.subject)
-      setDescription(review.description)
-      setRating(review.Rating)
-      setMerchId(review.merchId || '')
-      setDrinkId(review.drinkId || '')
-    }
-  }, [reviews])
+  
 
   const create = async (ev) => {
     ev.preventDefault();
@@ -37,6 +28,7 @@ const Review = ({ match }) => {
       setMerchId('');
       setErrors([]);
     } catch (ex) {
+      console.log(ex)
       setErrors(ex.response.data.error.errors);
     }
   };
@@ -49,8 +41,7 @@ const Review = ({ match }) => {
   //   }
   // };
 
-  const review = reviews.find((review)=> review.id === parseInt(match.params.id));
-  if (!review) {
+  if (!reviews) {
     return 
     <div>You have No Reviews. Please Create a Review.</div>;
   } else {

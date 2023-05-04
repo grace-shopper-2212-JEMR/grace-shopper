@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
         { client_id : process.env.client_id})
     });
 
-app.use('api/reviews', require('./api/reviews'));
+app.use('/api/reviews', require('./api/reviews'));
 app.use('/api/auth', require('./api/auth'));
 app.use('/api/orders', require('./api/orders'));
 app.use('/api/menu', require('./api/drinks'));

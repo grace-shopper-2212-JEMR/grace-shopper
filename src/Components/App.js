@@ -106,7 +106,7 @@ const App = ()=> {
               <Route path='/merch/:id' element={ <Merch /> } />
               {/* <Route path='/reviews' element={ <Reviews />} />  */}
               
-              <Route path='/reviews' element={ <Review />} /> 
+             !!auth.id <Route path='/reviews' element={ <Review />} /> 
 
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
