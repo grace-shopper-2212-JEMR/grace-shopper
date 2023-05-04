@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-const { User } = require('../db');
+const {User}  = require('../db');
 const jwt = require('jsonwebtoken');
 const { isLoggedIn } = require('./middleware.js');
 
@@ -30,13 +30,13 @@ app.get('/', async(req, res, next)=> {
 app.post('/register', async(req, res, next)=> {
   try{
     res.send(await User.register(req.body)); 
-   }
+  }
   catch(ex){
     next(ex);
   }
 });
 
-//prof code
+// prof code
 app.get('/', isLoggedIn, (req, res, next)=> {
   try {
     res.send(req.user);
@@ -58,6 +58,7 @@ app.put('/:token', async(req, res, next)=> {
   }
 });
 
+
 app.get('/github', async(req, res, next)=> {
   try{
     const { token } = await User.authenticateGithub(req.query.code);
@@ -72,14 +73,15 @@ app.get('/github', async(req, res, next)=> {
     next(ex);
   }
 });
-
+// localhost/3000/api/auth/github
 app.get('/:token', async(req, res, next)=> {
   try{
     res.send(await User.findByToken(req.params.token));
   }
   catch(ex){
     next(ex);
-  }
+  };
+
 });
 
 module.exports = app;

@@ -31,7 +31,6 @@ export const addToCart = (product, quantity) => {
         authorization: token
       }
     });
-    console.log(response)
     dispatch({ type: 'SET_CART', cart: response.data });
   }
 }
