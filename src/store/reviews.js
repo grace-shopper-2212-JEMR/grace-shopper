@@ -8,21 +8,23 @@ const reviews = (state = [], action)=> {
     if(action.type === 'REQUEST_REVIEWS'){
       return action.reviews;
     };
-    
     if(action.type === 'CREATE_REVIEW'){
       return [action.review, ...state]
     };
-    if(action.type === 'EDIT_REVIEW'){
-      state = state.map(review => {
-        if (review.id === action.review.id){
-          return action.review
-        }
-        return review
-      })
-    };
     if(action.type === 'DELETE_REVIEW'){
-      return state.filter(_review => _review.id !== action.reviewId)
+      return state.filter(_review => _review.id !== action.review.id)
     }
+
+  
+    // if(action.type === 'EDIT_REVIEW'){
+    //   state = state.map(review => {
+    //     if (review.id === action.review.id){
+    //       return action.review
+    //     }
+    //     return review
+    //   })
+    // };
+   
    
     return state;
   };
@@ -40,12 +42,10 @@ const reviews = (state = [], action)=> {
     return async(dispatch)=> {
       const token = window.localStorage.getItem('token')
       // const response = await axios.get(`/api/reviews`);
-      const response = await axios.get(`/api/reviews/${token}`);
+      const response = await axios.get(`/api/reviews/:reviewId/${token}`);
       dispatch({type: 'REQUEST_REVIEWS', reviews: response.data})
     };
   };
-
- 
 
 
   export const createReview = (review)=> {
@@ -59,21 +59,19 @@ const reviews = (state = [], action)=> {
   };
   
 
-  export const editReview = (review)=> {
-    return async(dispatch)=> {
-      const response = await axios.put(`/api/reviews/${review.id}`, review);
-      dispatch({type: 'EDIT_REVIEW', review: response.data})
-    };
-  };
-
-
   export const deleteReview = (review)=> {
     return async(dispatch)=> {
+      
       await axios.delete(`/api/reviews/${review.id}`);
-      dispatch({type: 'DELETE_REVIEW', reviewId: review.id})
+      dispatch({type: 'DELETE_REVIEW', review})
     };
   };
   
-  
+  // export const editReview = (review)=> {
+  //   return async(dispatch)=> {
+  //     const response = await axios.put(`/api/reviews/${review.id}`, review);
+  //     dispatch({type: 'EDIT_REVIEW', review: response.data})
+  //   };
+  // };
 
 export default reviews;

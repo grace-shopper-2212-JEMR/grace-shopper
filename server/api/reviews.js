@@ -47,19 +47,6 @@ app.get('/:reviewId', async (req, res, next) => {
   }
 });
 
-// get all reviews for a drink ::  or does it need to be /api/auth/drinks/{drinkId}/reviews
-app.get('/drinks/:drinkId/reviews', async (req, res, next) => {
-    try {
-      const reviews = await Review.findAll({
-        where: { productId: req.params.drinkId },
-        include: [{ model: Product, attributes: ['id', 'name'] }]
-      });
-      res.json(reviews);
-    } catch (err) {
-      next(err);
-    }
-  });
-
 
 
 // add review :: /api/auth/reviews
@@ -73,36 +60,34 @@ app.post('/create/:token', isLoggedIn, async (req, res, next) => {
   }
 });
 
-// update review :: /api/auth/reviews/:reviewId
-app.put('/:reviewId', isLoggedIn, async (req, res, next) => {
-  try {
-    const { subject, description, rating } = req.body;
-    const [rowsUpdated, [updatedReview]] = await Review.update(
-      { subject, description, rating },
-      { where: { id: req.params.reviewId, userId: req.user.id }, returning: true }
-    );
-    if (rowsUpdated === 0) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
-    res.json(updatedReview);
-  } catch (err) {
-    next(err);
-  }
-});
 
 // delete review :: /api/auth/reviews/:reviewId
-app.delete('/:reviewId', isLoggedIn, async (req, res, next) => {
+app.delete('/:reviewId/:token', isLoggedIn, async (req, res, next) => {
   try {
-    const rowsDeleted = await Review.destroy({ where: { id: req.params.reviewId, userId: req.user.id } });
-    if (rowsDeleted === 0) {
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
+    const review = await Review.findByPk(req.params.id)
+    await review.destroy()
     res.sendStatus(204);
   } catch(err){
     next(err)
     }
 });
 
+// // update review :: /api/auth/reviews/:reviewId
+// app.put('/:reviewId', isLoggedIn, async (req, res, next) => {
+//   try {
+//     const { subject, description, rating } = req.body;
+//     const [rowsUpdated, [updatedReview]] = await Review.update(
+//       { subject, description, rating },
+//       { where: { id: req.params.reviewId, userId: req.user.id }, returning: true }
+//     );
+//     if (rowsUpdated === 0) {
+//       return res.status(401).json({ message: 'Unauthorized' });
+//     }
+//     res.json(updatedReview);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 
 module.exports = app;
