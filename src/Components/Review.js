@@ -33,9 +33,10 @@ const Review = ({ match }) => {
     }
   };
 
-  const destroy = async (review) => {
+  const destroy = async(review) => {
     try {
       await dispatch(deleteReview(review));
+      navigate('/reviews')
     } catch (ex) {
       console.error(ex);
     }

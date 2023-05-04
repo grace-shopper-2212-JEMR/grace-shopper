@@ -64,10 +64,11 @@ app.post('/', isLoggedIn, async (req, res, next) => {
 
 
 // delete review :: /api/auth/reviews/:reviewId
-app.delete('/reviews/:id', isLoggedIn, async(req, res, next) => {
+app.delete('/:id', isLoggedIn, async(req, res, next) => {
   try {
-    const review = await Review.findByPk(req.params.id)
     console.log('This does not work!!!!')
+    const review = await Review.findByPk(req.params.id)
+    console.log(review)
     await review.destroy()
     res.sendStatus(204);
   } catch(err){
