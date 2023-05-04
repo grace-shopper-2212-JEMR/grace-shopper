@@ -37,7 +37,9 @@ const Home = ()=> {
             <div>
               Please browse amongst our delicious selection of drinks or our fashionable merch.
             </div>
-            <Link to='/reviews'>Give us a Review!</Link>
+            <Link to='/reviews'>Give us a Review</Link>
+            <br/>
+            <Link to='/reviews'>Read The Reviews</Link>
           </div>
         </div>
     

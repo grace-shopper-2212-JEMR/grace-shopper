@@ -37,7 +37,7 @@ app.get('/review/:reviewId', async (req, res, next) => {
   }
 });
 
-// get all reviews for a product :: /api/auth/product/:productId/reviews
+// get all reviews for a product :: /api/auth/product/:productId/reviews or does it need to be /api/auth/product/{productId}/reviews
 app.get('/product/:productId/reviews', async (req, res, next) => {
   try {
     const reviews = await Review.findAll({
