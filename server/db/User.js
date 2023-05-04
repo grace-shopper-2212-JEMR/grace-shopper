@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT = process.env.JWT || 'shhh';
 const axios = require('axios');
-const { BOOLEAN } = require('sequelize');
 const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/ 
 
 
@@ -22,10 +21,7 @@ const User = conn.define('user', {
     },
     unique: true
   },
-  adminStatus :{
-    type: BOOLEAN,
-    allowNull: true
-  },  
+  
   firstName: {
     type: STRING
   },
@@ -121,11 +117,24 @@ User.prototype.removeFromCart = async function({ product, quantityToRemove}){
   return this.getCart();
 };
 
+// this is new
+User.addHook('beforeSave', async(user)=> {
+  if(user.changed('password')){
+    user.password = await bcrypt.hash(user.password, 5);
+  }
+});
+
 User.prototype.generateToken = function(){
   return {
     token: jwt.sign({ id: this.id }, process.env.JWT || 'shhh')
   }
 };
+
+User.register = async function(credentials){
+  const user = await this.create(credentials);
+  console.log(user.generateToken())
+  return user.generateToken();
+}
 
 User.findByToken = async function(token){
   try {
@@ -188,7 +197,8 @@ User.authenticateGithub = async function(code){
   return user.generateToken();
 } 
 
-User.authenticate = async function({ username, password }){
+User.authenticate = async function( credentials ){
+  const {username, password} = credentials;
   const user = await this.findOne({
     where: {
       username
@@ -202,11 +212,7 @@ User.authenticate = async function({ username, password }){
   return user.generateToken();
 }
 
-User.register = async function(credentials){
-  const user = await this.create(credentials);
-  console.log(user.generateToken())
-  return user.generateToken();
-}
+
 
 module.exports = User;
 
