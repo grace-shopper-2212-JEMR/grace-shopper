@@ -38,7 +38,7 @@ import AdminOther from './Admin/AdminOther';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches, fetchUserReviews } from '../store';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 
 const App = ()=> {
