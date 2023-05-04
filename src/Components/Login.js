@@ -23,8 +23,8 @@ const Login = ()=> {
     navigate('/home')
   };
   return (
-    <div id="login">
-      <h2>Login</h2>
+    <div id="login" style={{paddingTop: '1rem', backgroundColor:"#f5f5f5"}}>
+      <h1>Login</h1>
       <form >
         <TextField
           label='username'

@@ -17,7 +17,7 @@ const Logout = ()=> {
     }
 
   return (
-    <div>
+    <div style={{margin: 'auto', maxWidth: "80%", fontSize:"1.4rem", padding:"1rem"}}>
         {
         auth.id ? (
             <div>

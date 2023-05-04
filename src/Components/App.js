@@ -34,6 +34,7 @@ import AdminDrinksDrink from "./Admin/AdminDrinksDrink";
 import AdminMerch from './Admin/AdminMerchesMain';
 import CreateMerch from './Admin/AdminMerchsCreate';
 import AdminMerchesMerch from './Admin/AdminMerchesMerch';
+import AdminOther from './Admin/AdminOther';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loginWithToken, fetchCart, fetchDrinks, fetchMerches, fetchReviews } from '../store';
@@ -91,6 +92,7 @@ const App = ()=> {
               <Route path='/admin/merch' element = { <AdminMerch /> } />
               <Route path='/admin/merch/create' element = { <CreateMerch /> } />
               <Route path='/admin/merch/:id' element = { <AdminMerchesMerch /> } />
+              <Route path='/admin/other' element = { <AdminOther /> } />
 
 
               <Route path='/menu' element={ <DrinkProducts /> } />

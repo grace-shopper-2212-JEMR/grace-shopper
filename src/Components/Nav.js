@@ -131,12 +131,12 @@ export default function Nav() {
             component="a"
             href=""
             sx={{
-              mr: 2,
+              mr: -5,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -190,12 +190,10 @@ export default function Nav() {
               justifyContent: 'center'
             }}
           >
-            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):(<Link to="/logout"  style={{color: 'white', textDecoration: 'none'  }}>Logout</Link>)}
+            {!auth.id ? (<a href={`https://github.com/login/oauth/authorize?client_id=${window.client_id}`} style={{color: 'white', textDecoration: 'none'  }}>Github Login</a>):''}
           </Typography>
 
-            {/* <Link to="/cart" ><ShoppingCartSharp sx={{ pr: 1, color: 'white'}}/></Link> */}
-
-            <IconButton
+           <IconButton
               size="large"
               color="inherit"
             >
