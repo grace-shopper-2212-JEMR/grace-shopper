@@ -58,13 +58,6 @@ app.put('/:token', async(req, res, next)=> {
   }
 });
 
-app.get('/:token', async(req, res, next)=> {
-  try{
-    res.send(await User.findByToken(req.params.token));
-  }
-  catch(ex){
-    next(ex);
-  };
 
 app.get('/github', async(req, res, next)=> {
   try{
@@ -80,7 +73,14 @@ app.get('/github', async(req, res, next)=> {
     next(ex);
   }
 });
-
+// localhost/3000/api/auth/github
+app.get('/:token', async(req, res, next)=> {
+  try{
+    res.send(await User.findByToken(req.params.token));
+  }
+  catch(ex){
+    next(ex);
+  };
 
 });
 

@@ -20,7 +20,7 @@ import AboutLocations from './About/AboutLocations';
 import AboutCareers from './About/AboutCareers';
 import AboutContact from './About/AboutContact';
 import Logout from './Logout';
-import ReviewItem from './Review';
+import Review from './Review';
 
 
 import Admin from './Admin/Admin';
@@ -98,7 +98,7 @@ const App = ()=> {
 
               <Route path='/merch/:id' element={ <Merch /> } />
 
-              <Route path='/reviews' element={ <ReviewItem />} />
+              <Route path='/reviews' element={ <Review />} />
               <Route path='/register' element={ <Register />} />
               <Route path='/login' element={ <Login />} />
               <Route path='/logout' element={ <Logout />} />
