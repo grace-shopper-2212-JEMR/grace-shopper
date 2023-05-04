@@ -62,6 +62,7 @@ const reviews = (state = [], action)=> {
     return async(dispatch)=> {
       
       await axios.delete(`/api/reviews/${review.id}`);
+      console.log('This does not work!!!!')
       dispatch({type: 'DELETE_REVIEW', review})
     };
   };

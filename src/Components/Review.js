@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReview,  } from '../store'; // add destroyReview when ready
+import { createReview, deleteReview } from '../store'; 
 import { useNavigate } from 'react-router-dom';
 
 const Review = ({ match }) => {
