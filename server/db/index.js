@@ -205,12 +205,33 @@ const reviews = [
     productId: ColdBrew.id
   },
   {
+    subject: 'More Hats Please',
+    description: 'I love my hat so much. Please make more designs!',
+    rating: 8,
+    userId: larry.id,
+    productId: Hat.id
+  },
+  {
     subject: 'Big Smile from my barista',
     description: 'The best barista in the morning. I always get greeted by name.',
     rating: 9,
     userId: lucy.id,
     productId: Latte.id
-  }
+  },
+  {
+    subject: 'Great Smoothie',
+    description: 'I love the strawberry smoothie. It is always perfect and hits the spot',
+    rating: 9,
+    userId: lucy.id,
+    productId: StrawberryBananaSmoothie.id
+  },
+  {
+    subject: 'More Java!',
+    description: 'I get so many compliments on my shirt!',
+    rating: 10,
+    userId: moe.id,
+    productId: Tshirt.id
+  },
 ];
 
 await Promise.all(reviews.map(async (review) => {

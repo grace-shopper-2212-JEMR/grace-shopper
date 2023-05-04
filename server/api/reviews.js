@@ -50,7 +50,7 @@ app.get('/:reviewId', async (req, res, next) => {
 
 
 // add review :: /api/auth/reviews
-app.post('/create/:token', isLoggedIn, async (req, res, next) => {
+app.post('/:token', isLoggedIn, async (req, res, next) => {
   try {
     await User.findByToken(req.params.token);
     res.status(201).send(await Review.create(req.body))
@@ -62,7 +62,7 @@ app.post('/create/:token', isLoggedIn, async (req, res, next) => {
 
 
 // delete review :: /api/auth/reviews/:reviewId
-app.delete('/:reviewId/:token', isLoggedIn, async (req, res, next) => {
+app.delete('/reviews/:id', isLoggedIn, async (req, res, next) => {
   try {
     const review = await Review.findByPk(req.params.id)
     await review.destroy()

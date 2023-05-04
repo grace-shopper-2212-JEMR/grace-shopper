@@ -108,7 +108,7 @@ const Review = ({ match }) => {
           </div>
   
           <label htmlFor="subject">
-            SUBJECT<em>*</em>
+            Subject<em>*</em>
             <input
               value={subject}
               id="subject"
@@ -120,7 +120,7 @@ const Review = ({ match }) => {
           </label>
   
           <label htmlFor="description">
-            DESCRIPTION<em>*</em>
+            Description<em>*</em>
             <input
               value={description}
               id="description"
@@ -132,7 +132,7 @@ const Review = ({ match }) => {
           </label>
   
           <label htmlFor="rating">
-            RATING<em>*</em>
+            Rating<em>*</em>
             <input
               value={rating}
               id="rating"
