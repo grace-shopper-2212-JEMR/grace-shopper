@@ -45,7 +45,6 @@ const reviews = (state = [], action)=> {
   export const createReview = (review)=> {
     return async(dispatch)=> {
       const response = await axios.post(`api/reviews`, review, productId);
-      console.log(response, 'response')
       dispatch({type: 'CREATE_REVIEW', review: response.data})
     };
   };
