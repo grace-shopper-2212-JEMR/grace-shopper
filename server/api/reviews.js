@@ -53,9 +53,7 @@ app.get('/:reviewId', async (req, res, next) => {
 // add review :: /api/auth/reviews
 app.post('/', isLoggedIn, async (req, res, next) => {
   try {
-    //what are we doing with user here?
-    //await User.findByToken(req.params.token);
-    res.status(201).send(await Review.create(req.body))
+    res.status(201).send(await Review.create({ ...req.body, userId: req.user.id}))
   } 
   catch (ex) {
     next(ex);

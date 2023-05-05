@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-const Reviews  = ()=> {
+const ReviewsAll  = ()=> {
     const { reviews } = useSelector(state => state)
     return (
         <ul>
@@ -17,4 +17,4 @@ const Reviews  = ()=> {
     )
 }
 
-export default Reviews;
+export default ReviewsAll;
