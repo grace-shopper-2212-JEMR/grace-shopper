@@ -34,8 +34,10 @@ const Login = ()=> {
           />
         <div style={{ marginBottom: 1 }}/>
         <TextField
+        id="filled-password-input"
           label='password'
           name = 'password'
+          type="password"
           value={ credentials.password }
           onChange = { onChange }
         />
