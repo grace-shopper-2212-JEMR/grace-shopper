@@ -41,27 +41,8 @@ const Review = ({ match }) => {
   return (
     
     <div>
-      <ul>
-        {
-        reviews.filter(review => review.userId === auth.id).map(review => {
-          return (
-          <li key={review.id}>
-          {
-            auth.id === review.userId ? 'YOURS': ''
-          }
-          <br />
-          Subject: {review.subject}<br/>
-          Review: {review.description}
-          {
-            auth.id === review.userId && (
-              <button onClick={ ()=> destroy(review)}>X</button>
-            )
-          }
-          </li>
-          )
-        })}
-      </ul>
-  
+      <h2>Write A Review!</h2>
+
       <div className="formBlock">
         <form className="form" onSubmit={create}>
           <div>Please choose the item to review from the dropdown menu</div>
@@ -162,8 +143,38 @@ const Review = ({ match }) => {
             })}
           </ul>
         </form>
+
+            <h2>See Your Reviews!</h2>
+        <div className="formBlock">
+      <div className="form">
+      <ul>
+        {
+        reviews.filter(review => review.userId === auth.id).map(review => {
+          return (
+          <li key={review.id}>
+          {
+            auth.id === review.userId ? 'Your Review': ''
+          }
+          <br />
+          Subject: {review.subject}<br/>
+          Review: {review.description}<br/>
+          Rating: {review.rating}<br/> 
+          {
+            auth.id === review.userId && (
+              <button onClick={ ()=> destroy(review)}>Delete Your Review</button> 
+              
+            )
+          }
+          </li>
+          )
+        })}
+      </ul>
+      </div>
+      </div>
       </div>
     </div>
+
+    
   );
 
 }
