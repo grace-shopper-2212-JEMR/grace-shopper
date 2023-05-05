@@ -188,7 +188,7 @@ export default function FooterNav() {
 
   return (
     <Box sx={{ flexGrow: 10, maxHeight: 1000 }}>
-      <AppBar position="static" style={{ background: '#004C60', display: 'flex' }}>
+      <AppBar position="static" style={{ background: '#004C60', display: 'flex'}}>
         <Toolbar>
        
           <div style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', alignItems:"flex-start", marginRight: 100}}>
@@ -220,7 +220,6 @@ export default function FooterNav() {
           </Typography>
           <Typography
             variant="subtitle2"
-            
             component="a"
             href="/#/about"
             sx={{ display: { xs: 'none', sm: 'flex' }, textDecoration: 'none', marginRight: .5, color: "white" }}
