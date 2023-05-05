@@ -40,7 +40,7 @@ const Home = ()=> {
                   <br/>
                   <Link to='/reviews'>Create And See Your Reviews</Link>
                   <br/>
-                  <Link to='/reviews'>Read Our Reviews({reviews.length})</Link>
+                  <Link to='/reviews/all'>Read Our Reviews({reviews.length})</Link>
                   </div>)
                 }
 

@@ -40,8 +40,7 @@ const reviews = (state = [], action)=> {
   // fetch reviews that belong to a user
   export const fetchUserReviews = ()=> {
     return async(dispatch)=> {
-      const token = window.localStorage.getItem('token')
-      const response = await axios.get(`/api/reviews/${token}`);
+      const response = await axios.get('/api/reviews');
       dispatch({type: 'REQUEST_REVIEWS', reviews: response.data})
     };
   };
@@ -67,9 +66,12 @@ const reviews = (state = [], action)=> {
 
   export const deleteReview = (review)=> {
     return async(dispatch)=> {
-      
-      await axios.delete(`/api/reviews/${review.id}`);
-      console.log('This does not work!!!!')
+      const token = window.localStorage.getItem('token')
+      await axios.delete(`/api/reviews/${review.id}`, {
+        headers: {
+          authorization: token
+        }
+      });
       dispatch({type: 'DELETE_REVIEW', review})
     };
   };

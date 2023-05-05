@@ -52,6 +52,9 @@ const DrinkProductPage = () =>{
     dispatch(addToCart(drink, quantity))
   }
 
+  const filtered = reviews.filter(review => review.productId === drink.id);
+  console.log(filtered);
+
   return (
     <div id="ProductDiv" >
       <div id="productDivLeft">

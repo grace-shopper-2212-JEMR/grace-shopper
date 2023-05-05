@@ -7,7 +7,7 @@ const Review = ({ match }) => {
   
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { reviews, merches, drinks } = useSelector(state => state);
+  const { auth, reviews, merches, drinks } = useSelector(state => state);
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
   const [rating, setRating] = useState('');
@@ -34,31 +34,29 @@ const Review = ({ match }) => {
   };
 
   const destroy = async(review) => {
-    try {
-      await dispatch(deleteReview(review));
-      navigate('/reviews')
-    } catch (ex) {
-      console.error(ex);
-    }
+    await dispatch(deleteReview(review));
   };
 
-  if (!reviews) {
-    return (
-    <div>You have No Reviews. Please Create a Review.</div>
-    )
-  } else {
 
   return (
     
     <div>
       <ul>
         {
-        reviews.map(review => {
+        reviews.filter(review => review.userId === auth.id).map(review => {
           return (
           <li key={review.id}>
+          {
+            auth.id === review.userId ? 'YOURS': ''
+          }
+          <br />
           Subject: {review.subject}<br/>
           Review: {review.description}
-          <button onClick={ ()=> destroy(review)}>X</button><br/>
+          {
+            auth.id === review.userId && (
+              <button onClick={ ()=> destroy(review)}>X</button>
+            )
+          }
           </li>
           )
         })}
@@ -76,7 +74,7 @@ const Review = ({ match }) => {
               disabled={ merchId}
               onChange={(ev) => setDrinkId(ev.target.value)}
             >
-              <option value="" disabled hidden>
+              <option value="">
                 Select Item
               </option>
               {drinks.map((drink) => {
@@ -99,7 +97,7 @@ const Review = ({ match }) => {
               disabled={ drinkId}
               onChange={(ev) => setMerchId(ev.target.value)}
             >
-              <option value="" disabled hidden>
+              <option value="">
                 Select Item
               </option>
               {merches.map((merch) => {
@@ -167,7 +165,6 @@ const Review = ({ match }) => {
       </div>
     </div>
   );
-  }
 
 }
 

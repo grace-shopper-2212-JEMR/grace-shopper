@@ -6,28 +6,27 @@ const Review = conn.define('review', {
     type: UUID,
     primaryKey: true,
     defaultValue: UUIDV4
-    },
-    // userId: {
-    //     type: INTEGER,
-    //     allowNull: false
-    // },
-    subject: {
+  },
+  userId: {
+        type: UUID,
+        allowNull: false
+  },
+  subject: {
         type: STRING,
-    },
-    description: {
+  },
+  description: {
     type: TEXT,
     required: true,
-    },
-    rating: {
+  },
+  rating: {
     type: INTEGER,
     allowNull: false,
     validate: {
       isInt: true,
       min: 1,
       max: 10
-        },
-    }   
-    
+    },
+  }   
 });
 
 module.exports = Review;
