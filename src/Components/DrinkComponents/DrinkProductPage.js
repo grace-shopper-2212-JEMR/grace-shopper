@@ -127,13 +127,18 @@ const DrinkProductPage = () =>{
         <CardContent>
           <Typography paragraph>Info:</Typography>
           <Typography paragraph>
-            {drink.description}
+            {drink.description}<br/><br/>
+            Read the Reviews! 
+            {filtered.review}
           </Typography>
         </CardContent>
       </Collapse>
     </Card>
     </div>
+    
     </div>
+   
+
   )
 }
 
