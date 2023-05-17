@@ -22,7 +22,6 @@ import Logout from './Logout'
 import Cart from './Cart'
 
 
-
 export default function Nav() {
   const { auth, cart } = useSelector(state => state);
   const navigate = useNavigate()
@@ -62,7 +61,6 @@ export default function Nav() {
     })
     return sum
   }
-
 
   return (
     <AppBar position="static" style={{ background: '#004C60' }}>

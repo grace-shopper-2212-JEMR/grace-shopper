@@ -40,6 +40,7 @@ export const loginWithToken = ()=> {
 
 export const attemptLogin = (credentials)=> {
   return async(dispatch)=> {
+    console.log('credentials....', credentials)
     const response = await axios.post('/api/auth', credentials);
     window.localStorage.setItem('token', response.data.token);
     dispatch(loginWithToken());
